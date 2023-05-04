@@ -1,6 +1,56 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["es2017"],
+    "allowJs": true,
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": false,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "@cache/*": ["infrastucture/cache/*"],
+      "@models/*": ["infrastucture/models/*"],
+      "@services/*": ["infrastucture/services/*"],
+      "@components/*": ["presentation/components/*"],
+      "@constants/*": ["presentation/constants/*"],
+      "@contexts/*": ["presentation/contexts/*"],
+      "@flows/*": ["presentation/flows/*"],
+      "@hooks/*": ["presentation/hooks/*"],
+      "@images/*": ["presentation/images/*"],
+      "@routes/*": ["presentation/routes/*"],
+      "@styles/*": ["presentation/styles/*"],
+      "@utils/*": ["presentation/utils/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "typeRoots": ["./node_modules/@types", "./src/types/"],
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "validProperties": [
+            "aspect-ratio",
+            "elevation",
+            "margin-vertical",
+            "margin-horizontal",
+            "padding-horizontal",
+            "padding-vertical",
+            "resize-mode",
+            "shadow-color",
+            "shadow-opacity",
+            "shadow-offset",
+            "shadow-radius",
+            "text-align-vertical",
+            "tint-color"
+          ]
+        }
+      }
+    ]
+  },
+  "extends": "expo/tsconfig.base"
 }
