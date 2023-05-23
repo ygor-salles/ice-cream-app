@@ -21,3 +21,13 @@ export const WrapperTop = styled.View`
 export const WrapperFooter = styled.View`
   height: 30px;
 `;
+
+export const FullScreenOverlay = styled.TouchableOpacity`
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 224px;
+  right: 0;
+  bottom: 0;
+  background-color: ${colors.SHADOW};
+`;

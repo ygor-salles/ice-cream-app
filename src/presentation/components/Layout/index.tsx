@@ -7,7 +7,7 @@ import { Sidebar } from '@components/Sidebar';
 
 import { colors } from '@styles/constants';
 
-import { Container, Header, Main, Footer, Title, ScrollMain, Row, Content } from './styles';
+import { Container, Header, Main, Footer, Title, ScrollMain, Row, Content, FullScreenOverlay } from './styles';
 import { LayoutProps } from './types';
 
 export function Layout({

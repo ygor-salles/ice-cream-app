@@ -49,3 +49,13 @@ export const Row = styled.View`
 export const Content = styled.View`
   flex: 1;
 `;
+
+export const FullScreenOverlay = styled.View`
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 224px;
+  right: 0;
+  bottom: 0;
+  background-color: ${colors.SHADOW};
+`;

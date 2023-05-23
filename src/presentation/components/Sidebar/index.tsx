@@ -2,7 +2,7 @@ import { Text } from 'react-native';
 
 import { Row } from '@components/Row';
 
-import { Container, WrapperTop, WrapperFooter } from './styles';
+import { Container, WrapperTop, WrapperFooter, FullScreenOverlay } from './styles';
 
 interface SidebarProps {
   onPress: () => void;
@@ -10,21 +10,25 @@ interface SidebarProps {
 
 export function Sidebar({ onPress }: SidebarProps) {
   return (
-    <Container>
-      <WrapperTop>
-        <Row>
-          <Text>Título</Text>
-          <Text onPress={onPress}>X</Text>
-        </Row>
-        <Text>Texto</Text>
-        <Text>Texto</Text>
-        <Text>Texto</Text>
-        <Text>Texto</Text>
-        <Text>Texto</Text>
-      </WrapperTop>
-      <WrapperFooter>
-        <Text>Texto</Text>
-      </WrapperFooter>
-    </Container>
+    <>
+      <Container>
+        <WrapperTop>
+          <Row>
+            <Text>Título</Text>
+            <Text onPress={onPress}>X</Text>
+          </Row>
+          <Text>Texto</Text>
+          <Text>Texto</Text>
+          <Text>Texto</Text>
+          <Text>Texto</Text>
+          <Text>Texto</Text>
+        </WrapperTop>
+        <WrapperFooter>
+          <Text>Texto</Text>
+        </WrapperFooter>
+      </Container>
+
+      <FullScreenOverlay onPress={onPress} />
+    </>
   );
 }
