@@ -4,7 +4,6 @@ import { colors } from '@styles/constants';
 
 export const Container = styled.View`
   flex: 1;
-  flex-direction: column;
 `;
 
 export const Header = styled.View`
@@ -14,7 +13,7 @@ export const Header = styled.View`
   justify-content: space-between;
   align-items: center;
 
-  padding: 8px 16px;
+  padding: 8px;
 `;
 
 export const Main = styled.View`
@@ -31,12 +30,22 @@ export const Footer = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 12px;
+  font-weight: bold;
+  font-size: 20px;
   color: ${colors.WHITE};
 `;
 
 export const ScrollMain = styled.ScrollView`
   background-color: ${colors.GRAY_200};
+`;
+
+export const Row = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+`;
+
+export const Content = styled.View`
+  flex: 1;
 `;
