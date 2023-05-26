@@ -7,7 +7,7 @@ import { Sidebar } from '@components/Sidebar';
 
 import { colors } from '@styles/constants';
 
-import { Container, Header, Main, Footer, Title, ScrollMain, Row, Content, FullScreenOverlay } from './styles';
+import { Container, Header, Main, Footer, Title, ScrollMain, Row } from './styles';
 import { LayoutProps } from './types';
 
 export function Layout({
@@ -25,7 +25,6 @@ export function Layout({
   const onToggleSideber = () => setShowSidebar(prev => !prev);
 
   return (
-
     <Container>
       <StatusBar
         backgroundColor={colors.PURPLE_PRIMARY}
@@ -34,26 +33,24 @@ export function Layout({
       />
       {showSidebar && <Sidebar onPress={onToggleSideber} />}
 
-      <Content>
-        <Header>
-          <Row>
-            <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleSideber} />
-            <Title>{title}</Title>
-          </Row>
-          {renderRightHeader && renderRightHeader}
-          {textButton && onPress && <Button onPress={onPress}>{textButton}</Button>}
-        </Header>
+      <Header>
+        <Row>
+          <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleSideber} />
+          <Title>{title}</Title>
+        </Row>
+        {renderRightHeader && renderRightHeader}
+        {textButton && onPress && <Button onPress={onPress}>{textButton}</Button>}
+      </Header>
 
-        {noScrollView ? <Main>{children}</Main> : <ScrollMain>{children}</ScrollMain>}
+      {noScrollView ? <Main>{children}</Main> : <ScrollMain>{children}</ScrollMain>}
 
-        {!noFooter && (
-          <Footer>
-            {renderLeftFooter && renderLeftFooter}
-            {renderRightFooter && renderRightFooter}
-          </Footer>
+      {!noFooter && (
+      <Footer>
+        {renderLeftFooter && renderLeftFooter}
+        {renderRightFooter && renderRightFooter}
+      </Footer>
       )}
-      </Content>
-    </Container>
 
+    </Container>
   );
 }

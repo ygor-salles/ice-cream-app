@@ -1,8 +1,9 @@
-import { Text } from 'react-native';
+import { Text, TouchableWithoutFeedback } from 'react-native';
+import Animated, { FadeIn, FadeInLeft, FadeInRight, FadeOut } from 'react-native-reanimated';
 
 import { Row } from '@components/Row';
 
-import { Container, WrapperTop, WrapperFooter, FullScreenOverlay } from './styles';
+import { WrapperTop, WrapperFooter, FullScreenOverlay, styles, Container } from './styles';
 
 interface SidebarProps {
   onPress: () => void;
@@ -28,7 +29,9 @@ export function Sidebar({ onPress }: SidebarProps) {
         </WrapperFooter>
       </Container>
 
-      <FullScreenOverlay onPress={onPress} />
+      {/* <TouchableWithoutFeedback onPress={onPress}>
+        <FullScreenOverlay />
+      </TouchableWithoutFeedback> */}
     </>
   );
 }

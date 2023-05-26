@@ -1,5 +1,5 @@
-import { Dashboard } from '@flows/index';
+import { DashboardTest } from '@flows/DashboardTest';
 
 export default function App() {
-  return <Dashboard />;
+  return <DashboardTest />;
 }
