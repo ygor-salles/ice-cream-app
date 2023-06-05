@@ -43,7 +43,7 @@
         "newlinesBetween": "always",
         "groups": [
           ["/^react/"],
-          ["module"],
+          ["/^@react/", "/^@expo/", "module"],
           ["/^@components/"],
           ["/^@flows/"],
           ["/^@contexts/"],
@@ -67,6 +67,7 @@
       }
     ],
     "prettier/prettier": "off",
+    "react/no-unstable-nested-components": "off",
     "space-before-function-paren": "off",
     "react/prop-types": "off",
     "react/jsx-filename-extension": [0],

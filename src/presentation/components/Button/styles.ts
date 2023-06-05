@@ -8,6 +8,7 @@ export const Touchable = styled.TouchableOpacity`
   align-items: center;
   gap: 8px;
   padding: 5px 15px;
+  background-color: ${colors.PURPLE_PRIMARY};
 
   border-radius: 4px;
   border: solid 1px ${colors.WHITE};

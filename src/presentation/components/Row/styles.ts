@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components/native';
 
 interface SRowProps {
-  gapNum?: number;
+  gap?: number;
 }
 
 export const SRow = styled.View<SRowProps>`
   flex-direction: row;
   align-items: center;
 
-  ${({ gapNum }) =>
-    gapNum
+  ${({ gap }) =>
+    gap
       ? css`
-          gap: ${gapNum}px;
+          gap: ${gap}px;
         `
       : css`
           justify-content: space-between;

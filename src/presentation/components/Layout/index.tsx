@@ -1,9 +1,6 @@
-import { useState } from 'react';
-import { StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Button } from '@components/Button';
-import { Sidebar } from '@components/Sidebar';
 
 import { colors } from '@styles/constants';
 
@@ -20,22 +17,13 @@ export function Layout({
   renderRightFooter,
   textButton,
   onPress,
+  onToggleSidebar,
 }: LayoutProps) {
-  const [showSidebar, setShowSidebar] = useState(false);
-  const onToggleSideber = () => setShowSidebar(prev => !prev);
-
   return (
     <Container>
-      <StatusBar
-        backgroundColor={colors.PURPLE_PRIMARY}
-        barStyle="default"
-        showHideTransition="fade"
-      />
-      {showSidebar && <Sidebar onPress={onToggleSideber} />}
-
       <Header>
         <Row>
-          <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleSideber} />
+          <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleSidebar} />
           <Title>{title}</Title>
         </Row>
         {renderRightHeader && renderRightHeader}
@@ -45,12 +33,11 @@ export function Layout({
       {noScrollView ? <Main>{children}</Main> : <ScrollMain>{children}</ScrollMain>}
 
       {!noFooter && (
-      <Footer>
-        {renderLeftFooter && renderLeftFooter}
-        {renderRightFooter && renderRightFooter}
-      </Footer>
+        <Footer>
+          {renderLeftFooter && renderLeftFooter}
+          {renderRightFooter && renderRightFooter}
+        </Footer>
       )}
-
     </Container>
   );
 }

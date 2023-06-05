@@ -6,8 +6,9 @@ export interface LayoutProps {
   noScrollView?: boolean;
   noFooter?: boolean;
   renderRightHeader?: ReactNode;
-  onPress?: () => void;
   textButton?: string;
   renderLeftFooter?: ReactNode;
   renderRightFooter?: ReactNode;
+  onToggleSidebar: () => void;
+  onPress?: () => void;
 }
