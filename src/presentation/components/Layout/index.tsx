@@ -19,7 +19,7 @@ export function Layout({
   textButton,
   alignCenter,
   onPress,
-  onToggleSidebar,
+  onToggleDrawer,
 }: LayoutProps) {
   return (
     <Container>
@@ -30,7 +30,7 @@ export function Layout({
       />
       <Header>
         <Row>
-          <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleSidebar} />
+          <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleDrawer} />
           <Title>{title}</Title>
         </Row>
         {renderRightHeader && renderRightHeader}

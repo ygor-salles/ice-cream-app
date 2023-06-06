@@ -1,14 +1,14 @@
-import { ReactElement } from 'react';
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Feather } from '@expo/vector-icons';
-
-import { LayoutProps } from '@components/Layout/types';
 
 type MaterialIconName = React.ComponentProps<typeof Feather>['name'];
 
 export interface ILinkDrawerLayout {
   label: string;
   icon: MaterialIconName;
-  component: ReactElement;
-  propsLayout?: LayoutProps;
+  component: (navigation: any) => JSX.Element;
+}
+
+export interface BaseDrawerProps {
+  onToggleDrawer: () => void;
 }

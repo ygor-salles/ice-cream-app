@@ -1,8 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { Layout } from '@components/index';
-
 import { Dashboard, Products } from '@flows/index';
 
 import { colors } from '@styles/constants';
@@ -16,10 +14,13 @@ const linksDrawerLayout: Array<ILinkDrawerLayout> = [
   {
     label: 'Home',
     icon: 'home',
-    component: <Dashboard />,
-    propsLayout: { alignCenter: true, noScrollView: true },
+    component: onToggleDrawer => <Dashboard onToggleDrawer={onToggleDrawer} />,
   },
-  { label: 'Produtos', icon: 'book', component: <Products /> },
+  {
+    label: 'Produtos',
+    icon: 'book',
+    component: onToggleDrawer => <Products onToggleDrawer={onToggleDrawer} />,
+  },
 ];
 
 export function DrawerRoutes() {
@@ -40,15 +41,7 @@ export function DrawerRoutes() {
           }}
           key={item.label}
         >
-          {({ navigation }) => (
-            <Layout
-              title={item.label}
-              onToggleSidebar={navigation.toggleDrawer}
-              {...item.propsLayout}
-            >
-              {item.component}
-            </Layout>
-          )}
+          {({ navigation }) => item.component(navigation.toggleDrawer)}
         </Drawer.Screen>
       ))}
     </Drawer.Navigator>

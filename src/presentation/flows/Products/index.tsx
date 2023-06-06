@@ -1,8 +1,12 @@
-import { Container, Block } from './styles';
+import { Layout } from '@components/index';
 
-export function Products() {
+import { BaseDrawerProps } from '@routes/types';
+
+import { Block } from './styles';
+
+export function Products({ onToggleDrawer }: BaseDrawerProps) {
   return (
-    <Container>
+    <Layout title="Produtos" onToggleDrawer={onToggleDrawer}>
       <Block />
       <Block />
       <Block />
@@ -10,6 +14,6 @@ export function Products() {
       <Block />
       <Block />
       <Block />
-    </Container>
+    </Layout>
   );
 }

@@ -11,13 +11,13 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  height: 50px;
+  height: 60px;
   background-color: ${colors.PURPLE_PRIMARY};
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
-  padding: 8px;
+  padding: 16px;
 `;
 
 export const Main = styled.View<MainProps>`
@@ -33,7 +33,7 @@ export const Main = styled.View<MainProps>`
 `;
 
 export const Footer = styled.View`
-  height: 50px;
+  height: 60px;
   background-color: ${colors.PURPLE_PRIMARY};
   flex-direction: row;
   justify-content: space-around;

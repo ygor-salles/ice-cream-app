@@ -1,5 +1,13 @@
-import { Container, Title } from './styles';
+import { Layout } from '@components/Layout';
 
-export function Dashboard() {
-  return <Title>Dashboard</Title>;
+import { BaseDrawerProps } from '@routes/types';
+
+import { Title } from './styles';
+
+export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
+  return (
+    <Layout title="Home" noScrollView alignCenter onToggleDrawer={onToggleDrawer}>
+      <Title>Dashboard</Title>
+    </Layout>
+  );
 }
