@@ -7,6 +7,11 @@ export const Container = styled.View`
   background-color: ${colors.WHITE};
   align-items: center;
   justify-content: center;
+
+  /* background-color: ${colors.WHITE};
+  padding: 16px;
+  justify-content: center;
+  align-items: center; */
 `;
 
 export const Title = styled.Text`

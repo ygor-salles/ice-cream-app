@@ -9,6 +9,7 @@ export interface LayoutProps {
   textButton?: string;
   renderLeftFooter?: ReactNode;
   renderRightFooter?: ReactNode;
+  alignCenter?: boolean;
   onToggleSidebar: () => void;
   onPress?: () => void;
 }

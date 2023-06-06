@@ -1,6 +1,10 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 import { colors } from '@styles/constants';
+
+interface MainProps {
+  alignCenter: boolean;
+}
 
 export const Container = styled.View`
   flex: 1;
@@ -16,9 +20,16 @@ export const Header = styled.View`
   padding: 8px;
 `;
 
-export const Main = styled.View`
+export const Main = styled.View<MainProps>`
   flex: 1;
   background-color: ${colors.GRAY_200};
+
+  ${({ alignCenter }) =>
+    alignCenter &&
+    css`
+      justify-content: center;
+      align-items: center;
+    `}
 `;
 
 export const Footer = styled.View`
@@ -33,10 +44,6 @@ export const Title = styled.Text`
   font-weight: bold;
   font-size: 20px;
   color: ${colors.WHITE};
-`;
-
-export const ScrollMain = styled.ScrollView`
-  background-color: ${colors.GRAY_200};
 `;
 
 export const Row = styled.View`

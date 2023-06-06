@@ -1,9 +1,15 @@
-import { Container, Title } from './styles';
+import { Container, Block } from './styles';
 
 export function Products() {
   return (
     <Container>
-      <Title>Products</Title>
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
+      <Block />
     </Container>
   );
 }

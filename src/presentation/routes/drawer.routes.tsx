@@ -1,54 +1,64 @@
+import { ReactElement } from 'react';
+
 import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { New } from '@flows/index';
+import { Layout } from '@components/index';
+
+import { Dashboard, Products } from '@flows/index';
 
 import { colors } from '@styles/constants';
 
 import { styles } from './styles';
-import { TabRoutes } from './tab.routes';
+
+interface ILinkDrawer {
+  label: string;
+  icon: string;
+  component: ReactElement;
+}
 
 const Drawer = createDrawerNavigator();
+
+const linksDrawer: Array<ILinkDrawer> = [
+  { label: 'Home', icon: 'home', component: <Dashboard /> },
+  { label: 'Produtos', icon: 'book', component: <Products /> },
+];
 
 export function DrawerRoutes() {
   return (
     <Drawer.Navigator
-      screenOptions={({ navigation }) => ({
+      screenOptions={() => ({
         drawerStyle: styles.drawer,
         drawerLabelStyle: styles.label,
-        headerStyle: styles.header,
-        headerTitleStyle: styles.headerTitle,
-        headerLeft: () => (
-          <Feather
-            name="menu"
-            color={colors.WHITE}
-            size={24}
-            style={styles.headerIconLeft}
-            onPress={navigation.toggleDrawer}
-          />
-        ),
-        headerRight: () => (
-          <Feather name="menu" color={colors.WHITE} size={24} style={styles.headerIconRight} />
-        ),
+        headerShown: false,
       })}
     >
       <Drawer.Screen
-        name="home"
-        component={TabRoutes}
+        name="Home"
         options={{
           drawerIcon: ({ size }) => <Feather name="home" color={colors.WHITE} size={size} />,
-          drawerLabel: 'Início',
-        }}
-      />
-
-      <Drawer.Screen
-        name="new"
-        options={{
-          drawerIcon: ({ size }) => <Feather name="user" color={colors.WHITE} size={size} />,
-          drawerLabel: 'New',
+          drawerLabel: 'Home',
         }}
       >
-        {() => <New teste="teste" />}
+        {({ navigation }) => (
+          <Layout title="Home" noScrollView alignCenter onToggleSidebar={navigation.toggleDrawer}>
+            <Dashboard />
+          </Layout>
+        )}
+      </Drawer.Screen>
+
+      <Drawer.Screen
+        name="Produtos"
+        options={{
+          drawerIcon: ({ size }) => <Feather name="book" color={colors.WHITE} size={size} />,
+          drawerLabel: 'Produtos',
+        }}
+      >
+        {({ navigation }) => (
+          <Layout title="Produtos" onToggleSidebar={navigation.toggleDrawer}>
+            <Products />
+          </Layout>
+        )}
       </Drawer.Screen>
     </Drawer.Navigator>
   );
