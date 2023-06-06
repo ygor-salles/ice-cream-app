@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-
 import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -10,17 +8,17 @@ import { Dashboard, Products } from '@flows/index';
 import { colors } from '@styles/constants';
 
 import { styles } from './styles';
-
-interface ILinkDrawer {
-  label: string;
-  icon: string;
-  component: ReactElement;
-}
+import { ILinkDrawerLayout } from './types';
 
 const Drawer = createDrawerNavigator();
 
-const linksDrawer: Array<ILinkDrawer> = [
-  { label: 'Home', icon: 'home', component: <Dashboard /> },
+const linksDrawerLayout: Array<ILinkDrawerLayout> = [
+  {
+    label: 'Home',
+    icon: 'home',
+    component: <Dashboard />,
+    propsLayout: { alignCenter: true, noScrollView: true },
+  },
   { label: 'Produtos', icon: 'book', component: <Products /> },
 ];
 
@@ -33,33 +31,26 @@ export function DrawerRoutes() {
         headerShown: false,
       })}
     >
-      <Drawer.Screen
-        name="Home"
-        options={{
-          drawerIcon: ({ size }) => <Feather name="home" color={colors.WHITE} size={size} />,
-          drawerLabel: 'Home',
-        }}
-      >
-        {({ navigation }) => (
-          <Layout title="Home" noScrollView alignCenter onToggleSidebar={navigation.toggleDrawer}>
-            <Dashboard />
-          </Layout>
-        )}
-      </Drawer.Screen>
-
-      <Drawer.Screen
-        name="Produtos"
-        options={{
-          drawerIcon: ({ size }) => <Feather name="book" color={colors.WHITE} size={size} />,
-          drawerLabel: 'Produtos',
-        }}
-      >
-        {({ navigation }) => (
-          <Layout title="Produtos" onToggleSidebar={navigation.toggleDrawer}>
-            <Products />
-          </Layout>
-        )}
-      </Drawer.Screen>
+      {linksDrawerLayout.map(item => (
+        <Drawer.Screen
+          name={item.label}
+          options={{
+            drawerIcon: ({ size }) => <Feather name={item.icon} color={colors.WHITE} size={size} />,
+            drawerLabel: item.label,
+          }}
+          key={item.label}
+        >
+          {({ navigation }) => (
+            <Layout
+              title={item.label}
+              onToggleSidebar={navigation.toggleDrawer}
+              {...item.propsLayout}
+            >
+              {item.component}
+            </Layout>
+          )}
+        </Drawer.Screen>
+      ))}
     </Drawer.Navigator>
   );
 }

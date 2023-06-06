@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
 export interface LayoutProps {
-  title: string;
-  children: React.ReactNode;
+  title?: string;
+  children?: React.ReactNode;
   noScrollView?: boolean;
   noFooter?: boolean;
   renderRightHeader?: ReactNode;
@@ -10,6 +10,6 @@ export interface LayoutProps {
   renderLeftFooter?: ReactNode;
   renderRightFooter?: ReactNode;
   alignCenter?: boolean;
-  onToggleSidebar: () => void;
+  onToggleSidebar?: () => void;
   onPress?: () => void;
 }
