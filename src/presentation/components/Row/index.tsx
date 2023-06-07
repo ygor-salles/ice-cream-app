@@ -3,12 +3,13 @@ import { ReactNode } from 'react';
 import { SRow } from './styles';
 
 interface RowProps {
-  children: ReactNode
+  gap?: number;
+  children: ReactNode;
 }
 
-export function Row({ children, ...rest }: RowProps) {
+export function Row({ gap, children, ...rest }: RowProps) {
   return (
-    <SRow {...rest}>
+    <SRow gap={gap} {...rest}>
       {children}
     </SRow>
   );

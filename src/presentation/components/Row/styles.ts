@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/native';
 
 interface SRowProps {
-  gap?: number;
+  gap: number;
 }
 
 export const SRow = styled.View<SRowProps>`

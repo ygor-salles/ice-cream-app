@@ -1,11 +1,12 @@
 import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import { CustomDrawer } from '@components/CustomDrawer';
+
 import { Dashboard, Products } from '@flows/index';
 
 import { colors } from '@styles/constants';
 
-import { styles } from './styles';
 import { ILinkDrawerLayout } from './types';
 
 const Drawer = createDrawerNavigator();
@@ -26,17 +27,19 @@ const linksDrawerLayout: Array<ILinkDrawerLayout> = [
 export function DrawerRoutes() {
   return (
     <Drawer.Navigator
+      drawerContent={props => <CustomDrawer propsDrawer={props} />}
       screenOptions={() => ({
-        drawerStyle: styles.drawer,
-        drawerLabelStyle: styles.label,
         headerShown: false,
+        drawerActiveBackgroundColor: colors.PURPLE_PRIMARY,
+        drawerActiveTintColor: colors.WHITE,
+        drawerInactiveTintColor: colors.GRAY_800,
       })}
     >
       {linksDrawerLayout.map(item => (
         <Drawer.Screen
           name={item.label}
           options={{
-            drawerIcon: ({ size }) => <Feather name={item.icon} color={colors.WHITE} size={size} />,
+            drawerIcon: ({ size, color }) => <Feather name={item.icon} color={color} size={size} />,
             drawerLabel: item.label,
           }}
           key={item.label}

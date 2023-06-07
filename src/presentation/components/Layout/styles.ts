@@ -41,7 +41,7 @@ export const Footer = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
   color: ${colors.WHITE};
 `;
