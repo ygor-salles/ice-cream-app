@@ -3,6 +3,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Button } from '@components/Button';
 
+import { useThemeContext } from '@hooks/useThemeContext';
+
 import { colors } from '@styles/constants';
 
 import { Container, Header, Main, Footer, Title, Row } from './styles';
@@ -21,6 +23,8 @@ export function Layout({
   onPress,
   onToggleDrawer,
 }: LayoutProps) {
+  const { themeName } = useThemeContext();
+
   return (
     <Container>
       <StatusBar
@@ -37,7 +41,7 @@ export function Layout({
         {textButton && onPress && <Button onPress={onPress}>{textButton}</Button>}
       </Header>
 
-      <Main alignCenter={alignCenter && noScrollView}>
+      <Main alignCenter={alignCenter && noScrollView} themeName={themeName}>
         {noScrollView ? children : <ScrollView>{children}</ScrollView>}
       </Main>
 

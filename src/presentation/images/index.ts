@@ -1,4 +1,4 @@
-import iceCreamLogo from './airplane-icon.png';
+import iceCreamLogo from './icecream.png';
 
 export const images = {
   iceCreamLogo,

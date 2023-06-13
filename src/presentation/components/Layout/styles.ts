@@ -4,6 +4,7 @@ import { colors } from '@styles/constants';
 
 interface MainProps {
   alignCenter: boolean;
+  themeName: 'light' | 'dark';
 }
 
 export const Container = styled.View`
@@ -22,7 +23,7 @@ export const Header = styled.View`
 
 export const Main = styled.View<MainProps>`
   flex: 1;
-  background-color: ${colors.GRAY_200};
+  background-color: ${props => (props.themeName === 'light' ? colors.GRAY_200 : colors.DARK_500)};
 
   ${({ alignCenter }) =>
     alignCenter &&

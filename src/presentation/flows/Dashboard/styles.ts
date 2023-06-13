@@ -13,8 +13,3 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center; */
 `;
-
-export const Title = styled.Text`
-  font-size: 12px;
-  font-weight: bold;
-`;

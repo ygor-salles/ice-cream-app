@@ -2,8 +2,13 @@ import styled from 'styled-components/native';
 
 import { colors } from '@styles/constants';
 
-export const Container = styled.View`
+interface ThemeAppProps {
+  themeName: 'light' | 'dark';
+}
+
+export const Container = styled.View<ThemeAppProps>`
   flex: 1;
+  background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
 `;
 
 export const Header = styled.View`
@@ -15,7 +20,10 @@ export const Header = styled.View`
   border-bottom-right-radius: 4px;
 `;
 
-export const Img = styled.Image``;
+export const Img = styled.Image`
+  width: 32px;
+  height: 32px;
+`;
 
 export const Title = styled.Text`
   font-size: 18px;
@@ -31,22 +39,17 @@ export const SubTitle = styled.Text`
   text-align: center;
 `;
 
-export const ContentNav = styled.View`
+export const ContentNav = styled.View<ThemeAppProps>`
   flex: 1;
-  background-color: ${colors.WHITE};
+  background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
 `;
 
-export const Footer = styled.View`
+export const Footer = styled.View<ThemeAppProps>`
   padding: 16px;
-  background-color: ${colors.WHITE};
+  background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
   border-top-width: 1px;
   border-color: ${colors.GRAY_500};
   gap: 10px;
-`;
-
-export const TextNav = styled.Text`
-  font-size: 14px;
-  font-weight: 400;
 `;
 
 export const Row = styled.TouchableOpacity`

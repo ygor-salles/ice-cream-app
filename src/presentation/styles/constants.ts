@@ -9,7 +9,9 @@ export const colors = {
 
   SHADOW: '#00000080',
 
-  DARK: '#121214',
+  DARK_200: '#1F2829',
+  DARK_500: '#181823',
+  DARK_800: '#121214',
 
   TEXT: '#1a1a1a',
 };

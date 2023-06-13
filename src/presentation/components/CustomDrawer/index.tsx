@@ -1,26 +1,22 @@
 import { Feather } from '@expo/vector-icons';
 import { DrawerItemList } from '@react-navigation/drawer';
 
-import { Column } from '@components/index';
+import { Column, TextApp } from '@components/index';
+
+import { useThemeContext } from '@hooks/index';
 
 import { images } from '@images/index';
 
-import {
-  Container,
-  ContentNav,
-  Footer,
-  Img,
-  Header,
-  SubTitle,
-  TextNav,
-  Title,
-  Row,
-} from './styles';
+import { colors } from '@styles/constants';
+
+import { Container, ContentNav, Footer, Img, Header, SubTitle, Title, Row } from './styles';
 import { CustomDrawerProps } from './types';
 
 export function CustomDrawer({ propsDrawer }: CustomDrawerProps) {
+  const { toggleTheme, themeName } = useThemeContext();
+
   return (
-    <Container>
+    <Container themeName={themeName}>
       <Header>
         <Column>
           <Img source={images.iceCreamLogo} />
@@ -28,17 +24,27 @@ export function CustomDrawer({ propsDrawer }: CustomDrawerProps) {
         </Column>
         <SubTitle>Ygor Carvalho - admin</SubTitle>
       </Header>
-      <ContentNav>
+
+      <ContentNav themeName={themeName}>
         <DrawerItemList {...propsDrawer} />
       </ContentNav>
-      <Footer>
-        <Row>
-          <Feather name="moon" size={24} />
-          <TextNav>Alterar tema</TextNav>
+
+      <Footer themeName={themeName}>
+        <Row onPress={toggleTheme}>
+          <Feather
+            name={themeName === 'dark' ? 'sun' : 'moon'}
+            size={24}
+            color={themeName === 'dark' ? colors.WHITE : colors.TEXT}
+          />
+          <TextApp>Alterar tema</TextApp>
         </Row>
         <Row>
-          <Feather name="skip-back" size={24} />
-          <TextNav>Sair</TextNav>
+          <Feather
+            name="skip-back"
+            size={24}
+            color={themeName === 'dark' ? colors.WHITE : colors.TEXT}
+          />
+          <TextApp>Sair</TextApp>
         </Row>
       </Footer>
     </Container>
