@@ -1,13 +1,15 @@
 import 'react-native-gesture-handler';
 
-import { AppThemeProvider } from '@contexts/index';
+import { AppThemeProvider, AuthProvider } from '@contexts/index';
 
 import { Routes } from '@routes/index';
 
 export default function App() {
   return (
     <AppThemeProvider>
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </AppThemeProvider>
   );
 }

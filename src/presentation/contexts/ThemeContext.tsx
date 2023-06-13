@@ -1,10 +1,10 @@
 import { createContext, useCallback, useState } from 'react';
 
-import { AppThemeProviderProps, IThemeContextData } from './types';
+import { AppProviderProps, IThemeContextData } from './types';
 
-export const ThemeContext = createContext({} as IThemeContextData);
+export const ThemeContext = createContext<IThemeContextData>({} as IThemeContextData);
 
-export function AppThemeProvider({ children }: AppThemeProviderProps) {
+export function AppThemeProvider({ children }: AppProviderProps) {
   const [themeName, setThemeName] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = useCallback(

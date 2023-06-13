@@ -1,7 +1,8 @@
 import { Feather } from '@expo/vector-icons';
 import { DrawerItemList } from '@react-navigation/drawer';
 
-import { Column, TextApp } from '@components/index';
+import { Column } from '@components/Column';
+import { TextApp } from '@components/TextApp';
 
 import { useThemeContext } from '@hooks/index';
 
