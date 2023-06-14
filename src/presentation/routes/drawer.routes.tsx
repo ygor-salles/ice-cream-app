@@ -2,29 +2,15 @@ import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { CustomDrawer } from '@components/CustomDrawer';
-
-import { Dashboard, Products } from '@flows/index';
+import { ProtectedLayout } from '@components/ProtectedLayout';
 
 import { useThemeContext } from '@hooks/index';
 
 import { colors } from '@styles/constants';
 
-import { ILinkDrawerLayout } from './types';
+import { protectedRoutesLayout, unprotectedRoutes } from './constants';
 
 const Drawer = createDrawerNavigator();
-
-const linksDrawerLayout: Array<ILinkDrawerLayout> = [
-  {
-    label: 'Dashboard',
-    icon: 'home',
-    component: onToggleDrawer => <Dashboard onToggleDrawer={onToggleDrawer} />,
-  },
-  {
-    label: 'Produtos',
-    icon: 'book',
-    component: onToggleDrawer => <Products onToggleDrawer={onToggleDrawer} />,
-  },
-];
 
 export function DrawerRoutes() {
   const { themeName } = useThemeContext();
@@ -39,7 +25,11 @@ export function DrawerRoutes() {
         drawerInactiveTintColor: themeName === 'light' ? colors.GRAY_800 : colors.WHITE,
       })}
     >
-      {linksDrawerLayout.map(item => (
+      {unprotectedRoutes.map(item => (
+        <Drawer.Screen key={item.name} name={item.name} component={item.component} />
+      ))}
+
+      {protectedRoutesLayout.map(item => (
         <Drawer.Screen
           name={item.label}
           options={{
@@ -48,7 +38,11 @@ export function DrawerRoutes() {
           }}
           key={item.label}
         >
-          {({ navigation }) => item.component(navigation.toggleDrawer)}
+          {({ navigation }) => (
+            <ProtectedLayout accessUser={item.access}>
+              {item.component(navigation.toggleDrawer)}
+            </ProtectedLayout>
+          )}
         </Drawer.Screen>
       ))}
     </Drawer.Navigator>
