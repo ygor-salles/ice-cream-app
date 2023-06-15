@@ -7,7 +7,7 @@ import {
   StyleProp,
   TextInputFocusEventData,
   TextStyle,
-  ViewStyle,
+  ColorValue,
 } from 'react-native';
 
 export interface TextFieldProps {
@@ -32,7 +32,8 @@ export interface TextFieldProps {
     fieldTextLeft?: string;
     setValue?: UseFormSetValue<any>;
   };
-  customWrapperStyle?: StyleProp<ViewStyle>;
+  styleTextLabel?: StyleProp<TextStyle>;
   styleTextInput?: StyleProp<TextStyle>;
+  placeholderTextColor?: ColorValue;
   variant?: 'filled' | 'standard';
 }

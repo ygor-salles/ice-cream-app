@@ -29,6 +29,7 @@ export const Wrapper = styled.View<WrapperProps>`
       : css`
           border-bottom-width: 1px;
           padding: 6px 0;
+          background-color: transparent;
         `}
 
   ${({ disabled }) =>

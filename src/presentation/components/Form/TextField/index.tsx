@@ -12,7 +12,6 @@ export function TextField({
   name,
   autoComplete,
   customOnBlur,
-  customWrapperStyle,
   disabled,
   keyboardType,
   label,
@@ -22,9 +21,12 @@ export function TextField({
   renderLeft,
   renderRight,
   required,
+  styleTextLabel,
   styleTextInput,
+  placeholderTextColor,
   viewOnly,
   variant = 'filled',
+  ...rest
 }: TextFieldProps) {
   const {
     field: { onChange, value },
@@ -56,13 +58,8 @@ export function TextField({
 
   return (
     <>
-      <Wrapper
-        disabled={disabled}
-        themeName={themeName}
-        variant={variant}
-        style={customWrapperStyle}
-      >
-        <Label error={!!error} disabled={disabled || viewOnly}>
+      <Wrapper disabled={disabled} themeName={themeName} variant={variant} {...rest}>
+        <Label error={!!error} disabled={disabled || viewOnly} style={styleTextLabel}>
           {required ? `${label} *` : `${label} (opcional)`}
         </Label>
         <InputContainer>
@@ -78,6 +75,7 @@ export function TextField({
             keyboardType={keyboardType}
             onBlur={customOnBlur}
             maxLength={maxLength}
+            placeholderTextColor={placeholderTextColor}
           />
           {renderRight || null}
         </InputContainer>

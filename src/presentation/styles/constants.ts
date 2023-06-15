@@ -1,4 +1,5 @@
 import { Platform } from 'react-native';
+import { Keyframe } from 'react-native-reanimated';
 
 import { css } from 'styled-components/native';
 
@@ -40,4 +41,27 @@ export const globalStyles = {
       `,
     })}
   `,
+};
+
+export const globalKeyFrames = {
+  ENTERING: new Keyframe({
+    from: {
+      opacity: 0,
+      transform: [{ translateY: -100 }],
+    },
+    to: {
+      opacity: 1,
+      transform: [{ translateY: 0 }],
+    },
+  }),
+  EXITING: new Keyframe({
+    from: {
+      opacity: 1,
+      transform: [{ translateY: 0 }],
+    },
+    to: {
+      opacity: 0,
+      transform: [{ translateY: -100 }],
+    },
+  }),
 };

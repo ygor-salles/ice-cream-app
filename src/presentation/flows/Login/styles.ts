@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
 
+import { Feather } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import styled from 'styled-components/native';
 
-import { Button, Card, TextApp } from '@components/index';
+import { TextField, Button } from '@components/index';
 
-import { colors } from '@styles/constants';
+import { colors, globalStyles } from '@styles/constants';
 
 export const Container = styled.View`
   flex: 1;
@@ -20,35 +22,46 @@ export const Wrapper = styled.View`
   z-index: 1;
 `;
 
-export const SCard = styled(Card)`
-  width: 80%;
-  align-items: center;
-  padding: 24px 16px 16px 16px;
-`;
-
-export const SText = styled(TextApp)`
-  font-weight: 600;
-  font-size: 18px;
+export const Title = styled.Text`
+  font-weight: 400;
+  font-size: 32px;
+  color: ${colors.WHITE};
 `;
 
 export const WrapperForm = styled.View`
-  margin-top: 36px;
-  margin-bottom: 24px;
-  width: 100%;
+  margin-top: 52px;
+  width: 80%;
   gap: 16px;
 `;
 
-export const SButton = styled(Button)`
+export const SFeather = styled(Feather)`
+  background-color: ${colors.WHITE};
+  padding: 10px;
+  border-radius: 40px;
+  color: ${colors.PURPLE_PRIMARY};
+
+  ${globalStyles.SHADOW}
+`;
+
+export const SLinearGradient = styled(LinearGradient)`
+  flex: 1;
   width: 100%;
 `;
 
+export const STextField = styled(TextField)`
+  border-color: ${colors.WHITE};
+`;
+
+export const SButton = styled(Button)`
+  margin-top: 42px;
+`;
+
 export const styles = StyleSheet.create({
-  gradient: {
-    flex: 1,
-    width: '100%',
-    position: 'relative',
+  textLabel: {
+    color: colors.WHITE,
+    fontSize: 18,
   },
-  icon: {
-    backgroundColor: colors.WHITE,
+  textInput: {
+    color: colors.WHITE,
   },
 });

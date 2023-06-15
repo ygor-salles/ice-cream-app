@@ -9,7 +9,7 @@ export const Touchable = styled.TouchableOpacity`
   align-items: center;
   gap: 8px;
   padding: 10px;
-  background-color: ${colors.PURPLE_PRIMARY};
+  background-color: ${colors.WHITE};
 
   border-radius: 2px;
 
@@ -19,5 +19,5 @@ export const Touchable = styled.TouchableOpacity`
 export const Text = styled.Text`
   font-weight: 400;
   font-size: 16px;
-  color: ${colors.WHITE};
+  color: ${colors.PURPLE_PRIMARY};
 `;
