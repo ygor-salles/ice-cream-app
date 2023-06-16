@@ -25,7 +25,12 @@ export function DrawerRoutes() {
       })}
     >
       {stackRoutes.map(item => (
-        <Drawer.Screen key={item.name} name={item.name} component={item.component} />
+        <Drawer.Screen
+          key={item.name}
+          name={item.name}
+          component={item.component}
+          options={{ swipeEnabled: false }}
+        />
       ))}
 
       {drawerRoutes.map(item => (
