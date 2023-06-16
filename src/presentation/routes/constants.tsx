@@ -2,16 +2,16 @@ import { Dashboard, Products, Login } from '@flows/index';
 
 import { EnumRoleUser } from '@contexts/types';
 
-import { IProtectedRoutesLayout, IUnprotectedRoutes } from './types';
+import { IDrawerRoutes, IStackRoutes } from './types';
 
 export enum RoutesEnum {
   dashboard = 'dashboard',
   products = 'products',
 }
 
-export const unprotectedRoutes: Array<IUnprotectedRoutes> = [{ name: 'Login', component: Login }];
+export const stackRoutes: Array<IStackRoutes> = [{ name: 'Login', component: Login }];
 
-export const protectedRoutesLayout: Array<IProtectedRoutesLayout> = [
+export const drawerRoutes: Array<IDrawerRoutes> = [
   {
     label: 'Dashboard',
     icon: 'home',

@@ -5,14 +5,14 @@ import { EnumRoleUser } from '@contexts/types';
 
 type MaterialIconName = React.ComponentProps<typeof Feather>['name'];
 
-export interface IProtectedRoutesLayout {
+export interface IDrawerRoutes {
   label: string;
   icon: MaterialIconName;
   component: (navigation: any) => JSX.Element;
   access: EnumRoleUser[];
 }
 
-export interface IUnprotectedRoutes {
+export interface IStackRoutes {
   name: string;
   component: () => JSX.Element;
 }

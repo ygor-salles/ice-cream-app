@@ -2,13 +2,12 @@ import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { CustomDrawer } from '@components/CustomDrawer';
-import { ProtectedLayout } from '@components/ProtectedLayout';
 
 import { useThemeContext } from '@hooks/index';
 
 import { colors } from '@styles/constants';
 
-import { protectedRoutesLayout, unprotectedRoutes } from './constants';
+import { drawerRoutes, stackRoutes } from './constants';
 
 const Drawer = createDrawerNavigator();
 
@@ -25,11 +24,11 @@ export function DrawerRoutes() {
         drawerInactiveTintColor: themeName === 'light' ? colors.GRAY_800 : colors.WHITE,
       })}
     >
-      {unprotectedRoutes.map(item => (
+      {stackRoutes.map(item => (
         <Drawer.Screen key={item.name} name={item.name} component={item.component} />
       ))}
 
-      {protectedRoutesLayout.map(item => (
+      {drawerRoutes.map(item => (
         <Drawer.Screen
           name={item.label}
           options={{
@@ -38,11 +37,7 @@ export function DrawerRoutes() {
           }}
           key={item.label}
         >
-          {({ navigation }) => (
-            <ProtectedLayout accessUser={item.access}>
-              {item.component(navigation.toggleDrawer)}
-            </ProtectedLayout>
-          )}
+          {({ navigation }) => item.component(navigation.toggleDrawer)}
         </Drawer.Screen>
       ))}
     </Drawer.Navigator>
