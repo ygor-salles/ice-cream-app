@@ -1,4 +1,4 @@
-import { ScrollView, StatusBar } from 'react-native';
+import { ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Button } from '@components/Button';
@@ -27,11 +27,6 @@ export function Layout({
 
   return (
     <Container>
-      <StatusBar
-        backgroundColor={colors.PURPLE_PRIMARY}
-        barStyle="default"
-        showHideTransition="fade"
-      />
       <Header>
         <Row>
           <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleDrawer} />

@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import { StatusBar } from 'react-native';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -32,8 +31,6 @@ export function Login() {
   return (
     <Container>
       <Wrapper>
-        <StatusBar backgroundColor={colors.DARK_200} barStyle="default" showHideTransition="fade" />
-
         <SFeather name="user" size={40} />
         <Title>Login</Title>
         <WrapperForm>
