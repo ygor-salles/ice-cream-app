@@ -1,5 +1,5 @@
 import { Feather } from '@expo/vector-icons';
-import { DrawerItemList } from '@react-navigation/drawer';
+import { DrawerItemList, DrawerContentComponentProps } from '@react-navigation/drawer';
 
 import { Column } from '@components/Column';
 import { TextApp } from '@components/TextApp';
@@ -11,7 +11,10 @@ import { images } from '@images/index';
 import { colors } from '@styles/constants';
 
 import { Container, ContentNav, Footer, Img, Header, SubTitle, Title, Row } from './styles';
-import { CustomDrawerProps } from './types';
+
+interface CustomDrawerProps {
+  propsDrawer: DrawerContentComponentProps;
+}
 
 export function CustomDrawer({ propsDrawer }: CustomDrawerProps) {
   const { toggleTheme, themeName } = useThemeContext();

@@ -6,6 +6,7 @@ import { EnumRoleUser } from '@contexts/types';
 type MaterialIconName = React.ComponentProps<typeof Feather>['name'];
 
 export interface IDrawerRoutes {
+  name: string;
   label: string;
   icon: MaterialIconName;
   component: (navigation: any) => JSX.Element;

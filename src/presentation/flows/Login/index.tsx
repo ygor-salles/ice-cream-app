@@ -1,6 +1,9 @@
 import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigation } from '@react-navigation/native';
+
+import { Nav, routesNames } from '@constants/index';
 
 import { colors } from '@styles/constants';
 
@@ -18,6 +21,8 @@ import {
 } from './styles';
 
 export function Login() {
+  const { navigate } = useNavigation<Nav>();
+
   const {
     control,
     handleSubmit,
@@ -26,7 +31,10 @@ export function Login() {
     watch,
   } = useForm<IFormLogin>({ resolver: yupResolver<IFormLogin>(schemaLogin), defaultValues });
 
-  const onSubmit = values => console.log('values', values);
+  const onSubmit = values => {
+    console.log('values', values);
+    navigate(routesNames.DASHBOARD);
+  };
 
   return (
     <Container>

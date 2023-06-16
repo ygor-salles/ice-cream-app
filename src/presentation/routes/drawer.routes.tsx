@@ -35,12 +35,12 @@ export function DrawerRoutes() {
 
       {drawerRoutes.map(item => (
         <Drawer.Screen
-          name={item.label}
+          name={item.name}
           options={{
             drawerIcon: ({ size, color }) => <Feather name={item.icon} color={color} size={size} />,
             drawerLabel: item.label,
           }}
-          key={item.label}
+          key={item.name}
         >
           {({ navigation }) => item.component(navigation.toggleDrawer)}
         </Drawer.Screen>
