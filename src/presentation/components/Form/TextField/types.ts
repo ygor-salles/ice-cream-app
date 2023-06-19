@@ -23,7 +23,9 @@ export interface TextFieldProps {
   maxLength?: number;
   name: string;
   keyboardType?: KeyboardTypeOptions;
+  typePassword?: boolean;
   control: Control<any>;
+  lightEyeIcon?: boolean;
   autoComplete?: {
     listItems: Array<string>;
     renderLeft?: React.ReactElement;

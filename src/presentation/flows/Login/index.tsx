@@ -49,6 +49,7 @@ export function Login() {
             placeholder="Digite seu e-mail"
             required
             variant="standard"
+            keyboardType="email-address"
             styleTextLabel={styles.textLabel}
             styleTextInput={styles.textInput}
             placeholderTextColor={colors.GRAY_500}
@@ -60,6 +61,8 @@ export function Login() {
             placeholder="Digite sua senha"
             required
             variant="standard"
+            typePassword
+            lightEyeIcon
             styleTextLabel={styles.textLabel}
             styleTextInput={styles.textInput}
             placeholderTextColor={colors.GRAY_500}

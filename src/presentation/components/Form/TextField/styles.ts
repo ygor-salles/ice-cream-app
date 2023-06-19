@@ -6,6 +6,7 @@ interface WrapperProps {
   themeName: 'light' | 'dark';
   disabled: boolean;
   variant: 'filled' | 'standard';
+  error: boolean;
 }
 
 interface LabelProps {
@@ -37,6 +38,12 @@ export const Wrapper = styled.View<WrapperProps>`
     css`
       background-color: ${colors.GRAY_900};
     `}
+
+  ${({ error }) =>
+    error &&
+    css`
+      border-color: ${colors.RED_ERROR};
+    `}
 `;
 
 export const Label = styled.Text<LabelProps>`
@@ -61,10 +68,17 @@ export const InputContainer = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 2px;
+  gap: 10px;
 `;
 
 export const InputField = styled.TextInput`
   flex: 1;
   font-size: 16px;
   padding: 0;
+`;
+
+export const Error = styled.Text`
+  font-weight: 400;
+  font-size: 12px;
+  color: ${colors.RED_ERROR};
 `;
