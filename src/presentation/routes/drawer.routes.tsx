@@ -7,7 +7,7 @@ import { useThemeContext } from '@hooks/index';
 
 import { colors } from '@styles/constants';
 
-import { drawerRoutes, stackRoutes } from './constants';
+import { drawerRoutes } from './constants';
 
 const Drawer = createDrawerNavigator();
 
@@ -24,15 +24,6 @@ export function DrawerRoutes() {
         drawerInactiveTintColor: themeName === 'light' ? colors.GRAY_800 : colors.WHITE,
       })}
     >
-      {stackRoutes.map(item => (
-        <Drawer.Screen
-          key={item.name}
-          name={item.name}
-          component={item.component}
-          options={{ swipeEnabled: false }}
-        />
-      ))}
-
       {drawerRoutes.map(item => (
         <Drawer.Screen
           name={item.name}

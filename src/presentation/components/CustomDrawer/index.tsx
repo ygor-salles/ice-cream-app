@@ -1,5 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import { DrawerItemList, DrawerContentComponentProps } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
 
 import { Column } from '@components/Column';
 import { TextApp } from '@components/TextApp';
@@ -7,6 +8,8 @@ import { TextApp } from '@components/TextApp';
 import { useThemeContext } from '@hooks/index';
 
 import { images } from '@images/index';
+
+import { NavStack, routesNames } from '@constants/RoutesNames';
 
 import { colors } from '@styles/constants';
 
@@ -17,6 +20,8 @@ interface CustomDrawerProps {
 }
 
 export function CustomDrawer({ propsDrawer }: CustomDrawerProps) {
+  const { navigate } = useNavigation<NavStack>();
+
   const { toggleTheme, themeName } = useThemeContext();
 
   return (
@@ -42,7 +47,7 @@ export function CustomDrawer({ propsDrawer }: CustomDrawerProps) {
           />
           <TextApp>Alterar tema</TextApp>
         </Row>
-        <Row>
+        <Row onPress={() => navigate(routesNames.LOGIN)}>
           <Feather
             name="skip-back"
             size={24}

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
 
-import { Nav, routesNames } from '@constants/index';
+import { NavDrawer, routesNames } from '@constants/index';
 
 import { colors } from '@styles/constants';
 
@@ -21,7 +21,7 @@ import {
 } from './styles';
 
 export function Login() {
-  const { navigate } = useNavigation<Nav>();
+  const { navigate } = useNavigation<NavDrawer>();
 
   const {
     control,
@@ -33,7 +33,7 @@ export function Login() {
 
   const onSubmit = values => {
     console.log('values', values);
-    navigate(routesNames.DASHBOARD);
+    navigate(routesNames.DRAWER);
   };
 
   return (
