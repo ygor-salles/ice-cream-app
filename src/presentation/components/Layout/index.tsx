@@ -20,6 +20,7 @@ export function Layout({
   renderRightFooter,
   textButton,
   alignCenter,
+  renderFooter,
   onPress,
   onToggleDrawer,
 }: LayoutProps) {
@@ -40,6 +41,7 @@ export function Layout({
         {noScrollView ? children : <ScrollView>{children}</ScrollView>}
       </Main>
 
+      {renderFooter && renderFooter}
       {!noFooter && (
         <Footer>
           {renderLeftFooter && renderLeftFooter}

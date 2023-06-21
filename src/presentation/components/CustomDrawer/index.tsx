@@ -1,6 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 import { DrawerItemList, DrawerContentComponentProps } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
+import { NavStack } from 'presentation/types';
 
 import { Column } from '@components/Column';
 import { TextApp } from '@components/TextApp';
@@ -9,7 +10,7 @@ import { useThemeContext } from '@hooks/index';
 
 import { images } from '@images/index';
 
-import { NavStack, routesNames } from '@constants/RoutesNames';
+import { routesNames } from '@constants/RoutesNames';
 
 import { colors } from '@styles/constants';
 

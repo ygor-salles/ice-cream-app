@@ -1,21 +1,36 @@
-import { TouchableOpacity } from 'react-native';
-
-import { useNavigation } from '@react-navigation/native';
-
-import { TextApp, Layout } from '@components/index';
+import { ItemFooter, Layout } from '@components/index';
 
 import { BaseDrawerProps } from '@routes/types';
 
-import { NavDrawer, routesNames } from '@constants/RoutesNames';
+import { CardInfo } from './components/CardInfo';
+import { Container } from './styles';
 
 export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
-  const { navigate } = useNavigation<NavDrawer>();
-
   return (
-    <Layout title="Dashboard" noScrollView alignCenter onToggleDrawer={onToggleDrawer}>
-      <TouchableOpacity onPress={() => navigate(routesNames.PRODUCTS)}>
-        <TextApp>Dashboard</TextApp>
-      </TouchableOpacity>
+    <Layout
+      title="Dashboard"
+      onToggleDrawer={onToggleDrawer}
+      renderLeftFooter={
+        <ItemFooter
+          iconName="filter"
+          text="Entradas"
+          onPress={() => console.log('Filtro de entradas')}
+        />
+      }
+      renderRightFooter={
+        <ItemFooter
+          iconName="filter"
+          text="Saidas"
+          onPress={() => console.log('Filtro de saídas')}
+        />
+      }
+    >
+      <Container>
+        <CardInfo iconName="arrow-up-circle" typeTitle="input" subTitle="Hoje" value={300} />
+        <CardInfo iconName="arrow-down-circle" typeTitle="output" subTitle="Hoje" value={300} />
+        <CardInfo iconName="dollar-sign" typeTitle="profit" subTitle="Hoje" value={300} />
+        <CardInfo iconName="arrow-up-circle" typeTitle="debit" subTitle="Hoje" value={300} />
+      </Container>
     </Layout>
   );
 }

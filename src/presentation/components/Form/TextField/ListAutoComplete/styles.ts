@@ -34,7 +34,7 @@ export const Row = styled.View`
 export const Text = styled.Text`
   font-weight: 400;
   font-size: 16px;
-  color: ${colors.GRAY_500};
+  color: ${colors.GRAY_300};
 
   margin-left: 12px;
 `;

@@ -2,8 +2,9 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
+import { NavDrawer } from 'presentation/types';
 
-import { NavDrawer, routesNames } from '@constants/index';
+import { routesNames } from '@constants/index';
 
 import { colors } from '@styles/constants';
 
@@ -52,7 +53,7 @@ export function Login() {
             keyboardType="email-address"
             styleTextLabel={styles.textLabel}
             styleTextInput={styles.textInput}
-            placeholderTextColor={colors.GRAY_500}
+            placeholderTextColor={colors.GRAY_300}
           />
           <STextField
             control={control}
@@ -65,7 +66,7 @@ export function Login() {
             lightEyeIcon
             styleTextLabel={styles.textLabel}
             styleTextInput={styles.textInput}
-            placeholderTextColor={colors.GRAY_500}
+            placeholderTextColor={colors.GRAY_300}
           />
           <SButton onPress={handleSubmit(onSubmit)}>Entrar</SButton>
         </WrapperForm>

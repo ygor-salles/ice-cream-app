@@ -8,8 +8,9 @@ export const colors = {
 
   GRAY_100: '#EBEBEB',
   GRAY_200: '#dedede',
-  GRAY_500: '#ccc',
-  GRAY_700: '#606060',
+  GRAY_300: '#ccc',
+  GRAY_500: '#606060',
+  GRAY_600: '#808080',
   GRAY_800: '#333',
   GRAY_900: '#212121',
 
@@ -21,8 +22,13 @@ export const colors = {
   DARK_500: '#181823',
   DARK_800: '#121214',
 
+  RED: '#E52E4D',
   RED_ERROR: '#EE3524',
   RED_DARK: '#B82C25',
+
+  GREEN: '#33CC95',
+
+  YELLOW: '#FDFD96',
 
   TEXT: '#1a1a1a',
 };

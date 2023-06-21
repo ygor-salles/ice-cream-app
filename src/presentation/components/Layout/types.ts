@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export interface LayoutProps {
   title: string;
-  children: React.ReactNode;
+  children: ReactNode;
   noScrollView?: boolean;
   noFooter?: boolean;
   renderRightHeader?: ReactNode;
@@ -10,6 +10,7 @@ export interface LayoutProps {
   renderLeftFooter?: ReactNode;
   renderRightFooter?: ReactNode;
   alignCenter?: boolean;
+  renderFooter?: ReactNode;
   onToggleDrawer: () => void;
   onPress?: () => void;
 }

@@ -6,13 +6,14 @@ import { Container } from './styles';
 
 interface CardProps {
   children: ReactNode;
+  bgColor?: string;
 }
 
-export function Card({ children, ...rest }: CardProps) {
+export function Card({ children, bgColor, ...rest }: CardProps) {
   const { themeName } = useThemeContext();
 
   return (
-    <Container themeName={themeName} {...rest}>
+    <Container themeName={themeName} bgColor={bgColor} {...rest}>
       {children}
     </Container>
   );

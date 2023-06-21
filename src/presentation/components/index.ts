@@ -5,4 +5,7 @@ export * from './CustomDrawer';
 export * from './TextApp';
 export * from './Card';
 export * from './Button';
+
 export * from './Form/TextField';
+
+export * from './ItemFooter';

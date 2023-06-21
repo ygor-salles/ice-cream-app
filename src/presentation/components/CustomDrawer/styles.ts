@@ -48,7 +48,7 @@ export const Footer = styled.View<ThemeAppProps>`
   padding: 16px;
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
   border-top-width: 1px;
-  border-color: ${colors.GRAY_500};
+  border-color: ${colors.GRAY_300};
   gap: 10px;
 `;
 

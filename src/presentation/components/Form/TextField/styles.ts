@@ -18,7 +18,7 @@ export const Wrapper = styled.View<WrapperProps>`
   width: 100%;
 
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
-  border-color: ${colors.GRAY_500};
+  border-color: ${colors.GRAY_300};
 
   ${({ variant }) =>
     variant === 'filled'
@@ -54,7 +54,7 @@ export const Label = styled.Text<LabelProps>`
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${colors.GRAY_500};
+      color: ${colors.GRAY_300};
     `}
 
   ${({ error }) =>
