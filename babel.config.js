@@ -16,7 +16,7 @@ module.exports = function(api) {
             '~components': './src/presentation/components',
             '~constants': './src/presentation/constants',
             '~contexts': './src/presentation/contexts',
-            '~flows': './src/presentation/flows',
+            '~screens': './src/presentation/screens',
             '~hooks': './src/presentation/hooks',
             '~images': './src/presentation/images',
             '~routes': './src/presentation/routes',

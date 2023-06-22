@@ -54,7 +54,7 @@
           ["/^~services/", "/^~cache/", "/^~models/"],
           [
             "/^~components/",
-            "/^~flows/",
+            "/^~screens/",
             "/^~contexts/",
             "/^~hooks/",
             "/^~routes/",
