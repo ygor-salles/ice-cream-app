@@ -1,6 +1,5 @@
-import { ItemFooter, Layout } from '@components/index';
-
-import { BaseDrawerProps } from '@routes/types';
+import { ItemFooter, Layout } from '~components/index';
+import { BaseDrawerProps } from '~routes/types';
 
 import { CardInfo } from './components/CardInfo';
 import { Container } from './styles';

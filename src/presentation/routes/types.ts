@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Feather } from '@expo/vector-icons';
 
-import { EnumRoleUser } from '@contexts/types';
+import { EnumRoleUser } from '~contexts/types';
 
 type MaterialIconName = React.ComponentProps<typeof Feather>['name'];
 

@@ -1,8 +1,7 @@
 import styled from 'styled-components/native';
 
-import { Card } from '@components/Card';
-
-import { colors } from '@styles/constants';
+import { Card } from '~components/Card';
+import { colors } from '~styles/constants';
 
 interface ContentItemProps {
   bgBlue: boolean;

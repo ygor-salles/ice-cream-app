@@ -3,9 +3,8 @@ import { useController } from 'react-hook-form';
 
 import { Feather } from '@expo/vector-icons';
 
-import { useThemeContext } from '@hooks/useThemeContext';
-
-import { colors } from '@styles/constants';
+import { useThemeContext } from '~hooks/useThemeContext';
+import { colors } from '~styles/constants';
 
 import { ListAutoComplete } from './ListAutoComplete';
 import { Wrapper, InputContainer, InputField, Label, Error } from './styles';
@@ -48,22 +47,25 @@ export function TextField({
 
   const refPressAutoComplete = useRef(false);
 
-  const handleSearch = useCallback((text: string) => {
-    onChange(text);
+  const handleSearch = useCallback(
+    (text: string) => {
+      onChange(text);
 
-    const newUpdateInstance: string[] = [];
-    const textTyped = new RegExp(text.toUpperCase(), 'i');
+      const newUpdateInstance: string[] = [];
+      const textTyped = new RegExp(text.toUpperCase(), 'i');
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const instance of autoComplete.listItems) {
-      if (instance.match(textTyped)) {
-        newUpdateInstance.push(instance);
+      // eslint-disable-next-line no-restricted-syntax
+      for (const instance of autoComplete.listItems) {
+        if (instance.match(textTyped)) {
+          newUpdateInstance.push(instance);
+        }
+
+        setListAutocomplete(newUpdateInstance);
       }
-
-      setListAutocomplete(newUpdateInstance);
-    }
-    refPressAutoComplete.current = false;
-  }, []);
+      refPressAutoComplete.current = false;
+    },
+    [autoComplete, onChange],
+  );
 
   return (
     <>

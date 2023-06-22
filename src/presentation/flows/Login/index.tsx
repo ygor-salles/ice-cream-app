@@ -2,11 +2,10 @@ import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
-import { NavDrawer } from 'presentation/types';
 
-import { routesNames } from '@constants/index';
-
-import { colors } from '@styles/constants';
+import { routesNames } from '~constants/RoutesNames';
+import { colors } from '~styles/constants';
+import { NavDrawer } from '~types/index';
 
 import { IFormLogin, defaultValues, fieldsLogin, schemaLogin } from './schema';
 import {

@@ -1,11 +1,9 @@
 import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import { CustomDrawer } from '@components/CustomDrawer';
-
-import { useThemeContext } from '@hooks/index';
-
-import { colors } from '@styles/constants';
+import { CustomDrawer } from '~components/CustomDrawer';
+import { useThemeContext } from '~hooks/useThemeContext';
+import { colors } from '~styles/constants';
 
 import { drawerRoutes } from './constants';
 

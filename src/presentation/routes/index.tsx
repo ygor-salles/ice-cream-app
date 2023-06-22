@@ -2,7 +2,7 @@ import { StatusBar } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 
-import { colors } from '@styles/constants';
+import { colors } from '~styles/constants';
 
 import { StackRoutes } from './stack.routes';
 

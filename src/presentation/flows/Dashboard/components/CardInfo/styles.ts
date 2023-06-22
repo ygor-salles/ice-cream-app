@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { colors } from '@styles/constants';
+import { colors } from '~styles/constants';
 
 interface TitleProps {
   color: string;

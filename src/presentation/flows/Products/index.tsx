@@ -1,6 +1,5 @@
-import { Layout } from '@components/index';
-
-import { BaseDrawerProps } from '@routes/types';
+import { Layout } from '~components/Layout';
+import { BaseDrawerProps } from '~routes/types';
 
 import { Block } from './styles';
 

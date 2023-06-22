@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { colors, globalStyles } from '@styles/constants';
+import { colors, globalStyles } from '~styles/constants';
 
 export const Touchable = styled.TouchableOpacity`
   width: 100%;

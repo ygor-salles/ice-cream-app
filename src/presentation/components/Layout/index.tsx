@@ -1,12 +1,10 @@
 import { ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { Button } from '@components/Button';
+import { useThemeContext } from '~hooks/useThemeContext';
+import { colors } from '~styles/constants';
 
-import { useThemeContext } from '@hooks/useThemeContext';
-
-import { colors } from '@styles/constants';
-
+import { Button } from '../Button';
 import { Container, Header, Main, Footer, Title, Row } from './styles';
 import { LayoutProps } from './types';
 

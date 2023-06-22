@@ -1,8 +1,6 @@
-import { Dashboard, Products, Login } from '@flows/index';
-
-import { EnumRoleUser } from '@contexts/types';
-
-import { routesNames } from '@constants/index';
+import { routesNames } from '~constants/RoutesNames';
+import { EnumRoleUser } from '~contexts/types';
+import { Dashboard, Login, Products } from '~flows/index';
 
 import { IDrawerRoutes, IStackRoutes } from './types';
 

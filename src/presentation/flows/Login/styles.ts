@@ -4,9 +4,8 @@ import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import styled from 'styled-components/native';
 
-import { TextField, Button } from '@components/index';
-
-import { colors, globalStyles } from '@styles/constants';
+import { Button, TextField } from '~components/index';
+import { colors, globalStyles } from '~styles/constants';
 
 export const Container = styled.View`
   flex: 1;

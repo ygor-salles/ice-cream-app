@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import styled, { css } from 'styled-components/native';
 
-import { colors, globalStyles } from '@styles/constants';
+import { colors, globalStyles } from '~styles/constants';
 
 interface ContainerProps {
   themeName: 'light' | 'dark';

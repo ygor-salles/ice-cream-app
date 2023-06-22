@@ -1,4 +1,4 @@
-import { colors } from '@styles/constants';
+import { colors } from '~styles/constants';
 
 export function getTitleCardInfoDash(title: 'input' | 'output' | 'profit' | 'debit') {
   if (title === 'input') return { text: 'Entradas', color: colors.GREEN };

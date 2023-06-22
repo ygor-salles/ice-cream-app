@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { useThemeContext } from '@hooks/index';
+import { useThemeContext } from '~hooks/useThemeContext';
 
 import { SText } from './styles';
 

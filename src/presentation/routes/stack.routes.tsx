@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { routesNames } from '@constants/RoutesNames';
+import { routesNames } from '~constants/RoutesNames';
 
 import { stackRoutes } from './constants';
 import { DrawerRoutes } from './drawer.routes';

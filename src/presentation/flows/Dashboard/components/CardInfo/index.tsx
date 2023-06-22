@@ -3,15 +3,12 @@ import { useMemo } from 'react';
 import { View } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
-import { IconName } from 'presentation/types';
 
-import { Row, Card } from '@components/index';
-
-import { useThemeContext } from '@hooks/useThemeContext';
-
-import { formatNumberToCurrency, getTitleCardInfoDash } from '@utils/index';
-
-import { colors } from '@styles/constants';
+import { Card, Row } from '~components/index';
+import { useThemeContext } from '~hooks/useThemeContext';
+import { colors } from '~styles/constants';
+import { IconName } from '~types/index';
+import { formatNumberToCurrency, getTitleCardInfoDash } from '~utils/index';
 
 import { SubTitle, Title, Value } from './styles';
 

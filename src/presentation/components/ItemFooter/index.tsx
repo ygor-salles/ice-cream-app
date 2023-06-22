@@ -1,9 +1,9 @@
 import { GestureResponderEvent } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
-import { IconName } from 'presentation/types';
 
-import { colors } from '@styles/constants';
+import { colors } from '~styles/constants';
+import { IconName } from '~types/index';
 
 import { Column } from '../Column';
 import { TextFoot } from './styles';
