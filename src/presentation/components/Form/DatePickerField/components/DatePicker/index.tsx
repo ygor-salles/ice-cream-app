@@ -108,10 +108,14 @@ export function DatePicker({
             label={labelInit}
             isFocus={selectedInicitalDateSate.selected}
             date={selectedInicitalDateSate.date}
-            clearDate={() => {
-              onChangeInit(null);
-              setSelectInicitalDateSate({ selected: false, date: undefined });
-            }}
+            clearDate={
+              !selectedFinalDateSate.selected
+                ? () => {
+                    onChangeInit(null);
+                    setSelectInicitalDateSate({ selected: false, date: undefined });
+                  }
+                : undefined
+            }
           />
           <SelectedDateField
             label={labelFinal}
