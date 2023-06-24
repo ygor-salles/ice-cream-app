@@ -2,7 +2,6 @@ import { useForm } from 'react-hook-form';
 
 import { DatePickerField } from '~components/index';
 import { TextApp } from '~components/TextApp';
-import { IParamsOnSelectedDates } from '~types/index';
 
 import { Container, styles } from './styles';
 
@@ -22,17 +21,13 @@ export function FilterDash() {
       <TextApp>Filtro de entradas</TextApp>
       <DatePickerField
         control={control}
-        name="date"
-        onSelectedDates={({ initialDate, finalDate }: IParamsOnSelectedDates) => {
-          setValue('dateInit', initialDate);
-          setValue('dateFinal', finalDate);
-        }}
+        minDate={new Date()}
+        nameInit="dateInit"
+        nameFinal="dateFinal"
         valueInit={dateInit}
         valueFinal={dateFinal}
-        minDate={new Date()}
-        // customStyle={styles.inputFieldBottom}
-        labelText1="Data início"
-        labelText2="Data fim"
+        labelInit="Data início"
+        labelFinal="Data fim"
       />
     </Container>
   );

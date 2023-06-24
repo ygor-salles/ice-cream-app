@@ -1,17 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Control } from 'react-hook-form';
 
-import { IDates, IParamsOnSelectedDates } from '~types/index';
+import { IDates } from '~types/index';
 
 export interface DatePickerFieldProps {
-  name: string;
   control: Control<any>;
+  minDate?: Date;
   placeholder?: string;
-  onSelectedDates: (dates: IParamsOnSelectedDates) => void;
+  onChangeNextEvent?: () => void;
+  customStyle?: object;
+  nameInit: string;
+  nameFinal: string;
   valueInit?: IDates;
   valueFinal?: IDates;
-  customStyle?: object;
-  minDate?: Date;
-  labelText1: string;
-  labelText2: string;
+  labelInit: string;
+  labelFinal: string;
 }

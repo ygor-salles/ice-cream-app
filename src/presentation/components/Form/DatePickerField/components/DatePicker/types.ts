@@ -14,10 +14,11 @@ export interface IParamsOnSelectedDates {
 export interface DatePickerProps {
   show: boolean;
   onDimiss: () => void;
-  // eslint-disable-next-line no-empty-pattern
-  onSelectedDates: ({}) => void;
-  labelText1: string;
-  labelText2: string;
+  labelInit: string;
+  labelFinal: string;
+  onChangeInit: (...event: any[]) => void;
+  onChangeFinal: (...event: any[]) => void;
+  onChangeNextEvent?: () => void;
   minDate?: Date;
   maxDate?: Date;
   monthFormat?: string;

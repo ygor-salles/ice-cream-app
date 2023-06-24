@@ -9,22 +9,31 @@ import { Label, Wrapper, ValueText, WrapperField } from './styles';
 import { DatePickerFieldProps } from './types';
 
 export function DatePickerField({
-  onSelectedDates,
+  onChangeNextEvent,
   valueInit,
   valueFinal,
   customStyle,
   minDate,
-  name,
+  nameInit,
+  nameFinal,
   control,
   placeholder,
-  labelText1,
-  labelText2,
+  labelInit,
+  labelFinal,
 }: DatePickerFieldProps) {
   const {
-    field: { onChange },
-    fieldState: { error },
+    field: { onChange: onChangeInit },
+    fieldState: { error: errorInit },
   } = useController({
-    name,
+    name: nameInit,
+    control,
+  });
+
+  const {
+    field: { onChange: onChangeFinal },
+    fieldState: { error: errorFinal },
+  } = useController({
+    name: nameFinal,
     control,
   });
 
@@ -40,14 +49,16 @@ export function DatePickerField({
       <DatePicker
         show={showDatePickerState}
         onDimiss={toggleShowDatePicker}
-        onSelectedDates={onSelectedDates}
+        onChangeInit={onChangeInit}
+        onChangeFinal={onChangeFinal}
+        onChangeNextEvent={onChangeNextEvent}
         minDate={minDate}
-        labelText1={labelText1}
-        labelText2={labelText2}
+        labelInit={labelInit}
+        labelFinal={labelFinal}
       />
       <Wrapper style={customStyle}>
         <WrapperField onPress={toggleShowDatePicker}>
-          <Label>{labelText1}</Label>
+          <Label error={!!errorInit}>{labelInit}</Label>
           <ValueText isValue={!!valueInit}>
             {valueInit
               ? format(parseISO(valueInit?.dateString), 'd MMM yyyy')
@@ -55,7 +66,7 @@ export function DatePickerField({
           </ValueText>
         </WrapperField>
         <WrapperField onPress={toggleShowDatePicker} secondInput>
-          <Label>{labelText2}</Label>
+          <Label error={!!errorFinal}>{labelFinal}</Label>
           <ValueText isValue={!!valueFinal}>
             {valueFinal
               ? format(parseISO(valueFinal?.dateString), 'd MMM yyyy')

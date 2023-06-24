@@ -34,9 +34,11 @@ const title = 'CALENDÁRIO';
 export function DatePicker({
   show,
   onDimiss,
-  onSelectedDates,
-  labelText1,
-  labelText2,
+  labelInit,
+  labelFinal,
+  onChangeInit,
+  onChangeFinal,
+  onChangeNextEvent,
   minDate,
   maxDate,
   monthFormat,
@@ -103,16 +105,22 @@ export function DatePicker({
         </Header>
         <SelectedDateWrapper>
           <SelectedDateField
-            label={labelText1}
+            label={labelInit}
             isFocus={selectedInicitalDateSate.selected}
             date={selectedInicitalDateSate.date}
-            clearDate={() => setSelectInicitalDateSate({ selected: false, date: undefined })}
+            clearDate={() => {
+              onChangeInit(null);
+              setSelectInicitalDateSate({ selected: false, date: undefined });
+            }}
           />
           <SelectedDateField
-            label={labelText2}
+            label={labelFinal}
             isFocus={!selectedInicitalDateSate.selected}
             date={selectedFinalDateSate.date}
-            clearDate={() => setSelectFinalDateSate({ selected: false, date: undefined })}
+            clearDate={() => {
+              onChangeFinal(null);
+              setSelectFinalDateSate({ selected: false, date: undefined });
+            }}
           />
         </SelectedDateWrapper>
         <WrapperCalendar>
@@ -181,10 +189,9 @@ export function DatePicker({
           <SButton
             disabled={!selectedInicitalDateSate?.date}
             onPress={() => {
-              onSelectedDates({
-                initialDate: selectedInicitalDateSate?.date,
-                finalDate: selectedFinalDateSate?.date,
-              });
+              onChangeInit(selectedInicitalDateSate?.date);
+              onChangeFinal(selectedFinalDateSate?.date);
+              if (onChangeNextEvent) onChangeNextEvent();
               selectedInicitalDateSate?.date && onDimiss();
             }}
           >
