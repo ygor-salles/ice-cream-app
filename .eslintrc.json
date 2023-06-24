@@ -109,6 +109,7 @@
     "no-unused-vars": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "no-confusing-arrow": "off",
+    "linebreak-style": "off",
     "indent": "off"
   }
 }

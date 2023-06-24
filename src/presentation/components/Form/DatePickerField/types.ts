@@ -7,14 +7,12 @@ export interface DatePickerFieldProps {
   name: string;
   control: Control<any>;
   placeholder?: string;
-  label?: string;
   onSelectedDates: (dates: IParamsOnSelectedDates) => void;
-  value?: IDates;
+  valueInit?: IDates;
+  valueFinal?: IDates;
   customStyle?: object;
   minDate?: Date;
   title: string;
-  buttonText1: string;
-  buttonText2?: string;
   labelText1: string;
   labelText2: string;
 }

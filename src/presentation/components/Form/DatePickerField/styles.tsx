@@ -3,16 +3,34 @@ import styled, { css } from 'styled-components/native';
 import { colors } from '~styles/constants';
 
 interface LabelProps {
-  error: boolean;
+  error?: boolean;
 }
 
-export const WrapperField = styled.TouchableOpacity`
-  height: auto;
+interface ValueTextProps {
+  isValue?: boolean;
+}
+
+interface WrapperFieldProps {
+  secondInput?: boolean;
+}
+
+export const Wrapper = styled.View`
+  flex-direction: row;
   width: 100%;
+`;
+
+export const WrapperField = styled.TouchableOpacity<WrapperFieldProps>`
+  height: auto;
+  width: 50%;
   padding: 8px 16px;
   background-color: ${colors.WHITE};
-  border-width: 1px;
-  border-color: ${colors.GRAY_500};
+
+  ${({ secondInput }) =>
+    secondInput &&
+    css`
+      border-left-width: 0.5px;
+      border-left-color: ${colors.GRAY_300};
+    `}
 `;
 
 export const Label = styled.Text<LabelProps>`
@@ -29,10 +47,6 @@ export const Label = styled.Text<LabelProps>`
       font-weight: bold;
     `};
 `;
-
-interface ValueTextProps {
-  isValue?: boolean;
-}
 
 export const ValueText = styled.Text<ValueTextProps>`
   font-weight: 400;

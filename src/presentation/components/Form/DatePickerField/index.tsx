@@ -5,21 +5,19 @@ import { Keyboard } from 'react-native';
 import { format, parseISO } from 'date-fns';
 
 import { DatePicker } from './components/DatePicker';
-import { Label, ValueText, WrapperField } from './styles';
+import { Label, Wrapper, ValueText, WrapperField } from './styles';
 import { DatePickerFieldProps } from './types';
 
 export function DatePickerField({
-  label,
   onSelectedDates,
-  value,
+  valueInit,
+  valueFinal,
   customStyle,
   minDate,
   title,
   name,
   control,
   placeholder,
-  buttonText1,
-  buttonText2,
   labelText1,
   labelText2,
 }: DatePickerFieldProps) {
@@ -46,17 +44,27 @@ export function DatePickerField({
         onSelectedDates={onSelectedDates}
         minDate={minDate}
         title={title}
-        buttonText1={buttonText1}
-        buttonText2={buttonText2}
         labelText1={labelText1}
         labelText2={labelText2}
       />
-      <WrapperField style={customStyle} onPress={toggleShowDatePicker}>
-        <Label error={!!error}>{label}</Label>
-        <ValueText isValue={!!value}>
-          {value ? format(parseISO(value?.dateString), 'd MMM yyyy') : placeholder ?? 'Selecione'}
-        </ValueText>
-      </WrapperField>
+      <Wrapper style={customStyle}>
+        <WrapperField onPress={toggleShowDatePicker}>
+          <Label>{labelText1}</Label>
+          <ValueText isValue={!!valueInit}>
+            {valueInit
+              ? format(parseISO(valueInit?.dateString), 'd MMM yyyy')
+              : placeholder ?? 'Selecione'}
+          </ValueText>
+        </WrapperField>
+        <WrapperField onPress={toggleShowDatePicker} secondInput>
+          <Label>{labelText2}</Label>
+          <ValueText isValue={!!valueFinal}>
+            {valueFinal
+              ? format(parseISO(valueFinal?.dateString), 'd MMM yyyy')
+              : placeholder ?? 'Selecione'}
+          </ValueText>
+        </WrapperField>
+      </Wrapper>
     </>
   );
 }

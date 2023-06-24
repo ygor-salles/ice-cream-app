@@ -13,26 +13,25 @@ export function FilterDash() {
     formState: { isValid },
     setValue,
     watch,
-  } = useForm({ defaultValues: { date: null } });
+  } = useForm({ defaultValues: { dateInit: null, dateFinal: null } });
 
-  const values = watch();
+  const { dateInit, dateFinal } = watch();
 
   return (
     <Container>
       <TextApp>Filtro de entradas</TextApp>
       <DatePickerField
         control={control}
-        label="Datas (ida e volta)"
         name="date"
         onSelectedDates={({ initialDate, finalDate }: IParamsOnSelectedDates) => {
-          console.log('initialDate', initialDate);
-          console.log('finalDate', finalDate);
+          setValue('dateInit', initialDate);
+          setValue('dateFinal', finalDate);
         }}
-        value={values.date}
+        valueInit={dateInit}
+        valueFinal={dateFinal}
         minDate={new Date()}
-        customStyle={styles.inputFieldBottom}
+        // customStyle={styles.inputFieldBottom}
         title="Filtro por data"
-        buttonText1="Selecionar datas"
         labelText1="Data início"
         labelText2="Data fim"
       />

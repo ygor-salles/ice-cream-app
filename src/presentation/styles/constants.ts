@@ -59,7 +59,7 @@ export const globalKeyFrames = {
       // opacity: 1,
       transform: [{ translateY: 0 }],
     },
-  }).duration(250),
+  }).duration(125),
   ENTER_TOP: new Keyframe({
     from: {
       // opacity: 0,
@@ -69,7 +69,7 @@ export const globalKeyFrames = {
       // opacity: 1,
       transform: [{ translateY: 0 }],
     },
-  }).duration(250),
+  }).duration(125),
   ENTER_LEFT: new Keyframe({
     from: {
       // opacity: 0,
@@ -79,7 +79,7 @@ export const globalKeyFrames = {
       // opacity: 1,
       transform: [{ translateX: 0 }],
     },
-  }).duration(250),
+  }).duration(125),
   ENTER_RIGHT: new Keyframe({
     from: {
       // opacity: 0,
@@ -89,7 +89,7 @@ export const globalKeyFrames = {
       // opacity: 1,
       transform: [{ translateX: 0 }],
     },
-  }).duration(250),
+  }).duration(125),
   EXIT_BOTTOM: new Keyframe({
     from: {
       // opacity: 1,
@@ -99,7 +99,7 @@ export const globalKeyFrames = {
       // opacity: 0,
       transform: [{ translateY: 100 }],
     },
-  }).duration(250),
+  }).duration(125),
   EXIT_TOP: new Keyframe({
     from: {
       // opacity: 1,
@@ -109,7 +109,7 @@ export const globalKeyFrames = {
       // opacity: 0,
       transform: [{ translateY: -100 }],
     },
-  }).duration(250),
+  }).duration(125),
   EXIT_LEFT: new Keyframe({
     from: {
       // opacity: 1,
@@ -119,7 +119,7 @@ export const globalKeyFrames = {
       // opacity: 0,
       transform: [{ translateX: -100 }],
     },
-  }).duration(250),
+  }).duration(125),
   EXIT_RIGHT: new Keyframe({
     from: {
       // opacity: 1,
@@ -129,5 +129,5 @@ export const globalKeyFrames = {
       // opacity: 0,
       transform: [{ translateX: 100 }],
     },
-  }).duration(250),
+  }).duration(125),
 };

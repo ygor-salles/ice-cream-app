@@ -34,8 +34,6 @@ export function DatePicker({
   onDimiss,
   onSelectedDates,
   title,
-  buttonText1,
-  buttonText2,
   labelText1,
   labelText2,
   minDate,
@@ -95,7 +93,7 @@ export function DatePicker({
   if (!show) return null;
 
   return (
-    <Portal name={title + buttonText1}>
+    <Portal name={title}>
       <LayoutCalendar entering={globalKeyFrames.ENTER_TOP} exiting={globalKeyFrames.EXIT_BOTTOM}>
         <Header>
           <Feather name="x" size={24} color={colors.GRAY_500} onPress={onDimiss} />
@@ -178,19 +176,21 @@ export function DatePicker({
             )}
           />
         </WrapperCalendar>
-        <SButton
-          disabled={!selectedInicitalDateSate?.date}
-          onPress={() => {
-            onSelectedDates({
-              initialDate: selectedInicitalDateSate?.date,
-              finalDate: selectedFinalDateSate?.date,
-            });
-            selectedInicitalDateSate?.date && onDimiss();
-          }}
-        >
-          {(!selectedFinalDateSate.selected || !buttonText2) && buttonText1}
-          {selectedFinalDateSate.selected && buttonText2 && buttonText2}
-        </SButton>
+        {selectedInicitalDateSate.date && (
+          <SButton
+            disabled={!selectedInicitalDateSate?.date}
+            onPress={() => {
+              onSelectedDates({
+                initialDate: selectedInicitalDateSate?.date,
+                finalDate: selectedFinalDateSate?.date,
+              });
+              selectedInicitalDateSate?.date && onDimiss();
+            }}
+          >
+            {!selectedFinalDateSate.selected && 'Selecionar data'}
+            {selectedFinalDateSate.selected && 'Selecionar datas'}
+          </SButton>
+        )}
       </LayoutCalendar>
     </Portal>
   );

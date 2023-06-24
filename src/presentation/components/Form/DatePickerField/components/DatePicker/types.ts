@@ -17,8 +17,6 @@ export interface DatePickerProps {
   // eslint-disable-next-line no-empty-pattern
   onSelectedDates: ({}) => void;
   title: string;
-  buttonText1: string;
-  buttonText2?: string;
   labelText1: string;
   labelText2: string;
   minDate?: Date;
