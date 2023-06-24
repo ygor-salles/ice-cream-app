@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 import { Portal } from '@gorhom/portal';
 import { format } from 'date-fns';
 
-import { colors } from '~styles/constants';
+import { colors, globalKeyFrames } from '~styles/constants';
 
 import { ArrowsCalendar } from './components/ArrowsCalendar';
 import { HeaderCalendar } from './components/HeaderCalendar';
@@ -96,7 +96,7 @@ export function DatePicker({
 
   return (
     <Portal name={title + buttonText1}>
-      <LayoutCalendar>
+      <LayoutCalendar entering={globalKeyFrames.ENTER_TOP} exiting={globalKeyFrames.EXIT_BOTTOM}>
         <Header>
           <Feather name="x" size={24} color={colors.GRAY_500} onPress={onDimiss} />
           <Title>CALENDÁRIO</Title>

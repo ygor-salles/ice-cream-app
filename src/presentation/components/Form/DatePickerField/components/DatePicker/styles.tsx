@@ -1,10 +1,12 @@
+import Animated from 'react-native-reanimated';
+
 import styled from 'styled-components/native';
 
 import { Button } from '~components/Button';
 import { TextApp } from '~components/TextApp';
 import { colors } from '~styles/constants';
 
-export const LayoutCalendar = styled.View`
+export const LayoutCalendar = styled(Animated.View)`
   z-index: 1;
   background-color: ${colors.WHITE};
   position: absolute;

@@ -50,24 +50,84 @@ export const globalStyles = {
 };
 
 export const globalKeyFrames = {
-  ENTERING: new Keyframe({
+  ENTER_BOTTOM: new Keyframe({
     from: {
-      opacity: 0,
+      // opacity: 0,
       transform: [{ translateY: -100 }],
     },
     to: {
-      opacity: 1,
+      // opacity: 1,
       transform: [{ translateY: 0 }],
     },
-  }),
-  EXITING: new Keyframe({
+  }).duration(250),
+  ENTER_TOP: new Keyframe({
     from: {
-      opacity: 1,
+      // opacity: 0,
+      transform: [{ translateY: 100 }],
+    },
+    to: {
+      // opacity: 1,
+      transform: [{ translateY: 0 }],
+    },
+  }).duration(250),
+  ENTER_LEFT: new Keyframe({
+    from: {
+      // opacity: 0,
+      transform: [{ translateX: 100 }],
+    },
+    to: {
+      // opacity: 1,
+      transform: [{ translateX: 0 }],
+    },
+  }).duration(250),
+  ENTER_RIGHT: new Keyframe({
+    from: {
+      // opacity: 0,
+      transform: [{ translateX: -100 }],
+    },
+    to: {
+      // opacity: 1,
+      transform: [{ translateX: 0 }],
+    },
+  }).duration(250),
+  EXIT_BOTTOM: new Keyframe({
+    from: {
+      // opacity: 1,
       transform: [{ translateY: 0 }],
     },
     to: {
-      opacity: 0,
+      // opacity: 0,
+      transform: [{ translateY: 100 }],
+    },
+  }).duration(250),
+  EXIT_TOP: new Keyframe({
+    from: {
+      // opacity: 1,
+      transform: [{ translateY: 0 }],
+    },
+    to: {
+      // opacity: 0,
       transform: [{ translateY: -100 }],
     },
-  }),
+  }).duration(250),
+  EXIT_LEFT: new Keyframe({
+    from: {
+      // opacity: 1,
+      transform: [{ translateX: 0 }],
+    },
+    to: {
+      // opacity: 0,
+      transform: [{ translateX: -100 }],
+    },
+  }).duration(250),
+  EXIT_RIGHT: new Keyframe({
+    from: {
+      // opacity: 1,
+      transform: [{ translateX: 0 }],
+    },
+    to: {
+      // opacity: 0,
+      transform: [{ translateX: 100 }],
+    },
+  }).duration(250),
 };
