@@ -29,11 +29,12 @@ import {
 } from './styles';
 import { DatePickerProps } from './types';
 
+const title = 'CALENDÁRIO';
+
 export function DatePicker({
   show,
   onDimiss,
   onSelectedDates,
-  title,
   labelText1,
   labelText2,
   minDate,
@@ -97,7 +98,7 @@ export function DatePicker({
       <LayoutCalendar entering={globalKeyFrames.ENTER_TOP} exiting={globalKeyFrames.EXIT_BOTTOM}>
         <Header>
           <Feather name="x" size={24} color={colors.GRAY_500} onPress={onDimiss} />
-          <Title>CALENDÁRIO</Title>
+          <Title>{title}</Title>
           <HiddenIcon />
         </Header>
         <SelectedDateWrapper>

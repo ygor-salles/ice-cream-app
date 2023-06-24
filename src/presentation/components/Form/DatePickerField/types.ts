@@ -12,7 +12,6 @@ export interface DatePickerFieldProps {
   valueFinal?: IDates;
   customStyle?: object;
   minDate?: Date;
-  title: string;
   labelText1: string;
   labelText2: string;
 }

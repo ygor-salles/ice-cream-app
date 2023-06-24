@@ -14,7 +14,6 @@ export function DatePickerField({
   valueFinal,
   customStyle,
   minDate,
-  title,
   name,
   control,
   placeholder,
@@ -43,7 +42,6 @@ export function DatePickerField({
         onDimiss={toggleShowDatePicker}
         onSelectedDates={onSelectedDates}
         minDate={minDate}
-        title={title}
         labelText1={labelText1}
         labelText2={labelText2}
       />

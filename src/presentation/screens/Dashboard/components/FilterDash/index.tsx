@@ -31,7 +31,6 @@ export function FilterDash() {
         valueFinal={dateFinal}
         minDate={new Date()}
         // customStyle={styles.inputFieldBottom}
-        title="Filtro por data"
         labelText1="Data início"
         labelText2="Data fim"
       />
