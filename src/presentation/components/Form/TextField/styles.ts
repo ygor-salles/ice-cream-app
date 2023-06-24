@@ -74,11 +74,12 @@ export const InputContainer = styled.View`
 export const InputField = styled.TextInput`
   flex: 1;
   font-size: 16px;
-  padding: 0;
+  padding: 4px 0;
 `;
 
 export const Error = styled.Text`
   font-weight: 400;
   font-size: 12px;
   color: ${colors.RED_ERROR};
+  margin-top: 4px;
 `;

@@ -15,3 +15,30 @@ export const formatNumberToCurrency = (value: number) =>
     maximumFractionDigits: 2,
     minimumFractionDigits: 2,
   }).format(value);
+
+export const monthNames = [
+  'Janeiro',
+  'Fevereiro',
+  'Março',
+  'Abril',
+  'Maio',
+  'Junho',
+  'Julho',
+  'Agosto',
+  'Setembro',
+  'Outubro',
+  'Novembro',
+  'Dezembro',
+];
+
+export const dayNames = [
+  'Domingo',
+  'Segunda-feira',
+  'Terça-feira',
+  'Quarta-feira',
+  'Quinta-feira',
+  'Sexta-feira',
+  'Sábado',
+];
+
+export const dayNamesShort = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];

@@ -8,3 +8,16 @@ export type IconName = React.ComponentProps<typeof Feather>['name'];
 export type NavDrawer = DrawerNavigationProp<ParamListBase>;
 
 export type NavStack = NativeStackNavigationProp<ParamListBase>;
+
+export interface IDates {
+  dateString: string;
+  day: number;
+  month: number;
+  year: number;
+  timestamp: number;
+}
+
+export interface IParamsOnSelectedDates {
+  initialDate: IDates;
+  finalDate?: IDates;
+}

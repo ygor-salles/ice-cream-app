@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+import { PortalProvider } from '@gorhom/portal';
 
 import { AuthProvider, AppThemeProvider } from '~contexts/index';
 import { Routes } from '~routes/index';
@@ -7,7 +8,9 @@ export default function App() {
   return (
     <AppThemeProvider>
       <AuthProvider>
-        <Routes />
+        <PortalProvider>
+          <Routes />
+        </PortalProvider>
       </AuthProvider>
     </AppThemeProvider>
   );

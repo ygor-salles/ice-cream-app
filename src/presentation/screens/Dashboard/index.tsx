@@ -2,6 +2,7 @@ import { ItemFooter, Layout } from '~components/index';
 import { BaseDrawerProps } from '~routes/types';
 
 import { CardInfo } from './components/CardInfo';
+import { FilterDash } from './components/FilterDash';
 import { Container } from './styles';
 
 export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
@@ -25,6 +26,8 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
       }
     >
       <Container>
+        <FilterDash />
+
         <CardInfo iconName="arrow-up-circle" typeTitle="input" subTitle="Hoje" value={300} />
         <CardInfo iconName="arrow-down-circle" typeTitle="output" subTitle="Hoje" value={300} />
         <CardInfo iconName="dollar-sign" typeTitle="profit" subTitle="Hoje" value={300} />

@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
+import { View } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -68,7 +69,7 @@ export function TextField({
   );
 
   return (
-    <>
+    <View>
       <Wrapper
         disabled={disabled}
         error={!!error}
@@ -123,6 +124,6 @@ export function TextField({
           }}
         />
       )}
-    </>
+    </View>
   );
 }
