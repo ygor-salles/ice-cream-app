@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import { DatePickerField } from '~components/index';
+import { DateRangePickerField } from '~components/index';
 import { TextApp } from '~components/TextApp';
 
 import { Container, styles } from './styles';
@@ -19,15 +19,15 @@ export function FilterDash() {
   return (
     <Container>
       <TextApp>Filtro de entradas</TextApp>
-      <DatePickerField
+      <DateRangePickerField
         control={control}
         minDate={new Date()}
         nameInit="dateInit"
         nameFinal="dateFinal"
         valueInit={dateInit}
-        // valueFinal={dateFinal}
+        valueFinal={dateFinal}
         labelInit="Data início"
-        // labelFinal="Data fim"
+        labelFinal="Data fim"
       />
     </Container>
   );

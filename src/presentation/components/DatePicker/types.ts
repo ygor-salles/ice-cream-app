@@ -15,9 +15,9 @@ export interface DatePickerProps {
   show: boolean;
   onDimiss: () => void;
   labelInit: string;
-  labelFinal: string;
+  labelFinal?: string;
   onChangeInit: (...event: any[]) => void;
-  onChangeFinal: (...event: any[]) => void;
+  onChangeFinal?: (...event: any[]) => void;
   onChangeNextEvent?: () => void;
   minDate?: Date;
   maxDate?: Date;
