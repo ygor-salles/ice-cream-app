@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { Calendar } from 'react-native-calendars';
+import { Calendar, DateData } from 'react-native-calendars';
 
 import { Feather } from '@expo/vector-icons';
 import { Portal } from '@gorhom/portal';
@@ -101,31 +101,32 @@ export function DatePicker({
     [selectedInicitalDateSate],
   );
 
-  const onOneDayPress = day => {
+  const onOneDayPress = (day: DateData) =>
     setSelectInicitalDateSate({
       selected: true,
       date: day,
     });
-  };
 
-  const onTwoDayPress = day => {
-    !selectedInicitalDateSate.selected &&
-      !selectedFinalDateSate.selected &&
+  const onTwoDayPress = (day: DateData) => {
+    if (!selectedInicitalDateSate.selected && !selectedFinalDateSate.selected) {
       setSelectInicitalDateSate({
         selected: true,
         date: day,
       });
+    }
 
-    !selectedFinalDateSate.selected &&
+    if (
+      !selectedFinalDateSate.selected &&
       selectedInicitalDateSate.selected &&
-      day.dateString > selectedInicitalDateSate.date?.dateString &&
+      day.dateString > selectedInicitalDateSate.date?.dateString
+    ) {
       setSelectFinalDateSate({
         selected: true,
         date: day,
       });
+    }
 
-    selectedInicitalDateSate.selected &&
-      selectedFinalDateSate.selected &&
+    if (selectedInicitalDateSate.selected && selectedFinalDateSate.selected) {
       (() => {
         setSelectInicitalDateSate({
           selected: true,
@@ -137,6 +138,31 @@ export function DatePicker({
           date: undefined,
         });
       })();
+    }
+  };
+
+  const clearDateFirstInput = !selectedFinalDateSate.selected
+    ? () => {
+        onChangeInit(null);
+        setSelectInicitalDateSate({ selected: false, date: undefined });
+      }
+    : undefined;
+
+  const clearDateSecondInput = () => {
+    onChangeFinal(null);
+    setSelectFinalDateSate({ selected: false, date: undefined });
+  };
+
+  const onPressSubmit = () => {
+    onChangeInit(selectedInicitalDateSate?.date);
+
+    if (hasTwoInput) {
+      onChangeFinal(selectedFinalDateSate?.date);
+    }
+
+    if (onChangeNextEvent) onChangeNextEvent();
+
+    if (selectedInicitalDateSate?.date) onDimiss();
   };
 
   if (!show) return null;
@@ -154,24 +180,14 @@ export function DatePicker({
             label={labelInit}
             isFocus={selectedInicitalDateSate.selected}
             date={selectedInicitalDateSate.date}
-            clearDate={
-              !selectedFinalDateSate.selected
-                ? () => {
-                    onChangeInit(null);
-                    setSelectInicitalDateSate({ selected: false, date: undefined });
-                  }
-                : undefined
-            }
+            clearDate={clearDateFirstInput}
           />
           {hasTwoInput ? (
             <SelectedDateField
               label={labelFinal}
               isFocus={!selectedInicitalDateSate.selected}
               date={selectedFinalDateSate.date}
-              clearDate={() => {
-                onChangeFinal(null);
-                setSelectFinalDateSate({ selected: false, date: undefined });
-              }}
+              clearDate={clearDateSecondInput}
             />
           ) : null}
         </SelectedDateWrapper>
@@ -209,20 +225,7 @@ export function DatePicker({
           />
         </WrapperCalendar>
         {selectedInicitalDateSate.date && (
-          <SButton
-            disabled={!selectedInicitalDateSate?.date}
-            onPress={() => {
-              onChangeInit(selectedInicitalDateSate?.date);
-
-              if (hasTwoInput) {
-                onChangeFinal(selectedFinalDateSate?.date);
-              }
-
-              if (onChangeNextEvent) onChangeNextEvent();
-
-              selectedInicitalDateSate?.date && onDimiss();
-            }}
-          >
+          <SButton disabled={!selectedInicitalDateSate?.date} onPress={onPressSubmit}>
             {!selectedFinalDateSate.selected && 'Selecionar data'}
             {selectedFinalDateSate.selected && 'Selecionar datas'}
           </SButton>
