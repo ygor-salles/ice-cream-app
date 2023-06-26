@@ -25,9 +25,9 @@ export function FilterDash() {
         nameInit="dateInit"
         nameFinal="dateFinal"
         valueInit={dateInit}
-        valueFinal={dateFinal}
+        // valueFinal={dateFinal}
         labelInit="Data início"
-        labelFinal="Data fim"
+        // labelFinal="Data fim"
       />
     </Container>
   );

@@ -10,9 +10,9 @@ export interface DatePickerFieldProps {
   onChangeNextEvent?: () => void;
   customStyle?: object;
   nameInit: string;
-  nameFinal: string;
-  valueInit?: IDates;
+  nameFinal?: string;
+  valueInit: IDates;
   valueFinal?: IDates;
   labelInit: string;
-  labelFinal: string;
+  labelFinal?: string;
 }

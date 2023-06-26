@@ -2,10 +2,9 @@ import React, { useCallback, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { Keyboard } from 'react-native';
 
-import { format, parseISO } from 'date-fns';
-
 import { DatePicker } from './components/DatePicker';
-import { Label, Wrapper, ValueText, WrapperField } from './styles';
+import { OneInputDate } from './components/OneInputDate';
+import { TwoInputDates } from './components/TwoInputDates';
 import { DatePickerFieldProps } from './types';
 
 export function DatePickerField({
@@ -28,6 +27,8 @@ export function DatePickerField({
     name: nameInit,
     control,
   });
+
+  const hasTwoInputDates = labelFinal && valueFinal !== undefined && nameFinal;
 
   const {
     field: { onChange: onChangeFinal },
@@ -56,24 +57,28 @@ export function DatePickerField({
         labelInit={labelInit}
         labelFinal={labelFinal}
       />
-      <Wrapper style={customStyle}>
-        <WrapperField onPress={toggleShowDatePicker}>
-          <Label error={!!errorInit}>{labelInit}</Label>
-          <ValueText isValue={!!valueInit}>
-            {valueInit
-              ? format(parseISO(valueInit?.dateString), 'd MMM yyyy')
-              : placeholder ?? 'Selecione'}
-          </ValueText>
-        </WrapperField>
-        <WrapperField onPress={toggleShowDatePicker} secondInput>
-          <Label error={!!errorFinal}>{labelFinal}</Label>
-          <ValueText isValue={!!valueFinal}>
-            {valueFinal
-              ? format(parseISO(valueFinal?.dateString), 'd MMM yyyy')
-              : placeholder ?? 'Selecione'}
-          </ValueText>
-        </WrapperField>
-      </Wrapper>
+      {hasTwoInputDates ? (
+        <TwoInputDates
+          customStyle={customStyle}
+          errorFinal={errorFinal}
+          errorInit={errorInit}
+          labelFinal={labelFinal}
+          labelInit={labelInit}
+          placeholder={placeholder}
+          toggleShowDatePicker={toggleShowDatePicker}
+          valueFinal={valueFinal}
+          valueInit={valueInit}
+        />
+      ) : (
+        <OneInputDate
+          customStyle={customStyle}
+          error={errorInit}
+          label={labelInit}
+          placeholder={placeholder}
+          toggleShowDatePicker={toggleShowDatePicker}
+          value={valueInit}
+        />
+      )}
     </>
   );
 }
