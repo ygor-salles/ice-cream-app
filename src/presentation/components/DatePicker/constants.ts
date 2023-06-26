@@ -73,6 +73,33 @@ export const customMarkedDates = (
   },
 });
 
+export const customMarkedDate = (selectedInicitalDateSate: {
+  date: IDates;
+  selected: boolean;
+}) => ({
+  [selectedInicitalDateSate?.date?.dateString]: {
+    customStyles: {
+      container: {
+        backgroundColor: colors.GRAY_300,
+        width: '100%',
+        marginLeft: '50%',
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
+      },
+      text: {
+        color: colors.WHITE,
+        fontWeight: 'bold',
+        backgroundColor: colors.TEXT,
+        paddingVertical: 6,
+        paddingHorizontal: selectedInicitalDateSate?.date?.dateString[8] === '0' ? '24%' : '16%',
+        marginTop: -0.2,
+        borderRadius: 50,
+        marginLeft: '-50%',
+      },
+    },
+  },
+});
+
 export const customIntervalDates = (selectedPeriodDate: string[]) =>
   selectedPeriodDate.reduce(
     (obj, item) =>

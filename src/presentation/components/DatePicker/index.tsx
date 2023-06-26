@@ -12,6 +12,7 @@ import { HeaderCalendar } from './components/HeaderCalendar';
 import { SelectedDateField } from './components/SelectedDateField';
 import {
   customIntervalDates,
+  customMarkedDate,
   customMarkedDates,
   themeCalendar,
   today,
@@ -95,6 +96,11 @@ export function DatePicker({
     [intervalDates, selectedInicitalDateSate, selectedFinalDateSate],
   );
 
+  const markedDate = useMemo(
+    () => customMarkedDate(selectedInicitalDateSate),
+    [selectedInicitalDateSate],
+  );
+
   if (!show) return null;
 
   return (
@@ -142,7 +148,7 @@ export function DatePicker({
             theme={themeCalendar}
             minDate={minDate && format(minDate, 'yyyy-MM-dd')}
             maxDate={maxDate && format(maxDate, 'yyyy-MM-dd')}
-            markedDates={markedDates}
+            markedDates={hasTwoInput ? markedDates : markedDate}
             hideArrows={hideArrows ?? hideArrows}
             monthFormat={monthFormat ?? monthFormat}
             hideDayNames={hideDayNames ?? hideDayNames}
