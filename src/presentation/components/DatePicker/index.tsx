@@ -101,6 +101,44 @@ export function DatePicker({
     [selectedInicitalDateSate],
   );
 
+  const onOneDayPress = day => {
+    setSelectInicitalDateSate({
+      selected: true,
+      date: day,
+    });
+  };
+
+  const onTwoDayPress = day => {
+    !selectedInicitalDateSate.selected &&
+      !selectedFinalDateSate.selected &&
+      setSelectInicitalDateSate({
+        selected: true,
+        date: day,
+      });
+
+    !selectedFinalDateSate.selected &&
+      selectedInicitalDateSate.selected &&
+      day.dateString > selectedInicitalDateSate.date?.dateString &&
+      setSelectFinalDateSate({
+        selected: true,
+        date: day,
+      });
+
+    selectedInicitalDateSate.selected &&
+      selectedFinalDateSate.selected &&
+      (() => {
+        setSelectInicitalDateSate({
+          selected: true,
+          date: day,
+        });
+
+        setSelectFinalDateSate({
+          selected: false,
+          date: undefined,
+        });
+      })();
+  };
+
   if (!show) return null;
 
   return (
@@ -160,36 +198,7 @@ export function DatePicker({
             disableArrowLeft={disableArrowLeft || verifyDate}
             onPressArrowLeft={callbackOnpressArrowLeft ?? callbackOnpressArrowLeft}
             onPressArrowRight={callbackOnpressArrowRight ?? callbackOnpressArrowRight}
-            onDayPress={day => {
-              !selectedInicitalDateSate.selected &&
-                !selectedFinalDateSate.selected &&
-                setSelectInicitalDateSate({
-                  selected: true,
-                  date: day,
-                });
-
-              !selectedFinalDateSate.selected &&
-                selectedInicitalDateSate.selected &&
-                day.dateString > selectedInicitalDateSate.date?.dateString &&
-                setSelectFinalDateSate({
-                  selected: true,
-                  date: day,
-                });
-
-              selectedInicitalDateSate.selected &&
-                selectedFinalDateSate.selected &&
-                (() => {
-                  setSelectInicitalDateSate({
-                    selected: true,
-                    date: day,
-                  });
-
-                  setSelectFinalDateSate({
-                    selected: false,
-                    date: undefined,
-                  });
-                })();
-            }}
+            onDayPress={hasTwoInput ? onTwoDayPress : onOneDayPress}
             onMonthChange={(month: { dateString: string }) => {
               setSelectedMonthState(month?.dateString);
             }}
