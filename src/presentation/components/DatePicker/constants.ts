@@ -80,9 +80,7 @@ export const customMarkedDate = (selectedInicitalDateSate: {
   [selectedInicitalDateSate?.date?.dateString]: {
     customStyles: {
       container: {
-        backgroundColor: colors.GRAY_300,
         width: '100%',
-        marginLeft: '50%',
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
       },
@@ -94,7 +92,6 @@ export const customMarkedDate = (selectedInicitalDateSate: {
         paddingHorizontal: selectedInicitalDateSate?.date?.dateString[8] === '0' ? '24%' : '16%',
         marginTop: -0.2,
         borderRadius: 50,
-        marginLeft: '-50%',
       },
     },
   },
