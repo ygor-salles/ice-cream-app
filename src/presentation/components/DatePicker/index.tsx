@@ -51,6 +51,8 @@ export function DatePicker({
   callbackOnpressArrowLeft,
   callbackOnpressArrowRight,
 }: DatePickerProps) {
+  const hasTwoInput = !!(onChangeFinal && labelFinal);
+
   const [selectedInicitalDateSate, setSelectInicitalDateSate] = useState({
     selected: false,
     date: undefined,
@@ -117,15 +119,17 @@ export function DatePicker({
                 : undefined
             }
           />
-          <SelectedDateField
-            label={labelFinal}
-            isFocus={!selectedInicitalDateSate.selected}
-            date={selectedFinalDateSate.date}
-            clearDate={() => {
-              onChangeFinal(null);
-              setSelectFinalDateSate({ selected: false, date: undefined });
-            }}
-          />
+          {hasTwoInput ? (
+            <SelectedDateField
+              label={labelFinal}
+              isFocus={!selectedInicitalDateSate.selected}
+              date={selectedFinalDateSate.date}
+              clearDate={() => {
+                onChangeFinal(null);
+                setSelectFinalDateSate({ selected: false, date: undefined });
+              }}
+            />
+          ) : null}
         </SelectedDateWrapper>
         <WrapperCalendar>
           <DividerHeader />
@@ -194,8 +198,13 @@ export function DatePicker({
             disabled={!selectedInicitalDateSate?.date}
             onPress={() => {
               onChangeInit(selectedInicitalDateSate?.date);
-              onChangeFinal(selectedFinalDateSate?.date);
+
+              if (hasTwoInput) {
+                onChangeFinal(selectedFinalDateSate?.date);
+              }
+
               if (onChangeNextEvent) onChangeNextEvent();
+
               selectedInicitalDateSate?.date && onDimiss();
             }}
           >
