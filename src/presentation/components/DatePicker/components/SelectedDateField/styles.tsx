@@ -1,5 +1,4 @@
 /* eslint-disable no-nested-ternary */
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
 import { colors } from '~styles/constants';
@@ -30,10 +29,6 @@ export const Label = styled.Text<ThemeNameProps>`
   color: ${props => (props.themeName === 'light' ? colors.PURPLE_PRIMARY : colors.WHITE)};
 `;
 
-export const SelectedDateContent = styled.View`
-  flex-direction: row;
-`;
-
 interface SelectedDateTextProps {
   isValue: undefined | { dateString: string };
   themeName: 'light' | 'dark';
@@ -54,8 +49,4 @@ export const SelectedDateText = styled.Text<SelectedDateTextProps>`
       : themeName === 'light'
       ? colors.GRAY_300
       : colors.GRAY_300};
-`;
-
-export const ClearIcon = styled(Feather)`
-  align-self: flex-end;
 `;

@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { Feather } from '@expo/vector-icons';
 import { format, parseISO } from 'date-fns';
 
+import { Row } from '~components/Row';
 import { colors } from '~styles/constants';
 
 import { SelectedDateFieldProps } from '../../types';
-import { ClearIcon, Label, SelectedDateContent, SelectedDateText, Wrapper } from './styles';
+import { Label, SelectedDateText, Wrapper } from './styles';
 
 export function SelectedDateField({
   label,
@@ -18,19 +20,21 @@ export function SelectedDateField({
   return (
     <Wrapper isFocus={isFocus} hasTwoInput={hasTwoInput}>
       <Label themeName={themeName}>{label}</Label>
-      <SelectedDateContent>
+      <Row>
         <SelectedDateText isValue={date} themeName={themeName}>
           {date ? format(parseISO(date?.dateString), 'd MMM yyyy') : 'Selecione'}
         </SelectedDateText>
-        {clearDate && date && (
-          <ClearIcon
+        {clearDate && date ? (
+          <Feather
             name="x-circle"
             size={24}
             color={themeName === 'light' ? colors.GRAY_600 : colors.GRAY_300}
             onPress={clearDate}
           />
+        ) : (
+          <Feather name="calendar" size={16} color={colors.GRAY_500} />
         )}
-      </SelectedDateContent>
+      </Row>
     </Wrapper>
   );
 }

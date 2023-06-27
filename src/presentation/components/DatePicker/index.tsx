@@ -206,6 +206,7 @@ export function DatePicker({
               date={selectedFinalDateSate.date}
               themeName={themeName}
               clearDate={clearDateSecondInput}
+              hasTwoInput={hasTwoInput}
             />
           ) : null}
         </SelectedDateWrapper>

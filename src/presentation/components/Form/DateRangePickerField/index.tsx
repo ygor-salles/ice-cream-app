@@ -2,10 +2,13 @@ import React, { useCallback, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { Keyboard } from 'react-native';
 
+import { Feather } from '@expo/vector-icons';
 import { format, parseISO } from 'date-fns';
 
 import { DatePicker } from '~components/DatePicker';
+import { Row } from '~components/Row';
 import { useThemeContext } from '~hooks/useThemeContext';
+import { colors } from '~styles/constants';
 
 import { Label, ValueText, Wrapper, WrapperField } from './styles';
 import { DateRangePickerFieldProps } from './types';
@@ -63,19 +66,25 @@ export function DateRangePickerField({
       <Wrapper style={customStyle} onPress={toggleShowDatePicker}>
         <WrapperField themeName={themeName}>
           <Label error={!!errorInit}>{labelInit}</Label>
-          <ValueText isValue={!!valueInit} themeName={themeName}>
-            {valueInit
-              ? format(parseISO(valueInit?.dateString), 'd MMM yyyy')
-              : placeholder ?? 'Selecione'}
-          </ValueText>
+          <Row>
+            <ValueText isValue={!!valueInit} themeName={themeName}>
+              {valueInit
+                ? format(parseISO(valueInit?.dateString), 'd MMM yyyy')
+                : placeholder ?? 'Selecione'}
+            </ValueText>
+            <Feather name="calendar" size={16} color={colors.GRAY_500} />
+          </Row>
         </WrapperField>
         <WrapperField themeName={themeName} secondInput>
           <Label error={!!errorFinal}>{labelFinal}</Label>
-          <ValueText isValue={!!valueFinal} themeName={themeName}>
-            {valueFinal
-              ? format(parseISO(valueFinal?.dateString), 'd MMM yyyy')
-              : placeholder ?? 'Selecione'}
-          </ValueText>
+          <Row>
+            <ValueText isValue={!!valueFinal} themeName={themeName}>
+              {valueFinal
+                ? format(parseISO(valueFinal?.dateString), 'd MMM yyyy')
+                : placeholder ?? 'Selecione'}
+            </ValueText>
+            <Feather name="calendar" size={16} color={colors.GRAY_500} />
+          </Row>
         </WrapperField>
       </Wrapper>
     </>
