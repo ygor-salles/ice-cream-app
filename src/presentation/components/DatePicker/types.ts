@@ -35,16 +35,20 @@ export interface DatePickerProps {
 export interface ArrowsCalendarProps {
   direction: string;
   verifyDate: boolean;
+  themeName: 'light' | 'dark';
 }
 
 export interface HeaderCalendarProps {
   date: Date;
+  themeName: 'light' | 'dark';
 }
 
 export interface SelectedDateFieldProps {
   label: string;
   isFocus: boolean;
   date: undefined | { dateString: string };
+  themeName: 'light' | 'dark';
+  hasTwoInput?: boolean;
   clearDate?: () => void;
 }
 

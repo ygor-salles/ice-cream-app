@@ -5,6 +5,7 @@ import { Keyboard } from 'react-native';
 import { format, parseISO } from 'date-fns';
 
 import { DatePicker } from '~components/DatePicker';
+import { useThemeContext } from '~hooks/useThemeContext';
 
 import { Label, ValueText, Wrapper, WrapperField } from './styles';
 import { DateRangePickerFieldProps } from './types';
@@ -38,6 +39,8 @@ export function DateRangePickerField({
     control,
   });
 
+  const { themeName } = useThemeContext();
+
   const [showDatePickerState, setShowDatePickerState] = useState(false);
 
   const toggleShowDatePicker = useCallback(() => {
@@ -57,18 +60,18 @@ export function DateRangePickerField({
         labelInit={labelInit}
         labelFinal={labelFinal}
       />
-      <Wrapper style={customStyle}>
-        <WrapperField onPress={toggleShowDatePicker}>
+      <Wrapper style={customStyle} onPress={toggleShowDatePicker}>
+        <WrapperField themeName={themeName}>
           <Label error={!!errorInit}>{labelInit}</Label>
-          <ValueText isValue={!!valueInit}>
+          <ValueText isValue={!!valueInit} themeName={themeName}>
             {valueInit
               ? format(parseISO(valueInit?.dateString), 'd MMM yyyy')
               : placeholder ?? 'Selecione'}
           </ValueText>
         </WrapperField>
-        <WrapperField onPress={toggleShowDatePicker} secondInput>
+        <WrapperField themeName={themeName} secondInput>
           <Label error={!!errorFinal}>{labelFinal}</Label>
-          <ValueText isValue={!!valueFinal}>
+          <ValueText isValue={!!valueFinal} themeName={themeName}>
             {valueFinal
               ? format(parseISO(valueFinal?.dateString), 'd MMM yyyy')
               : placeholder ?? 'Selecione'}

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
@@ -5,23 +6,28 @@ import { colors } from '~styles/constants';
 
 interface WrapperProps {
   isFocus: boolean;
+  hasTwoInput: boolean;
+}
+
+interface ThemeNameProps {
+  themeName: 'light' | 'dark';
 }
 
 export const Wrapper = styled.View<WrapperProps>`
   height: 56px;
   border: 1px;
   padding: 8px 8px 8px 16px;
-  width: 50%;
+  width: ${props => (props.hasTwoInput ? '50%' : '100%')};
 
   border-width: ${props => (props.isFocus ? '1px' : '2px')};
-  border-color: ${props => (props.isFocus ? colors.GRAY_500 : colors.PURPLE_PRIMARY)};
+  border-color: ${props => (props.isFocus ? colors.GRAY_300 : colors.PURPLE_PRIMARY)};
 `;
 
-export const Label = styled.Text`
+export const Label = styled.Text<ThemeNameProps>`
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: ${colors.DARK_200};
+  color: ${props => (props.themeName === 'light' ? colors.PURPLE_PRIMARY : colors.WHITE)};
 `;
 
 export const SelectedDateContent = styled.View`
@@ -30,6 +36,7 @@ export const SelectedDateContent = styled.View`
 
 interface SelectedDateTextProps {
   isValue: undefined | { dateString: string };
+  themeName: 'light' | 'dark';
 }
 
 export const SelectedDateText = styled.Text<SelectedDateTextProps>`
@@ -39,7 +46,14 @@ export const SelectedDateText = styled.Text<SelectedDateTextProps>`
   line-height: 20px;
   flex: 1;
 
-  color: ${props => (props.isValue?.dateString ? colors.TEXT : colors.GRAY_300)};
+  color: ${({ isValue, themeName }) =>
+    isValue?.dateString && themeName === 'light'
+      ? colors.TEXT
+      : isValue?.dateString && themeName === 'dark'
+      ? colors.WHITE
+      : themeName === 'light'
+      ? colors.GRAY_300
+      : colors.GRAY_300};
 `;
 
 export const ClearIcon = styled(Feather)`

@@ -5,6 +5,7 @@ import { Keyboard } from 'react-native';
 import { format, parseISO } from 'date-fns';
 
 import { DatePicker } from '~components/DatePicker';
+import { useThemeContext } from '~hooks/useThemeContext';
 
 import { Label, ValueText, WrapperField } from './styles';
 import { DatePickerFieldProps } from './types';
@@ -27,6 +28,8 @@ export function DatePickerField({
     control,
   });
 
+  const { themeName } = useThemeContext();
+
   const [showDatePickerState, setShowDatePickerState] = useState(false);
 
   const toggleShowDatePicker = useCallback(() => {
@@ -44,9 +47,9 @@ export function DatePickerField({
         minDate={minDate}
         labelInit={label}
       />
-      <WrapperField style={customStyle} onPress={toggleShowDatePicker}>
+      <WrapperField themeName={themeName} style={customStyle} onPress={toggleShowDatePicker}>
         <Label error={!!error}>{label}</Label>
-        <ValueText isValue={!!value}>
+        <ValueText isValue={!!value} themeName={themeName}>
           {value ? format(parseISO(value?.dateString), 'd MMM yyyy') : placeholder ?? 'Selecione'}
         </ValueText>
       </WrapperField>
