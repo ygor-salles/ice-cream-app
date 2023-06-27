@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import styled, { css } from 'styled-components/native';
 
 import { colors } from '~styles/constants';
@@ -8,17 +9,19 @@ interface LabelProps {
 
 interface ValueTextProps {
   isValue?: boolean;
+  themeName: 'light' | 'dark';
 }
 
 interface WrapperFieldProps {
   secondInput?: boolean;
+  themeName: 'light' | 'dark';
 }
 
 export const WrapperField = styled.TouchableOpacity<WrapperFieldProps>`
   height: auto;
-  width: 50%;
+  width: 100%;
   padding: 8px 16px;
-  background-color: ${colors.WHITE};
+  background-color: ${props => (props.themeName === 'dark' ? colors.DARK_200 : colors.WHITE)};
 
   ${({ secondInput }) =>
     secondInput &&
@@ -49,5 +52,12 @@ export const ValueText = styled.Text<ValueTextProps>`
   line-height: 20px;
   padding: 4px 0 8px;
 
-  color: ${props => (props.isValue ? colors.TEXT : colors.GRAY_300)};
+  color: ${({ isValue, themeName }) =>
+    isValue && themeName === 'light'
+      ? colors.TEXT
+      : isValue && themeName === 'dark'
+      ? colors.WHITE
+      : themeName === 'light'
+      ? colors.GRAY_300
+      : colors.GRAY_300};
 `;

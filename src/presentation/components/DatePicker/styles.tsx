@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
 
 import styled from 'styled-components/native';
@@ -6,9 +7,13 @@ import { Button } from '~components/Button';
 import { TextApp } from '~components/TextApp';
 import { colors } from '~styles/constants';
 
-export const LayoutCalendar = styled(Animated.View)`
+interface ThemeNameProps {
+  themeName: 'light' | 'dark';
+}
+
+export const LayoutCalendar = styled(Animated.View)<ThemeNameProps>`
   z-index: 1;
-  background-color: ${colors.WHITE};
+  background-color: ${props => (props.themeName === 'dark' ? colors.DARK_200 : colors.WHITE)};
   position: absolute;
   height: 100%;
   width: 100%;
@@ -34,7 +39,6 @@ export const Header = styled.View`
 export const Title = styled(TextApp)`
   font-weight: 500;
   font-size: 16px;
-  color: ${colors.PURPLE_PRIMARY};
 `;
 
 export const HiddenIcon = styled.View`
@@ -61,6 +65,16 @@ export const DividerHeader = styled.View`
   width: 120%;
 `;
 
-export const SButton = styled(Button)`
+export const SButton = styled(Button)<ThemeNameProps>`
   padding: 18px;
+  background-color: ${props => (props.themeName === 'dark' ? colors.DARK_200 : colors.WHITE)};
 `;
+
+export const styles = StyleSheet.create({
+  headCalendarLight: {
+    backgroundColor: colors.WHITE,
+  },
+  headCalendarDark: {
+    backgroundColor: colors.DARK_200,
+  },
+});

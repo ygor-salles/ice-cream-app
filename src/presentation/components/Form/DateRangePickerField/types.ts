@@ -3,13 +3,16 @@ import { Control } from 'react-hook-form';
 
 import { IDates } from '~types/index';
 
-export interface DatePickerFieldProps {
+export interface DateRangePickerFieldProps {
   control: Control<any>;
   minDate?: Date;
   placeholder?: string;
   onChangeNextEvent?: () => void;
   customStyle?: object;
-  name: string;
-  value: IDates;
-  label: string;
+  nameInit: string;
+  nameFinal?: string;
+  valueInit: IDates;
+  valueFinal?: IDates;
+  labelInit: string;
+  labelFinal?: string;
 }

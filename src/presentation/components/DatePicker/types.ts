@@ -15,9 +15,9 @@ export interface DatePickerProps {
   show: boolean;
   onDimiss: () => void;
   labelInit: string;
-  labelFinal: string;
+  labelFinal?: string;
   onChangeInit: (...event: any[]) => void;
-  onChangeFinal: (...event: any[]) => void;
+  onChangeFinal?: (...event: any[]) => void;
   onChangeNextEvent?: () => void;
   minDate?: Date;
   maxDate?: Date;
@@ -35,16 +35,20 @@ export interface DatePickerProps {
 export interface ArrowsCalendarProps {
   direction: string;
   verifyDate: boolean;
+  themeName: 'light' | 'dark';
 }
 
 export interface HeaderCalendarProps {
   date: Date;
+  themeName: 'light' | 'dark';
 }
 
 export interface SelectedDateFieldProps {
   label: string;
   isFocus: boolean;
   date: undefined | { dateString: string };
+  themeName: 'light' | 'dark';
+  hasTwoInput?: boolean;
   clearDate?: () => void;
 }
 

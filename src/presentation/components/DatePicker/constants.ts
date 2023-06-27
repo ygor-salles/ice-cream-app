@@ -6,9 +6,32 @@ import { IDates } from './types';
 
 export const today = new Date().toISOString().split('T')[0];
 
-export const themeCalendar = {
+export const themeCalendarDark = {
+  textDayFontSize: 14,
+  todayTextColor: colors.GREEN,
+  calendarBackground: colors.DARK_200,
+  textSectionTitleColor: colors.WHITE,
+  'stylesheet.calendar.header': {
+    dayHeader: {
+      fontSize: 16,
+      marginBottom: 16,
+      color: colors.WHITE,
+    },
+    header: {
+      flexDirection: 'row',
+      marginBottom: 16,
+      marginHorizontal: -4,
+    },
+  },
+  textDisabledColor: colors.GRAY_600,
+  dayTextColor: colors.WHITE,
+  selectedDotColor: colors.GREEN,
+};
+
+export const themeCalendarLight = {
   textDayFontSize: 14,
   todayTextColor: colors.GRAY_500,
+  calendarBackground: colors.WHITE,
   'stylesheet.calendar.header': {
     dayHeader: {
       fontSize: 16,
@@ -27,6 +50,7 @@ export const customMarkedDates = (
   intervalDates: { [key: string]: object },
   selectedInicitalDateSate: { date: IDates; selected: boolean },
   selectedFinalDateSate?: { date: IDates; selected: boolean },
+  themeName?: 'light' | 'dark',
 ) => ({
   ...intervalDates,
   [selectedInicitalDateSate?.date?.dateString]: {
@@ -41,7 +65,7 @@ export const customMarkedDates = (
       text: {
         color: colors.WHITE,
         fontWeight: 'bold',
-        backgroundColor: colors.TEXT,
+        backgroundColor: themeName === 'light' ? colors.TEXT : colors.PURPLE_PRIMARY,
         paddingVertical: 6,
         paddingHorizontal: selectedInicitalDateSate?.date?.dateString[8] === '0' ? '24%' : '16%',
         marginTop: -0.2,
@@ -62,12 +86,39 @@ export const customMarkedDates = (
       text: {
         color: colors.WHITE,
         fontWeight: 'bold',
-        backgroundColor: colors.TEXT,
+        backgroundColor: themeName === 'light' ? colors.TEXT : colors.PURPLE_PRIMARY,
         paddingVertical: 6,
         paddingHorizontal: selectedFinalDateSate?.date?.dateString[8] === '0' ? '24%' : '16%',
         marginTop: -0.2,
         borderRadius: 50,
         marginRight: '-50%',
+      },
+    },
+  },
+});
+
+export const customMarkedDate = (
+  selectedInicitalDateSate: {
+    date: IDates;
+    selected: boolean;
+  },
+  themeName: 'light' | 'dark',
+) => ({
+  [selectedInicitalDateSate?.date?.dateString]: {
+    customStyles: {
+      container: {
+        width: '100%',
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
+      },
+      text: {
+        color: colors.WHITE,
+        fontWeight: 'bold',
+        backgroundColor: themeName === 'light' ? colors.TEXT : colors.GREEN,
+        paddingVertical: 6,
+        paddingHorizontal: selectedInicitalDateSate?.date?.dateString[8] === '0' ? '24%' : '16%',
+        marginTop: -0.2,
+        borderRadius: 50,
       },
     },
   },
