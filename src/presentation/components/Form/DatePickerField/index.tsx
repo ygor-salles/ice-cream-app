@@ -2,10 +2,13 @@ import { useCallback, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { Keyboard } from 'react-native';
 
+import { Feather } from '@expo/vector-icons';
 import { format, parseISO } from 'date-fns';
 
 import { DatePicker } from '~components/DatePicker';
+import { Row } from '~components/Row';
 import { useThemeContext } from '~hooks/useThemeContext';
+import { colors } from '~styles/constants';
 
 import { Label, ValueText, WrapperField } from './styles';
 import { DatePickerFieldProps } from './types';
@@ -49,9 +52,12 @@ export function DatePickerField({
       />
       <WrapperField themeName={themeName} style={customStyle} onPress={toggleShowDatePicker}>
         <Label error={!!error}>{label}</Label>
-        <ValueText isValue={!!value} themeName={themeName}>
-          {value ? format(parseISO(value?.dateString), 'd MMM yyyy') : placeholder ?? 'Selecione'}
-        </ValueText>
+        <Row>
+          <ValueText isValue={!!value} themeName={themeName}>
+            {value ? format(parseISO(value?.dateString), 'd MMM yyyy') : placeholder ?? 'Selecione'}
+          </ValueText>
+          <Feather name="calendar" size={16} color={colors.GRAY_500} />
+        </Row>
       </WrapperField>
     </>
   );
