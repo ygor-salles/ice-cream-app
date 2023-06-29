@@ -11,7 +11,7 @@ import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
 import { Label, ValueText } from '../styles';
-import { WrapperField } from './styles';
+import { Wrapper } from './styles';
 import { DatePickerFieldProps } from './types';
 
 export function DatePickerField({
@@ -25,6 +25,7 @@ export function DatePickerField({
   placeholder,
   disabled,
   required,
+  variant = 'filled',
 }: DatePickerFieldProps) {
   const {
     field: { onChange },
@@ -53,7 +54,14 @@ export function DatePickerField({
         minDate={minDate}
         labelInit={label}
       />
-      <WrapperField themeName={themeName} style={customStyle} onPress={toggleShowDatePicker}>
+      <Wrapper
+        themeName={themeName}
+        disabled={disabled}
+        error={!!error}
+        variant={variant}
+        style={customStyle}
+        onPress={toggleShowDatePicker}
+      >
         <Label disabled={disabled} error={!!error}>
           {required ? `${label} *` : label}
         </Label>
@@ -63,7 +71,7 @@ export function DatePickerField({
           </ValueText>
           <Feather name="calendar" size={16} color={colors.GRAY_500} />
         </Row>
-      </WrapperField>
+      </Wrapper>
     </>
   );
 }

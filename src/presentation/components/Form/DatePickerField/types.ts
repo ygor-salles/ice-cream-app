@@ -15,4 +15,5 @@ export interface DatePickerFieldProps {
   value: IDates;
   label: string;
   required?: boolean;
+  variant?: 'filled' | 'standard';
 }

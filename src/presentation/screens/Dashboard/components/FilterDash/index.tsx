@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { View } from 'react-native';
 
 import { DateRangePickerField, TextField, DatePickerField, TextApp } from '~components/index';
 
@@ -18,33 +19,35 @@ export function FilterDash() {
   return (
     <Container>
       <TextApp>Filtro de entradas</TextApp>
-      <DateRangePickerField
-        control={control}
-        minDate={new Date()}
-        nameInit="dateInit"
-        nameFinal="dateFinal"
-        valueInit={dateInit}
-        valueFinal={dateFinal}
-        labelInit="Data início"
-        labelFinal="Data fim"
-        requiredInit
-        requiredFinal
-      />
-      <DatePickerField
-        control={control}
-        minDate={new Date()}
-        name="date"
-        label="Data teste"
-        value={date}
-        required
-      />
-      <TextField
-        control={control}
-        name="typeSale"
-        label="Tipo de venda"
-        placeholder="Selecione"
-        required
-      />
+      <View>
+        <DateRangePickerField
+          control={control}
+          minDate={new Date()}
+          nameInit="dateInit"
+          nameFinal="dateFinal"
+          valueInit={dateInit}
+          valueFinal={dateFinal}
+          labelInit="Data início"
+          labelFinal="Data fim"
+          requiredInit
+          requiredFinal
+        />
+        <DatePickerField
+          control={control}
+          minDate={new Date()}
+          name="date"
+          label="Data teste"
+          value={date}
+          required
+        />
+        <TextField
+          control={control}
+          name="typeSale"
+          label="Tipo de venda"
+          placeholder="Selecione"
+          required
+        />
+      </View>
     </Container>
   );
 }

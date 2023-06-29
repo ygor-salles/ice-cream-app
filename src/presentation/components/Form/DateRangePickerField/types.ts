@@ -19,4 +19,5 @@ export interface DateRangePickerFieldProps {
   labelFinal?: string;
   requiredInit?: boolean;
   requiredFinal?: boolean;
+  variant?: 'filled' | 'standard';
 }

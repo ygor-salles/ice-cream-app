@@ -29,6 +29,7 @@ export function DateRangePickerField({
   disabled,
   requiredInit,
   requiredFinal,
+  variant = 'filled',
 }: DateRangePickerFieldProps) {
   const {
     field: { onChange: onChangeInit },
@@ -67,7 +68,14 @@ export function DateRangePickerField({
         labelInit={labelInit}
         labelFinal={labelFinal}
       />
-      <Wrapper themeName={themeName} style={customStyle} onPress={toggleShowDatePicker}>
+      <Wrapper
+        themeName={themeName}
+        disabled={disabled}
+        error={!!errorInit || !!errorFinal}
+        variant={variant}
+        style={customStyle}
+        onPress={toggleShowDatePicker}
+      >
         <WrapperField themeName={themeName}>
           <Label disabled={disabled} error={!!errorInit}>
             {requiredInit ? `${labelInit} *` : labelInit}

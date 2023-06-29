@@ -13,19 +13,18 @@ export const Wrapper = styled.View<WrapperProps>`
   width: 100%;
 
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
-  border-color: ${colors.GRAY_300};
 
   ${({ variant }) =>
     variant === 'filled'
       ? css`
-          border-width: 1px;
           border-radius: 2px;
           padding: 12px;
         `
       : css`
           border-bottom-width: 1px;
-          padding: 6px 0;
+          padding: 4px 0;
           background-color: transparent;
+          border-color: ${colors.GRAY_300};
         `}
 
   ${({ disabled }) =>

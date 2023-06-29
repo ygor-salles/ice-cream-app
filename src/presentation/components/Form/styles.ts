@@ -40,6 +40,7 @@ export const Label = styled.Text<LabelProps>`
 export const InputField = styled.TextInput<InputFieldProps>`
   flex: 1;
   font-size: 16px;
+  font-weight: 400;
   color: ${props => (props.themeName === 'light' ? colors.TEXT : colors.WHITE)};
 `;
 
@@ -47,6 +48,7 @@ export const ValueText = styled.Text<ValueTextProps>`
   font-weight: 400;
   font-size: 16px;
   flex: 1;
+  padding: 4.25px 0;
 
   color: ${({ isValue, themeName }) =>
     isValue && themeName === 'light'
