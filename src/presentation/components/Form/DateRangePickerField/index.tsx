@@ -10,7 +10,8 @@ import { Row } from '~components/Row';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
-import { Label, ValueText, Wrapper, WrapperField } from './styles';
+import { Label, ValueText } from '../styles';
+import { Wrapper, WrapperField } from './styles';
 import { DateRangePickerFieldProps } from './types';
 
 export function DateRangePickerField({
@@ -25,6 +26,9 @@ export function DateRangePickerField({
   placeholder,
   labelInit,
   labelFinal,
+  disabled,
+  requiredInit,
+  requiredFinal,
 }: DateRangePickerFieldProps) {
   const {
     field: { onChange: onChangeInit },
@@ -63,9 +67,11 @@ export function DateRangePickerField({
         labelInit={labelInit}
         labelFinal={labelFinal}
       />
-      <Wrapper style={customStyle} onPress={toggleShowDatePicker}>
+      <Wrapper themeName={themeName} style={customStyle} onPress={toggleShowDatePicker}>
         <WrapperField themeName={themeName}>
-          <Label error={!!errorInit}>{labelInit}</Label>
+          <Label disabled={disabled} error={!!errorInit}>
+            {requiredInit ? `${labelInit} *` : labelInit}
+          </Label>
           <Row>
             <ValueText isValue={!!valueInit} themeName={themeName}>
               {valueInit
@@ -76,7 +82,9 @@ export function DateRangePickerField({
           </Row>
         </WrapperField>
         <WrapperField themeName={themeName} secondInput>
-          <Label error={!!errorFinal}>{labelFinal}</Label>
+          <Label disabled={disabled} error={!!errorFinal}>
+            {requiredFinal ? `${labelFinal} *` : labelFinal}
+          </Label>
           <Row>
             <ValueText isValue={!!valueFinal} themeName={themeName}>
               {valueFinal

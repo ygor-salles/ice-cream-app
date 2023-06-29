@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
 
-import { DateRangePickerField } from '~components/index';
-import { TextApp } from '~components/TextApp';
+import { DateRangePickerField, TextField, DatePickerField, TextApp } from '~components/index';
 
 import { Container, styles } from './styles';
 
@@ -12,9 +11,9 @@ export function FilterDash() {
     formState: { isValid },
     setValue,
     watch,
-  } = useForm({ defaultValues: { dateInit: null, dateFinal: null } });
+  } = useForm({ defaultValues: { dateInit: null, dateFinal: null, typeSale: '', date: null } });
 
-  const { dateInit, dateFinal } = watch();
+  const { dateInit, dateFinal, typeSale, date } = watch();
 
   return (
     <Container>
@@ -28,6 +27,23 @@ export function FilterDash() {
         valueFinal={dateFinal}
         labelInit="Data início"
         labelFinal="Data fim"
+        requiredInit
+        requiredFinal
+      />
+      <DatePickerField
+        control={control}
+        minDate={new Date()}
+        name="date"
+        label="Data teste"
+        value={date}
+        required
+      />
+      <TextField
+        control={control}
+        name="typeSale"
+        label="Tipo de venda"
+        placeholder="Selecione"
+        required
       />
     </Container>
   );

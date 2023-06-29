@@ -28,7 +28,7 @@ export function SelectedDateField({
           <Feather
             name="x-circle"
             size={24}
-            color={themeName === 'light' ? colors.GRAY_600 : colors.GRAY_300}
+            color={themeName === 'light' ? colors.GRAY_700 : colors.GRAY_300}
             onPress={clearDate}
           />
         ) : (

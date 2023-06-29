@@ -9,8 +9,10 @@ export const colors = {
   GRAY_100: '#EBEBEB',
   GRAY_200: '#dedede',
   GRAY_300: '#ccc',
-  GRAY_500: '#606060',
+  GRAY_400: '#C0C0C0',
+  GRAY_500: '#909090',
   GRAY_600: '#808080',
+  GRAY_700: '#606060',
   GRAY_800: '#333',
   GRAY_900: '#212121',
 
@@ -30,7 +32,8 @@ export const colors = {
 
   YELLOW: '#FDFD96',
 
-  TEXT: '#1a1a1a',
+  // TEXT: '#1a1a1a',
+  TEXT: '#041E42',
 };
 
 export const globalStyles = {

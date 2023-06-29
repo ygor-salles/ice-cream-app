@@ -9,11 +9,6 @@ interface WrapperProps {
   error: boolean;
 }
 
-interface LabelProps {
-  disabled: boolean;
-  error: boolean;
-}
-
 export const Wrapper = styled.View<WrapperProps>`
   width: 100%;
 
@@ -25,7 +20,7 @@ export const Wrapper = styled.View<WrapperProps>`
       ? css`
           border-width: 1px;
           border-radius: 2px;
-          padding: 6px 12px;
+          padding: 12px;
         `
       : css`
           border-bottom-width: 1px;
@@ -46,35 +41,11 @@ export const Wrapper = styled.View<WrapperProps>`
     `}
 `;
 
-export const Label = styled.Text<LabelProps>`
-  font-weight: 400;
-  font-size: 14px;
-  color: ${colors.PURPLE_PRIMARY};
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      color: ${colors.GRAY_300};
-    `}
-
-  ${({ error }) =>
-    error &&
-    css`
-      color: ${colors.RED_ERROR};
-    `}
-`;
-
 export const InputContainer = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 2px;
   gap: 10px;
-`;
-
-export const InputField = styled.TextInput`
-  flex: 1;
-  font-size: 16px;
-  padding: 4px 0;
 `;
 
 export const Error = styled.Text`

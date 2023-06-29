@@ -10,7 +10,8 @@ import { Row } from '~components/Row';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
-import { Label, ValueText, WrapperField } from './styles';
+import { Label, ValueText } from '../styles';
+import { WrapperField } from './styles';
 import { DatePickerFieldProps } from './types';
 
 export function DatePickerField({
@@ -22,6 +23,8 @@ export function DatePickerField({
   minDate,
   onChangeNextEvent,
   placeholder,
+  disabled,
+  required,
 }: DatePickerFieldProps) {
   const {
     field: { onChange },
@@ -51,7 +54,9 @@ export function DatePickerField({
         labelInit={label}
       />
       <WrapperField themeName={themeName} style={customStyle} onPress={toggleShowDatePicker}>
-        <Label error={!!error}>{label}</Label>
+        <Label disabled={disabled} error={!!error}>
+          {required ? `${label} *` : label}
+        </Label>
         <Row>
           <ValueText isValue={!!value} themeName={themeName}>
             {value ? format(parseISO(value?.dateString), 'd MMM yyyy') : placeholder ?? 'Selecione'}

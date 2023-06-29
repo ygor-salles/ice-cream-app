@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 export interface TextFieldProps {
-  label?: string;
+  label: string;
   disabled?: boolean;
   required?: boolean;
   viewOnly?: boolean;

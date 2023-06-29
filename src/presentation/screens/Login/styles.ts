@@ -53,6 +53,7 @@ export const STextField = styled(TextField)`
 
 export const SButton = styled(Button)`
   margin-top: 42px;
+  margin-bottom: 42px;
 `;
 
 export const styles = StyleSheet.create({

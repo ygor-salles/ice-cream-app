@@ -1,14 +1,8 @@
-/* eslint-disable no-nested-ternary */
 import styled, { css } from 'styled-components/native';
 
 import { colors } from '~styles/constants';
 
-interface LabelProps {
-  error?: boolean;
-}
-
-interface ValueTextProps {
-  isValue?: boolean;
+interface WrapperProps {
   themeName: 'light' | 'dark';
 }
 
@@ -17,52 +11,27 @@ interface WrapperFieldProps {
   themeName: 'light' | 'dark';
 }
 
-export const Wrapper = styled.TouchableOpacity`
+export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   flex-direction: row;
-  width: 100%;
+  flex: 1;
+  padding: 12px;
+  background-color: ${props => (props.themeName === 'dark' ? colors.DARK_200 : colors.WHITE)};
 `;
 
 export const WrapperField = styled.View<WrapperFieldProps>`
-  height: auto;
   width: 50%;
-  padding: 8px 16px;
   background-color: ${props => (props.themeName === 'dark' ? colors.DARK_200 : colors.WHITE)};
 
-  ${({ secondInput }) =>
-    secondInput &&
-    css`
-      border-left-width: 0.5px;
-      border-left-color: ${colors.GRAY_300};
-    `}
-`;
-
-export const Label = styled.Text<LabelProps>`
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: ${colors.PURPLE_PRIMARY};
-  padding: 8px 0 0;
-
-  ${({ error }) =>
-    error &&
-    css`
-      color: ${colors.RED};
-      font-weight: bold;
-    `};
-`;
-
-export const ValueText = styled.Text<ValueTextProps>`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
-  padding: 4px 0 8px;
-
-  color: ${({ isValue, themeName }) =>
-    isValue && themeName === 'light'
-      ? colors.TEXT
-      : isValue && themeName === 'dark'
-      ? colors.WHITE
-      : themeName === 'light'
-      ? colors.GRAY_300
-      : colors.GRAY_300};
+  ${({ secondInput, themeName }) =>
+    secondInput
+      ? css`
+          padding-left: 10px;
+          border-left-width: 0.5px;
+          border-left-color: ${themeName === 'light' ? colors.GRAY_500 : colors.GRAY_500};
+        `
+      : css`
+          padding-right: 10px;
+          border-right-width: 0.5px;
+          border-right-color: ${themeName === 'light' ? colors.GRAY_500 : colors.GRAY_500};
+        `}
 `;

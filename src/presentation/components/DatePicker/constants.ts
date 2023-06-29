@@ -23,7 +23,7 @@ export const themeCalendarDark = {
       marginHorizontal: -4,
     },
   },
-  textDisabledColor: colors.GRAY_600,
+  textDisabledColor: colors.GRAY_700,
   dayTextColor: colors.WHITE,
   selectedDotColor: colors.GREEN,
 };

@@ -1,14 +1,15 @@
 import { useCallback, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
-import { View } from 'react-native';
+import { TouchableWithoutFeedback, TextInput } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
+import { InputField, Label } from '../styles';
 import { ListAutoComplete } from './ListAutoComplete';
-import { Wrapper, InputContainer, InputField, Label, Error } from './styles';
+import { Wrapper, InputContainer, Error } from './styles';
 import { TextFieldProps } from './types';
 
 export function TextField({
@@ -41,12 +42,22 @@ export function TextField({
 
   const { themeName } = useThemeContext();
 
+  const inputRef = useRef<TextInput>(null);
+
   const [inputTypePassword, setInputTypePassword] = useState(!!typePassword);
   const onToggleInputPassword = useCallback(() => setInputTypePassword(prev => !prev), []);
 
   const [listAutocomplete, setListAutocomplete] = useState<string[]>([]);
 
   const refPressAutoComplete = useRef(false);
+
+  const colorPlaceholder = error ? colors.RED_ERROR : placeholderTextColor || colors.GRAY_500;
+
+  const handleTouchableInput = () => {
+    if (!disabled && inputRef.current) {
+      inputRef.current?.focus();
+    }
+  };
 
   const handleSearch = useCallback(
     (text: string) => {
@@ -69,44 +80,48 @@ export function TextField({
   );
 
   return (
-    <View>
-      <Wrapper
-        disabled={disabled}
-        error={!!error}
-        themeName={themeName}
-        variant={variant}
-        {...rest}
-      >
-        <Label error={!!error} disabled={disabled || viewOnly} style={styleTextLabel}>
-          {required ? `${label} *` : `${label} (opcional)`}
-        </Label>
-        <InputContainer>
-          {renderLeft || null}
-          <InputField
-            style={styleTextInput}
-            underlineColorAndroid="transparent"
-            accessible
-            secureTextEntry={inputTypePassword}
-            editable={!disabled || viewOnly}
-            onChangeText={text => (autoComplete ? handleSearch(text) : onChange(text))}
-            value={mask ? mask(value?.toString()) : value?.toString()}
-            placeholder={placeholder}
-            keyboardType={keyboardType}
-            onBlur={customOnBlur}
-            maxLength={maxLength}
-            placeholderTextColor={error ? colors.RED_ERROR : placeholderTextColor}
-          />
-          {renderRight || null}
-          {typePassword && (
-            <Feather
-              name={inputTypePassword ? 'eye-off' : 'eye'}
-              size={24}
-              color={themeName === 'dark' || lightEyeIcon ? colors.WHITE : colors.TEXT}
-              onPress={onToggleInputPassword}
+    <>
+      <TouchableWithoutFeedback onPress={handleTouchableInput}>
+        <Wrapper
+          disabled={disabled}
+          error={!!error}
+          themeName={themeName}
+          variant={variant}
+          {...rest}
+        >
+          <Label error={!!error} disabled={disabled || viewOnly} style={styleTextLabel}>
+            {required ? `${label} *` : label}
+          </Label>
+          <InputContainer>
+            {renderLeft || null}
+            <InputField
+              style={styleTextInput}
+              underlineColorAndroid="transparent"
+              accessible
+              ref={inputRef}
+              secureTextEntry={inputTypePassword}
+              editable={!disabled || viewOnly}
+              onChangeText={text => (autoComplete ? handleSearch(text) : onChange(text))}
+              value={mask ? mask(value?.toString()) : value?.toString()}
+              placeholder={placeholder}
+              keyboardType={keyboardType}
+              onBlur={customOnBlur}
+              maxLength={maxLength}
+              placeholderTextColor={colorPlaceholder}
+              themeName={themeName}
             />
-          )}
-        </InputContainer>
-      </Wrapper>
+            {renderRight || null}
+            {typePassword && (
+              <Feather
+                name={inputTypePassword ? 'eye-off' : 'eye'}
+                size={24}
+                color={themeName === 'dark' || lightEyeIcon ? colors.WHITE : colors.TEXT}
+                onPress={onToggleInputPassword}
+              />
+            )}
+          </InputContainer>
+        </Wrapper>
+      </TouchableWithoutFeedback>
       {!!error && <Error>{error.message}</Error>}
 
       {!!autoComplete && listAutocomplete.length > 0 && value.length > 0 && (
@@ -124,6 +139,6 @@ export function TextField({
           }}
         />
       )}
-    </View>
+    </>
   );
 }

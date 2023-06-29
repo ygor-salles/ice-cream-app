@@ -47,6 +47,6 @@ export const SelectedDateText = styled.Text<SelectedDateTextProps>`
       : isValue?.dateString && themeName === 'dark'
       ? colors.WHITE
       : themeName === 'light'
-      ? colors.GRAY_300
-      : colors.GRAY_300};
+      ? colors.GRAY_500
+      : colors.GRAY_500};
 `;

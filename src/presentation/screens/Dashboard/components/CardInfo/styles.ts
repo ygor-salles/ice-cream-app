@@ -19,7 +19,7 @@ export const Title = styled.Text<TitleProps>`
 export const SubTitle = styled.Text<ThemeNameProps>`
   font-weight: 400;
   font-size: 16px;
-  color: ${props => (props.themeName === 'dark' ? colors.WHITE : colors.GRAY_600)};
+  color: ${props => (props.themeName === 'dark' ? colors.WHITE : colors.GRAY_700)};
 `;
 
 export const Value = styled.Text<ThemeNameProps>`
