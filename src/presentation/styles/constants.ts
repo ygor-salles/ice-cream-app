@@ -5,6 +5,7 @@ import { css } from 'styled-components/native';
 
 export const colors = {
   PURPLE_PRIMARY: '#9c27b0',
+  PURPLE_PRIMARY_DARK: '#D944C2',
 
   GRAY_100: '#EBEBEB',
   GRAY_200: '#dedede',

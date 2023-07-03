@@ -14,7 +14,6 @@ export interface TextFieldProps {
   label: string;
   disabled?: boolean;
   required?: boolean;
-  viewOnly?: boolean;
   placeholder?: string;
   customOnBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   mask?: (unmaskedValue: string) => string;

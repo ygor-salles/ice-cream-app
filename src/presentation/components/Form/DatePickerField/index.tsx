@@ -19,13 +19,13 @@ export function DatePickerField({
   label,
   name,
   value,
-  customStyle,
   minDate,
   onChangeNextEvent,
   placeholder,
   disabled,
   required,
   variant = 'filled',
+  ...rest
 }: DatePickerFieldProps) {
   const {
     field: { onChange },
@@ -38,6 +38,13 @@ export function DatePickerField({
   const { themeName } = useThemeContext();
 
   const [showDatePickerState, setShowDatePickerState] = useState(false);
+
+  const valueField = () => {
+    if (value) return format(parseISO(value?.dateString), 'd MMM yyyy');
+    if (disabled) return '';
+    if (placeholder && !disabled) return placeholder;
+    return 'Selecione';
+  };
 
   const toggleShowDatePicker = useCallback(() => {
     Keyboard.dismiss();
@@ -59,15 +66,15 @@ export function DatePickerField({
         disabled={disabled}
         error={!!error}
         variant={variant}
-        style={customStyle}
         onPress={toggleShowDatePicker}
+        {...rest}
       >
-        <Label disabled={disabled} error={!!error}>
+        <Label themeName={themeName} disabled={disabled} error={!!error}>
           {required ? `${label} *` : label}
         </Label>
         <Row>
           <ValueText isValue={!!value} themeName={themeName}>
-            {value ? format(parseISO(value?.dateString), 'd MMM yyyy') : placeholder ?? 'Selecione'}
+            {valueField()}
           </ValueText>
           <Feather name="calendar" size={16} color={colors.GRAY_500} />
         </Row>

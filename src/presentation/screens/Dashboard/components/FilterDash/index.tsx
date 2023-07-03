@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 
-import { DateRangePickerField, TextField, DatePickerField, TextApp } from '~components/index';
+import { DatePickerField, TextApp } from '~components/index';
 
-import { Container, styles } from './styles';
+import { Container, SDateRangePickerField, STextField } from './styles';
 
 export function FilterDash() {
   const {
@@ -20,7 +20,7 @@ export function FilterDash() {
     <Container>
       <TextApp>Filtro de entradas</TextApp>
       <View>
-        <DateRangePickerField
+        <SDateRangePickerField
           control={control}
           minDate={new Date()}
           nameInit="dateInit"
@@ -40,11 +40,11 @@ export function FilterDash() {
           value={date}
           required
         />
-        <TextField
+        <STextField
           control={control}
           name="typeSale"
           label="Tipo de venda"
-          placeholder="Selecione"
+          placeholder="Digite"
           required
         />
       </View>

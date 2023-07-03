@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Control } from 'react-hook-form';
-import { StyleProp, ViewStyle } from 'react-native';
 
 import { IDates } from '~types/index';
 
@@ -9,7 +8,6 @@ export interface DatePickerFieldProps {
   minDate?: Date;
   placeholder?: string;
   onChangeNextEvent?: () => void;
-  customStyle?: StyleProp<ViewStyle>;
   disabled?: boolean;
   name: string;
   value: IDates;

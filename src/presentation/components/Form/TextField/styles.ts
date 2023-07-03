@@ -17,8 +17,9 @@ export const Wrapper = styled.View<WrapperProps>`
   ${({ variant }) =>
     variant === 'filled'
       ? css`
-          border-radius: 2px;
           padding: 12px;
+          border-bottom-width: 1px;
+          border-bottom-color: ${colors.GRAY_400};
         `
       : css`
           border-bottom-width: 1px;
@@ -30,7 +31,7 @@ export const Wrapper = styled.View<WrapperProps>`
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${colors.GRAY_900};
+      background-color: ${colors.GRAY_400};
     `}
 
   ${({ error }) =>

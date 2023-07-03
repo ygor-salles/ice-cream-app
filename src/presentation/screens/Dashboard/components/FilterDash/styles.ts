@@ -1,21 +1,19 @@
-import { StyleSheet } from 'react-native';
-
 import styled from 'styled-components/native';
 
-import { colors } from '~styles/constants';
+import { DateRangePickerField, TextField } from '~components/index';
 
 export const Container = styled.View`
   gap: 10px;
   justify-content: center;
 `;
 
-export const styles = StyleSheet.create({
-  inputFieldBottom: {
-    borderWidth: 1,
-    borderColor: colors.GRAY_300,
-    borderBottomLeftRadius: 4,
-    borderBottomRightRadius: 4,
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-  },
-});
+export const SDateRangePickerField = styled(DateRangePickerField)`
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+`;
+
+export const STextField = styled(TextField)`
+  border-bottom-width: 0;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+`;

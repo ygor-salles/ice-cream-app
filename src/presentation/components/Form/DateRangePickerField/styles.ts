@@ -23,8 +23,9 @@ export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   ${({ variant }) =>
     variant === 'filled'
       ? css`
-          border-radius: 2px;
           padding: 12px;
+          border-bottom-width: 1px;
+          border-bottom-color: ${colors.GRAY_400};
         `
       : css`
           border-bottom-width: 1px;
@@ -36,7 +37,7 @@ export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${colors.GRAY_900};
+      background-color: ${colors.GRAY_400};
     `}
 
   ${({ error }) =>
@@ -48,7 +49,6 @@ export const Wrapper = styled.TouchableOpacity<WrapperProps>`
 
 export const WrapperField = styled.View<WrapperFieldProps>`
   width: 50%;
-  background-color: ${props => (props.themeName === 'dark' ? colors.DARK_200 : colors.WHITE)};
 
   ${({ secondInput, themeName }) =>
     secondInput

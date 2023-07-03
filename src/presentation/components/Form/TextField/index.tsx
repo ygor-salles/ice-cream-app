@@ -29,7 +29,6 @@ export function TextField({
   styleTextLabel,
   styleTextInput,
   placeholderTextColor,
-  viewOnly,
   variant = 'filled',
   typePassword,
   lightEyeIcon,
@@ -89,7 +88,7 @@ export function TextField({
           variant={variant}
           {...rest}
         >
-          <Label error={!!error} disabled={disabled || viewOnly} style={styleTextLabel}>
+          <Label themeName={themeName} error={!!error} disabled={disabled} style={styleTextLabel}>
             {required ? `${label} *` : label}
           </Label>
           <InputContainer>
@@ -100,10 +99,10 @@ export function TextField({
               accessible
               ref={inputRef}
               secureTextEntry={inputTypePassword}
-              editable={!disabled || viewOnly}
+              editable={!disabled}
               onChangeText={text => (autoComplete ? handleSearch(text) : onChange(text))}
               value={mask ? mask(value?.toString()) : value?.toString()}
-              placeholder={placeholder}
+              placeholder={!disabled ? placeholder : undefined}
               keyboardType={keyboardType}
               onBlur={customOnBlur}
               maxLength={maxLength}

@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components/native';
 import { colors } from '~styles/constants';
 
 interface LabelProps {
+  themeName: 'light' | 'dark';
   disabled: boolean;
   error: boolean;
 }
@@ -20,13 +21,14 @@ interface ValueTextProps {
 export const Label = styled.Text<LabelProps>`
   font-weight: 400;
   font-size: 12px;
-  color: ${colors.PURPLE_PRIMARY};
+  color: ${({ themeName }) =>
+    themeName === 'light' ? colors.PURPLE_PRIMARY : colors.PURPLE_PRIMARY_DARK};
   margin-bottom: 4px;
 
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${colors.GRAY_300};
+      color: ${colors.GRAY_700};
     `}
 
   ${({ error }) =>

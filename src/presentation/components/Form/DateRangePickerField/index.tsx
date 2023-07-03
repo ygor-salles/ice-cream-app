@@ -18,7 +18,6 @@ export function DateRangePickerField({
   onChangeNextEvent,
   valueInit,
   valueFinal,
-  customStyle,
   minDate,
   nameInit,
   nameFinal,
@@ -30,6 +29,7 @@ export function DateRangePickerField({
   requiredInit,
   requiredFinal,
   variant = 'filled',
+  ...rest
 }: DateRangePickerFieldProps) {
   const {
     field: { onChange: onChangeInit },
@@ -73,11 +73,11 @@ export function DateRangePickerField({
         disabled={disabled}
         error={!!errorInit || !!errorFinal}
         variant={variant}
-        style={customStyle}
         onPress={toggleShowDatePicker}
+        {...rest}
       >
         <WrapperField themeName={themeName}>
-          <Label disabled={disabled} error={!!errorInit}>
+          <Label themeName={themeName} disabled={disabled} error={!!errorInit}>
             {requiredInit ? `${labelInit} *` : labelInit}
           </Label>
           <Row>
@@ -90,7 +90,7 @@ export function DateRangePickerField({
           </Row>
         </WrapperField>
         <WrapperField themeName={themeName} secondInput>
-          <Label disabled={disabled} error={!!errorFinal}>
+          <Label themeName={themeName} disabled={disabled} error={!!errorFinal}>
             {requiredFinal ? `${labelFinal} *` : labelFinal}
           </Label>
           <Row>
