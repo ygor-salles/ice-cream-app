@@ -10,7 +10,7 @@ interface ItemProps extends ThemeNameProps {
   lastItem?: boolean;
 }
 
-export const Container = styled.View`
+export const Overlay = styled.TouchableOpacity`
   flex: 1;
   justify-content: center;
   align-items: center;
