@@ -7,9 +7,9 @@ import { Feather } from '@expo/vector-icons';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
-import { InputField, Label } from '../styles';
+import { Wrapper, InputField, Label } from '../styles';
 import { ListAutoComplete } from './ListAutoComplete';
-import { Wrapper, InputContainer, Error } from './styles';
+import { InputContainer, Error } from './styles';
 import { TextFieldProps } from './types';
 
 export function TextField({

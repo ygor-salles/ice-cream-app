@@ -18,6 +18,75 @@ interface ValueTextProps {
   themeName: 'light' | 'dark';
 }
 
+interface WrapperProps {
+  themeName: 'light' | 'dark';
+  disabled: boolean;
+  variant: 'filled' | 'standard';
+  error: boolean;
+}
+
+export const Wrapper = styled.View<WrapperProps>`
+  width: 100%;
+  background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
+
+  ${({ variant }) =>
+    variant === 'filled'
+      ? css`
+          padding: 12px;
+          border-bottom-width: 1px;
+          border-bottom-color: ${colors.GRAY_400};
+        `
+      : css`
+          border-bottom-width: 1px;
+          padding: 4px 0;
+          background-color: transparent;
+          border-color: ${colors.GRAY_300};
+        `}
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${colors.GRAY_400};
+    `}
+
+  ${({ error }) =>
+    error &&
+    css`
+      border-color: ${colors.RED_ERROR};
+    `}
+`;
+
+export const WrapperTouch = styled.TouchableOpacity<WrapperProps>`
+  width: 100%;
+  background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
+
+  ${({ variant }) =>
+    variant === 'filled'
+      ? css`
+          padding: 12px;
+          border-bottom-width: 1px;
+          border-bottom-color: ${colors.GRAY_400};
+        `
+      : css`
+          border-bottom-width: 1px;
+          padding: 4px 0;
+          background-color: transparent;
+          border-color: ${colors.GRAY_300};
+        `}
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${colors.GRAY_400};
+    `}
+
+  ${({ error }) =>
+    error &&
+    css`
+      border-color: ${colors.RED_ERROR};
+    `}
+`;
+
 export const Label = styled.Text<LabelProps>`
   font-weight: 400;
   font-size: 12px;

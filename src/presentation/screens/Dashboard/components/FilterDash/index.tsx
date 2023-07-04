@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 
-import { DatePickerField, TextApp } from '~components/index';
+import { DatePickerField, SelectField, TextApp } from '~components/index';
 
 import { Container, SDateRangePickerField, STextField } from './styles';
 
@@ -12,7 +12,9 @@ export function FilterDash() {
     formState: { isValid },
     setValue,
     watch,
-  } = useForm({ defaultValues: { dateInit: null, dateFinal: null, typeSale: '', date: null } });
+  } = useForm({
+    defaultValues: { dateInit: null, dateFinal: null, description: '', typeSale: '', date: null },
+  });
 
   const { dateInit, dateFinal, typeSale, date } = watch();
 
@@ -40,13 +42,8 @@ export function FilterDash() {
           value={date}
           required
         />
-        <STextField
-          control={control}
-          name="typeSale"
-          label="Tipo de venda"
-          placeholder="Digite"
-          required
-        />
+        <SelectField control={control} name="typeSale" label="Tipo de venda" required />
+        <STextField control={control} name="description" label="Descrição" required />
       </View>
     </Container>
   );

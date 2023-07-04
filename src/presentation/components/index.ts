@@ -9,5 +9,6 @@ export * from './Button';
 export * from './Form/TextField';
 export * from './Form/DateRangePickerField';
 export * from './Form/DatePickerField';
+export * from './Form/SelectField';
 
 export * from './ItemFooter';

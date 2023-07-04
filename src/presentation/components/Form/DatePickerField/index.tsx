@@ -10,8 +10,7 @@ import { Row } from '~components/Row';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
-import { Label, ValueText } from '../styles';
-import { Wrapper } from './styles';
+import { WrapperTouch, Label, ValueText } from '../styles';
 import { DatePickerFieldProps } from './types';
 
 export function DatePickerField({
@@ -61,7 +60,7 @@ export function DatePickerField({
         minDate={minDate}
         labelInit={label}
       />
-      <Wrapper
+      <WrapperTouch
         themeName={themeName}
         disabled={disabled}
         error={!!error}
@@ -78,7 +77,7 @@ export function DatePickerField({
           </ValueText>
           <Feather name="calendar" size={16} color={colors.GRAY_500} />
         </Row>
-      </Wrapper>
+      </WrapperTouch>
     </>
   );
 }

@@ -1,45 +1,6 @@
-import styled, { css } from 'styled-components/native';
+import styled from 'styled-components/native';
 
 import { colors } from '~styles/constants';
-
-interface WrapperProps {
-  themeName: 'light' | 'dark';
-  disabled: boolean;
-  variant: 'filled' | 'standard';
-  error: boolean;
-}
-
-export const Wrapper = styled.View<WrapperProps>`
-  width: 100%;
-
-  background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
-
-  ${({ variant }) =>
-    variant === 'filled'
-      ? css`
-          padding: 12px;
-          border-bottom-width: 1px;
-          border-bottom-color: ${colors.GRAY_400};
-        `
-      : css`
-          border-bottom-width: 1px;
-          padding: 4px 0;
-          background-color: transparent;
-          border-color: ${colors.GRAY_300};
-        `}
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: ${colors.GRAY_400};
-    `}
-
-  ${({ error }) =>
-    error &&
-    css`
-      border-color: ${colors.RED_ERROR};
-    `}
-`;
 
 export const InputContainer = styled.View`
   flex-direction: row;

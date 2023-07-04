@@ -35,6 +35,7 @@ export const colors = {
 
   // TEXT: '#1a1a1a',
   TEXT: '#041E42',
+  OVERLAY: '#00000080',
 };
 
 export const globalStyles = {
@@ -50,6 +51,9 @@ export const globalStyles = {
         elevation: 4;
       `,
     })}
+  `,
+  OVERLAY: css`
+    background-color: ${colors.OVERLAY};
   `,
 };
 
