@@ -1,12 +1,9 @@
 import styled from 'styled-components/native';
 
 import { colors } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
-interface ThemeAppProps {
-  themeName: 'light' | 'dark';
-}
-
-export const Container = styled.View<ThemeAppProps>`
+export const Container = styled.View<ThemeNameProps>`
   flex: 1;
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
 `;
@@ -39,12 +36,12 @@ export const SubTitle = styled.Text`
   text-align: center;
 `;
 
-export const ContentNav = styled.View<ThemeAppProps>`
+export const ContentNav = styled.View<ThemeNameProps>`
   flex: 1;
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
 `;
 
-export const Footer = styled.View<ThemeAppProps>`
+export const Footer = styled.View<ThemeNameProps>`
   padding: 16px;
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
   border-top-width: 1px;

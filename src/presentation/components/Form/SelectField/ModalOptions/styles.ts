@@ -1,10 +1,7 @@
 import styled, { css } from 'styled-components/native';
 
 import { colors, globalStyles } from '~styles/constants';
-
-interface ThemeNameProps {
-  themeName: 'light' | 'dark';
-}
+import { ThemeNameProps } from '~types/index';
 
 interface ItemProps extends ThemeNameProps {
   lastItem?: boolean;

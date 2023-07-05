@@ -21,3 +21,7 @@ export interface IParamsOnSelectedDates {
   initialDate: IDates;
   finalDate?: IDates;
 }
+
+export interface ThemeNameProps {
+  themeName: 'light' | 'dark';
+}

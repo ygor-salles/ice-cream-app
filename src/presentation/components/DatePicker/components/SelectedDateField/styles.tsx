@@ -2,14 +2,11 @@
 import styled from 'styled-components/native';
 
 import { colors } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
 interface WrapperProps {
   isFocus: boolean;
   hasTwoInput: boolean;
-}
-
-interface ThemeNameProps {
-  themeName: 'light' | 'dark';
 }
 
 export const Wrapper = styled.View<WrapperProps>`
@@ -29,9 +26,8 @@ export const Label = styled.Text<ThemeNameProps>`
   color: ${props => (props.themeName === 'light' ? colors.PURPLE_PRIMARY : colors.WHITE)};
 `;
 
-interface SelectedDateTextProps {
+interface SelectedDateTextProps extends ThemeNameProps {
   isValue: undefined | { dateString: string };
-  themeName: 'light' | 'dark';
 }
 
 export const SelectedDateText = styled.Text<SelectedDateTextProps>`

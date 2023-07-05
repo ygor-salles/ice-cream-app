@@ -1,13 +1,10 @@
 import styled from 'styled-components/native';
 
 import { colors } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
 interface TitleProps {
   color: string;
-}
-
-interface ThemeNameProps {
-  themeName: 'light' | 'dark';
 }
 
 export const Title = styled.Text<TitleProps>`

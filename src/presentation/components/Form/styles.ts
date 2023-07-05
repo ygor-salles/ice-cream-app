@@ -2,24 +2,20 @@
 import styled, { css } from 'styled-components/native';
 
 import { colors } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
-interface LabelProps {
-  themeName: 'light' | 'dark';
+interface LabelProps extends ThemeNameProps {
   disabled: boolean;
   error: boolean;
 }
 
-interface InputFieldProps {
-  themeName: 'light' | 'dark';
-}
+type InputFieldProps = ThemeNameProps;
 
-interface ValueTextProps {
+interface ValueTextProps extends ThemeNameProps {
   isValue?: boolean;
-  themeName: 'light' | 'dark';
 }
 
-interface WrapperProps {
-  themeName: 'light' | 'dark';
+interface WrapperProps extends ThemeNameProps {
   disabled: boolean;
   variant: 'filled' | 'standard';
   error: boolean;

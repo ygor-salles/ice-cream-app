@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components/native';
 
 import { colors } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
-interface MainProps {
+interface MainProps extends ThemeNameProps {
   alignCenter: boolean;
-  themeName: 'light' | 'dark';
 }
 
 export const Container = styled.View`

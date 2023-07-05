@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { ThemeNameProps } from '~types/index';
+
 export enum EnumRoleUser {
   SUPER = 'SUPER',
   NORMAL = 'NORMAL',
@@ -10,8 +12,7 @@ export interface AppProviderProps {
   children: ReactNode;
 }
 
-export interface IThemeContextData {
-  themeName: 'light' | 'dark';
+export interface IThemeContextData extends ThemeNameProps {
   toggleTheme: () => void;
 }
 

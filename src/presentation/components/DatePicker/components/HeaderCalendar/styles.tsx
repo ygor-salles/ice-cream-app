@@ -3,12 +3,9 @@ import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 import { colors } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
 const { width } = Dimensions.get('window');
-
-interface ThemeNameProps {
-  themeName: 'light' | 'dark';
-}
 
 export const HeaderWrapper = styled.View`
   position: absolute;

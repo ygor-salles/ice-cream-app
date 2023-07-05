@@ -1,17 +1,16 @@
 import styled, { css } from 'styled-components/native';
 
 import { colors } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
-interface WrapperProps {
-  themeName: 'light' | 'dark';
+interface WrapperProps extends ThemeNameProps {
   disabled: boolean;
   variant: 'filled' | 'standard';
   error: boolean;
 }
 
-interface WrapperFieldProps {
+interface WrapperFieldProps extends ThemeNameProps {
   secondInput?: boolean;
-  themeName: 'light' | 'dark';
 }
 
 export const Wrapper = styled.TouchableOpacity<WrapperProps>`

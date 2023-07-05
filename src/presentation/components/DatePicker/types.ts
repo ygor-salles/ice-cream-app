@@ -1,3 +1,5 @@
+import { ThemeNameProps } from '~types/index';
+
 export interface IDates {
   dateString: string;
   day: number;
@@ -32,22 +34,19 @@ export interface DatePickerProps {
   callbackOnpressArrowRight?: () => void;
 }
 
-export interface ArrowsCalendarProps {
+export interface ArrowsCalendarProps extends ThemeNameProps {
   direction: string;
   verifyDate: boolean;
-  themeName: 'light' | 'dark';
 }
 
-export interface HeaderCalendarProps {
+export interface HeaderCalendarProps extends ThemeNameProps {
   date: Date;
-  themeName: 'light' | 'dark';
 }
 
-export interface SelectedDateFieldProps {
+export interface SelectedDateFieldProps extends ThemeNameProps {
   label: string;
   isFocus: boolean;
   date: undefined | { dateString: string };
-  themeName: 'light' | 'dark';
   hasTwoInput?: boolean;
   clearDate?: () => void;
 }

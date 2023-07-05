@@ -6,10 +6,7 @@ import styled from 'styled-components/native';
 import { Button } from '~components/Button';
 import { TextApp } from '~components/TextApp';
 import { colors } from '~styles/constants';
-
-interface ThemeNameProps {
-  themeName: 'light' | 'dark';
-}
+import { ThemeNameProps } from '~types/index';
 
 export const LayoutCalendar = styled(Animated.View)<ThemeNameProps>`
   z-index: 1;

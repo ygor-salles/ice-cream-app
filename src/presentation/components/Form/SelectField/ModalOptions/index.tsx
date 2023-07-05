@@ -1,9 +1,10 @@
 import { Modal, TouchableWithoutFeedback } from 'react-native';
 
+import { ThemeNameProps } from '~types/index';
+
 import { Overlay, Description, Dialog, Header, Item, Title } from './styles';
 
-interface ModalOptionProps {
-  themeName: 'light' | 'dark';
+interface ModalOptionProps extends ThemeNameProps {
   show: boolean;
   onClose: () => void;
 }
