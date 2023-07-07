@@ -1,35 +1,15 @@
-import { Dimensions } from 'react-native';
-import Animated from 'react-native-reanimated';
+import { StyleSheet, Dimensions } from 'react-native';
 
 import styled, { css } from 'styled-components/native';
 
 import { colors, globalStyles } from '~styles/constants';
 import { ThemeNameProps } from '~types/index';
 
-const windowHeight = Dimensions.get('window').height;
-
 interface ItemProps extends ThemeNameProps {
   lastItem?: boolean;
 }
 
-export const Container = styled.SafeAreaView`
-  flex: 1;
-`;
-
-export const Overlay = styled.TouchableOpacity`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  ${globalStyles.OVERLAY}
-`;
-
-export const Dialog = styled(Animated.View)`
-  width: 80%;
-  height: 40%;
-  position: absolute;
-  align-self: center;
-  top: ${windowHeight * 0.25}px;
-`;
+const windowWidth = Dimensions.get('window').width;
 
 export const Header = styled.View`
   padding: 16px;
@@ -44,7 +24,7 @@ export const Title = styled.Text`
   color: ${colors.WHITE};
 `;
 
-export const Item = styled.TouchableOpacity<ItemProps>`
+export const Item = styled.View<ItemProps>`
   padding: 16px;
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
   border-bottom-width: 1px;
@@ -63,3 +43,21 @@ export const Description = styled.Text<ThemeNameProps>`
   font-size: 16px;
   color: ${props => (props.themeName === 'light' ? colors.TEXT : colors.WHITE)};
 `;
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.OVERLAY,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scrollModal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContainer: {
+    backgroundColor: colors.WHITE,
+    width: windowWidth * 0.8,
+  },
+});

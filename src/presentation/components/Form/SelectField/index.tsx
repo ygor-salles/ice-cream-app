@@ -8,6 +8,7 @@ import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
 import { Label, ValueText, WrapperTouch } from '../styles';
+import { ModalOPT } from './ModalOPT';
 import { ModalOption } from './ModalOptions';
 import { SelectFieldProps } from './types';
 
@@ -59,6 +60,7 @@ export function SelectField({
         </Row>
       </WrapperTouch>
       <ModalOption themeName={themeName} show={showModal} onClose={() => setShowModal(false)} />
+      {/* <ModalOPT show={showModal} onClose={() => setShowModal(false)} /> */}
     </>
   );
 }
