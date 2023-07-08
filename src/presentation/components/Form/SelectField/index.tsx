@@ -16,6 +16,7 @@ export function SelectField({
   label,
   name,
   disabled,
+  options,
   placeholder,
   required,
   styleTextLabel,
@@ -38,6 +39,11 @@ export function SelectField({
     return 'Selecione';
   };
 
+  const onSelect = (item: string) => {
+    onChange(item);
+    setShowModal(false);
+  };
+
   return (
     <>
       <WrapperTouch
@@ -58,7 +64,14 @@ export function SelectField({
           <Feather name="chevron-down" size={16} color={colors.GRAY_500} />
         </Row>
       </WrapperTouch>
-      <ModalOption themeName={themeName} show={showModal} onClose={() => setShowModal(false)} />
+      <ModalOption
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        themeName={themeName}
+        title={label}
+        options={options}
+        onSelect={onSelect}
+      />
     </>
   );
 }

@@ -7,6 +7,7 @@ export interface SelectFieldProps {
   disabled?: boolean;
   required?: boolean;
   placeholder?: string;
+  options: string[];
   name: string;
   control: Control<any>;
   styleTextLabel?: StyleProp<TextStyle>;
