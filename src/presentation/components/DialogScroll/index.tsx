@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { Modal } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
@@ -13,9 +13,18 @@ interface DialogScrollProps {
   onClose: () => void;
   title: string;
   children: ReactNode;
+  noHeader?: boolean;
+  headerElement: ReactElement;
 }
 
-export function DialogScroll({ children, title, show, onClose }: DialogScrollProps) {
+export function DialogScroll({
+  children,
+  title,
+  noHeader,
+  headerElement,
+  show,
+  onClose,
+}: DialogScrollProps) {
   const { themeName } = useThemeContext();
 
   return (
@@ -23,13 +32,18 @@ export function DialogScroll({ children, title, show, onClose }: DialogScrollPro
       <Container>
         <Overlay activeOpacity={1} onPress={onClose} />
         <Dialog
+          noHeader={noHeader}
           entering={globalKeyFrames.ENTER_TOP_SLOW}
           exiting={globalKeyFrames.EXIT_BOTTOM_SLOW}
         >
-          <Header>
-            <Title>{title}</Title>
-            <Feather name="x" size={22} color={colors.WHITE} onPress={onClose} />
-          </Header>
+          {noHeader ? (
+            headerElement
+          ) : (
+            <Header>
+              <Title>{title}</Title>
+              <Feather name="x" size={22} color={colors.WHITE} onPress={onClose} />
+            </Header>
+          )}
           <Scroll themeName={themeName}>{children}</Scroll>
         </Dialog>
       </Container>
