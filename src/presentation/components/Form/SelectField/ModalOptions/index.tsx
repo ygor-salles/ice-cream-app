@@ -3,13 +3,14 @@ import { Modal, ScrollView } from 'react-native';
 import { globalKeyFrames } from '~styles/constants';
 import { ThemeNameProps } from '~types/index';
 
-import { Container, Overlay, Description, Dialog, Header, Item, Title } from './styles';
+import { Container, Overlay, Description, Dialog, Header, Item, Title, Scroll } from './styles';
 
 interface ModalOptionProps extends ThemeNameProps {
   show: boolean;
   onClose: () => void;
 }
 
+// const array = [1];
 const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 export function ModalOption({ themeName, show, onClose }: ModalOptionProps) {
@@ -24,18 +25,18 @@ export function ModalOption({ themeName, show, onClose }: ModalOptionProps) {
           <Header>
             <Title onPress={onClose}>Títuloooooo</Title>
           </Header>
-          <ScrollView>
+          <Scroll>
             {array.map((item, index) => (
               <Item
                 key={item.toString()}
                 themeName={themeName}
                 lastItem={index === array.length - 1}
-                activeOpacity={0.9}
+                onPress={() => console.log('preess')}
               >
                 <Description themeName={themeName}>Item 1</Description>
               </Item>
             ))}
-          </ScrollView>
+          </Scroll>
         </Dialog>
       </Container>
     </Modal>
