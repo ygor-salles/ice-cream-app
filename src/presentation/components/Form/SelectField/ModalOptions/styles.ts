@@ -24,10 +24,8 @@ export const Divider = styled.View`
 export const HeaderSearch = styled.View<ThemeNameProps>`
   background-color: ${({ themeName }) => (themeName === 'light' ? colors.WHITE : colors.DARK_200)};
   padding: 8px;
-
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
-
   border-bottom-width: 1px;
   border-bottom-color: ${colors.GRAY_300};
 `;

@@ -13,14 +13,14 @@ interface DialogScrollProps {
   onClose: () => void;
   title: string;
   children: ReactNode;
-  noHeader?: boolean;
-  headerElement: ReactElement;
+  noHeaderDefault?: boolean;
+  headerElement?: ReactElement;
 }
 
 export function DialogScroll({
   children,
   title,
-  noHeader,
+  noHeaderDefault,
   headerElement,
   show,
   onClose,
@@ -32,11 +32,11 @@ export function DialogScroll({
       <Container>
         <Overlay activeOpacity={1} onPress={onClose} />
         <Dialog
-          noHeader={noHeader}
+          noHeaderDefault={noHeaderDefault}
           entering={globalKeyFrames.ENTER_TOP_SLOW}
           exiting={globalKeyFrames.EXIT_BOTTOM_SLOW}
         >
-          {noHeader ? (
+          {noHeaderDefault ? (
             headerElement
           ) : (
             <Header>

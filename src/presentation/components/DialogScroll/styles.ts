@@ -9,7 +9,7 @@ import { ThemeNameProps } from '~types/index';
 const windowHeight = Dimensions.get('window').height;
 
 interface DialogProps {
-  noHeader: boolean;
+  noHeaderDefault: boolean;
 }
 
 export const Container = styled.SafeAreaView`
@@ -24,11 +24,12 @@ export const Overlay = styled.TouchableOpacity`
 `;
 
 export const Dialog = styled(Animated.View)<DialogProps>`
-  max-height: ${({ noHeader }) => (noHeader ? windowHeight * 0.8 : windowHeight * 0.5)}px;
+  max-height: ${({ noHeaderDefault }) =>
+    noHeaderDefault ? windowHeight * 0.8 : windowHeight * 0.6}px;
   width: 85%;
   position: absolute;
   align-self: center;
-  top: ${({ noHeader }) => (noHeader ? windowHeight * 0.1 : windowHeight * 0.2)}px;
+  top: ${({ noHeaderDefault }) => (noHeaderDefault ? windowHeight * 0.1 : windowHeight * 0.2)}px;
 `;
 
 export const Header = styled.View`

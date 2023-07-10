@@ -28,7 +28,7 @@ export function ModalOption({
 
   const inputRef = useRef<TextInput>(null);
 
-  const noHeader = options.length >= 10;
+  const noHeaderDefault = options.length >= 10;
 
   const handleTouchableInput = () => {
     if (inputRef.current) {
@@ -54,7 +54,7 @@ export function ModalOption({
   );
 
   const onCloseModal = () => {
-    if (noHeader) {
+    if (noHeaderDefault) {
       onClose();
       setListAutocomplete(options);
     } else {
@@ -67,7 +67,7 @@ export function ModalOption({
       show={show}
       onClose={onCloseModal}
       title={title}
-      noHeader={noHeader}
+      noHeaderDefault={noHeaderDefault}
       headerElement={
         <TouchableWithoutFeedback onPress={handleTouchableInput}>
           <HeaderSearch themeName={themeName}>
