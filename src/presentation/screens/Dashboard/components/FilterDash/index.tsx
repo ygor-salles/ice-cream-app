@@ -15,7 +15,7 @@ const mockArray = [
   { id: 7, name: 'Item 7', price: 7 },
   { id: 8, name: 'Item 8', price: 8 },
   { id: 9, name: 'Item 9', price: 9 },
-  // { id: 10, name: 'Item 10', price: 10 },
+  { id: 10, name: 'Item 10', price: 10 },
   // { id: 11, name: 'Item 11', price: 11 },
   // { id: 12, name: 'Item 12', price: 12 },
   // { id: 13, name: 'Item 13', price: 13 },
@@ -73,7 +73,7 @@ export function FilterDash() {
           label="Tipo de venda"
           required
         />
-        <STextField control={control} name="description" label="Descrição" required />
+        <STextField control={control} name="description" label="Descrição" placeholder="Digite" required />
       </View>
     </Container>
   );

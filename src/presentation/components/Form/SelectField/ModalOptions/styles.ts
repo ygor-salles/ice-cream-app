@@ -43,9 +43,10 @@ export const InputWrapper = styled.View<ThemeNameProps>`
   border-color: ${colors.GRAY_300};
 `;
 
-export const Input = styled.TextInput`
+export const Input = styled.TextInput<ThemeNameProps>`
   flex: 1;
   font-size: 16px;
+  color: ${props => (props.themeName === 'light' ? colors.TEXT : colors.WHITE)};
 `;
 
 export const Icon = styled(Feather)`

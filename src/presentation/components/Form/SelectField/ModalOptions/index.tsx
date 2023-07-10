@@ -3,6 +3,7 @@ import { useCallback, useRef, useState } from 'react';
 import { View, TextInput, TouchableWithoutFeedback } from 'react-native';
 
 import { DialogScroll } from '~components/DialogScroll';
+import { colors } from '~styles/constants';
 import { ThemeNameProps } from '~types/index';
 
 import { Description, Divider, Item, Input, InputWrapper, HeaderSearch, Icon } from './styles';
@@ -72,7 +73,13 @@ export function ModalOption({
           <HeaderSearch themeName={themeName}>
             <InputWrapper themeName={themeName}>
               <Icon name="search" />
-              <Input ref={inputRef} onChangeText={text => handleSearch(text)} />
+              <Input
+                ref={inputRef}
+                onChangeText={text => handleSearch(text)}
+                themeName={themeName}
+                placeholder="Pesquisar..."
+                placeholderTextColor={colors.GRAY_500}
+              />
             </InputWrapper>
           </HeaderSearch>
         </TouchableWithoutFeedback>
