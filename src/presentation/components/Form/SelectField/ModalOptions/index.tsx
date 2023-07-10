@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback, useRef, useState } from 'react';
-import { View, TextInput, TouchableWithoutFeedback } from 'react-native';
+import { TextInput, TouchableWithoutFeedback } from 'react-native';
 
 import { DialogScroll } from '~components/DialogScroll';
 import { colors } from '~styles/constants';
 import { ThemeNameProps } from '~types/index';
 
-import { Description, Divider, Item, Input, InputWrapper, HeaderSearch, Icon } from './styles';
+import { Description, Item, Input, InputWrapper, HeaderSearch, Icon } from './styles';
 
 interface ModalOptionProps extends ThemeNameProps {
   show: boolean;
@@ -70,8 +70,8 @@ export function ModalOption({
       noHeaderDefault={noHeaderDefault}
       headerElement={
         <TouchableWithoutFeedback onPress={handleTouchableInput}>
-          <HeaderSearch themeName={themeName}>
-            <InputWrapper themeName={themeName}>
+          <HeaderSearch>
+            <InputWrapper>
               <Icon name="search" />
               <Input
                 ref={inputRef}
@@ -85,19 +85,17 @@ export function ModalOption({
         </TouchableWithoutFeedback>
       }
     >
-      {listAutocomplete.map((item, index) => (
-        <View key={item}>
-          <Item
-            themeName={themeName}
-            onPress={() => {
-              onSelect(item);
-              setListAutocomplete(options);
-            }}
-          >
-            <Description themeName={themeName}>{item}</Description>
-          </Item>
-          {index < options.length - 1 && <Divider />}
-        </View>
+      {listAutocomplete.map(item => (
+        <Item
+          key={item}
+          themeName={themeName}
+          onPress={() => {
+            onSelect(item);
+            setListAutocomplete(options);
+          }}
+        >
+          <Description themeName={themeName}>{item}</Description>
+        </Item>
       ))}
     </DialogScroll>
   );

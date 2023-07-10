@@ -8,7 +8,7 @@ import { ThemeNameProps } from '~types/index';
 
 const windowHeight = Dimensions.get('window').height;
 
-interface DialogProps {
+interface DialogProps extends ThemeNameProps {
   noHeaderDefault: boolean;
 }
 
@@ -30,6 +30,8 @@ export const Dialog = styled(Animated.View)<DialogProps>`
   position: absolute;
   align-self: center;
   top: ${({ noHeaderDefault }) => (noHeaderDefault ? windowHeight * 0.1 : windowHeight * 0.2)}px;
+  background-color: ${({ themeName }) => (themeName === 'light' ? colors.WHITE : colors.DARK_200)};
+  border-radius: 4px;
 `;
 
 export const Header = styled.View`
@@ -44,13 +46,15 @@ export const Header = styled.View`
 
 export const Scroll = styled.ScrollView<ThemeNameProps>`
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
-  padding: 4px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
 `;
 
 export const Title = styled.Text`
   font-weight: 400;
   font-size: 16px;
   color: ${colors.WHITE};
+`;
+
+export const Footer = styled.View`
+  padding: 8px;
+  background-color: ${colors.PURPLE_PRIMARY};
 `;

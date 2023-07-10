@@ -7,6 +7,8 @@ import { ThemeNameProps } from '~types/index';
 export const Item = styled.TouchableOpacity<ThemeNameProps>`
   padding: 16px;
   background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
+  border-bottom-width: 0.5px;
+  border-bottom-color: ${colors.GRAY_300};
 `;
 
 export const Description = styled.Text<ThemeNameProps>`
@@ -15,14 +17,7 @@ export const Description = styled.Text<ThemeNameProps>`
   color: ${props => (props.themeName === 'light' ? colors.TEXT : colors.WHITE)};
 `;
 
-export const Divider = styled.View`
-  height: 0.5px;
-  width: 100%;
-  background-color: ${colors.GRAY_200};
-`;
-
-export const HeaderSearch = styled.View<ThemeNameProps>`
-  background-color: ${({ themeName }) => (themeName === 'light' ? colors.WHITE : colors.DARK_200)};
+export const HeaderSearch = styled.View`
   padding: 8px;
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
@@ -30,7 +25,7 @@ export const HeaderSearch = styled.View<ThemeNameProps>`
   border-bottom-color: ${colors.GRAY_300};
 `;
 
-export const InputWrapper = styled.View<ThemeNameProps>`
+export const InputWrapper = styled.View`
   flex-direction: row;
   align-items: center;
   gap: 10px;

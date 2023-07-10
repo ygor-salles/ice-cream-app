@@ -6,7 +6,8 @@ import { Feather } from '@expo/vector-icons';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors, globalKeyFrames } from '~styles/constants';
 
-import { Container, Dialog, Header, Overlay, Scroll, Title } from './styles';
+import { Button } from '../Button';
+import { Container, Dialog, Header, Overlay, Scroll, Title, Footer } from './styles';
 
 interface DialogScrollProps {
   show: boolean;
@@ -35,6 +36,7 @@ export function DialogScroll({
           noHeaderDefault={noHeaderDefault}
           entering={globalKeyFrames.ENTER_TOP_SLOW}
           exiting={globalKeyFrames.EXIT_BOTTOM_SLOW}
+          themeName={themeName}
         >
           {noHeaderDefault ? (
             headerElement
@@ -45,6 +47,9 @@ export function DialogScroll({
             </Header>
           )}
           <Scroll themeName={themeName}>{children}</Scroll>
+          <Footer>
+            <Button onPress={onClose}>Fechar</Button>
+          </Footer>
         </Dialog>
       </Container>
     </Modal>
