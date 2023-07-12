@@ -3,6 +3,7 @@ import { Modal } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
+import { buttonThemes } from '~constants/ButtonThemes';
 import { colors, globalKeyFrames } from '~styles/constants';
 
 import { Button } from '../Button';
@@ -44,7 +45,9 @@ export function DialogScroll({
           )}
           <Scroll>{children}</Scroll>
           <Footer>
-            <Button onPress={onClose}>Fechar</Button>
+            <Button themeButton={buttonThemes.OUTLINED} onPress={onClose}>
+              Fechar
+            </Button>
           </Footer>
         </Dialog>
       </Container>

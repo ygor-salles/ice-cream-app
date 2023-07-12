@@ -1,23 +1,49 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
+import {
+  getBorderButton,
+  getBackgroundButton,
+  getTextButton,
+  buttonThemes,
+} from '~constants/ButtonThemes';
 import { colors, globalStyles } from '~styles/constants';
+import { ThemeNameProps } from '~types/index';
 
-export const Touchable = styled.TouchableOpacity`
+interface ThemeButtonProps extends ThemeNameProps {
+  themeButton: string;
+}
+
+export const Touchable = styled.TouchableOpacity<ThemeButtonProps>`
   width: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 8px;
   padding: 10px;
-  background-color: ${colors.WHITE};
-
   border-radius: 2px;
+  border-width: ${props => (props.themeButton === buttonThemes.OUTLINED ? '1px' : 0)};
 
-  ${globalStyles.SHADOW}
+  ${({ themeName, themeButton }) =>
+    themeName &&
+    themeButton &&
+    css`
+      background-color: ${getBackgroundButton(themeName, themeButton)};
+      border-color: ${getBorderButton(themeName, themeButton)};
+    `}
+
+  ${({ themeButton }) => themeButton !== buttonThemes.OUTLINED && globalStyles.SHADOW}
 `;
 
-export const Text = styled.Text`
+export const Text = styled.Text<ThemeButtonProps>`
   font-weight: 400;
   font-size: 16px;
-  color: ${colors.PURPLE_PRIMARY};
+
+  ${({ themeButton, themeName }) =>
+    themeButton && themeName
+      ? css`
+          color: ${getTextButton(themeName, themeButton)};
+        `
+      : css`
+          color: ${colors.WHITE};
+        `}
 `;

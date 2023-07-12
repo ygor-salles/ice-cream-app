@@ -55,5 +55,7 @@ export const Title = styled.Text`
 
 export const Footer = styled.View`
   padding: 8px;
-  background-color: ${colors.PURPLE_PRIMARY};
+  background-color: ${props => props.theme.bg};
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 `;

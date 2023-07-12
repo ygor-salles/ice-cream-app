@@ -1,5 +1,7 @@
 import { StyleProp, TextStyle } from 'react-native';
 
+import { useThemeContext } from '~hooks/useThemeContext';
+
 import { Touchable, Text } from './styles';
 
 interface ButtonProps {
@@ -12,10 +14,14 @@ interface ButtonProps {
   onPress: () => void;
 }
 
-export function Button({ children, styleText, onPress, ...rest }: ButtonProps) {
+export function Button({ children, themeButton, styleText, onPress, ...rest }: ButtonProps) {
+  const { themeName } = useThemeContext();
+
   return (
-    <Touchable onPress={onPress} {...rest}>
-      <Text style={styleText}>{children}</Text>
+    <Touchable onPress={onPress} themeName={themeName} themeButton={themeButton} {...rest}>
+      <Text themeName={themeName} themeButton={themeButton} style={styleText}>
+        {children}
+      </Text>
     </Touchable>
   );
 }
