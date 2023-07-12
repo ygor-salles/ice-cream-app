@@ -2,16 +2,13 @@ import React, { useCallback, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { Keyboard } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
 import { format, parseISO } from 'date-fns';
 
 import { DatePicker } from '~components/DatePicker';
 import { Row } from '~components/Row';
-import { useThemeContext } from '~hooks/useThemeContext';
-import { colors } from '~styles/constants';
 
 import { Label, ValueText } from '../styles';
-import { Wrapper, WrapperField } from './styles';
+import { Icon, Wrapper, WrapperField } from './styles';
 import { DateRangePickerFieldProps } from './types';
 
 export function DateRangePickerField({
@@ -47,8 +44,6 @@ export function DateRangePickerField({
     control,
   });
 
-  const { themeName } = useThemeContext();
-
   const [showDatePickerState, setShowDatePickerState] = useState(false);
 
   const toggleShowDatePicker = useCallback(() => {
@@ -69,37 +64,36 @@ export function DateRangePickerField({
         labelFinal={labelFinal}
       />
       <Wrapper
-        themeName={themeName}
         disabled={disabled}
         error={!!errorInit || !!errorFinal}
         variant={variant}
         onPress={toggleShowDatePicker}
         {...rest}
       >
-        <WrapperField themeName={themeName}>
-          <Label themeName={themeName} disabled={disabled} error={!!errorInit}>
+        <WrapperField>
+          <Label disabled={disabled} error={!!errorInit}>
             {requiredInit ? `${labelInit} *` : labelInit}
           </Label>
           <Row>
-            <ValueText isValue={!!valueInit} themeName={themeName}>
+            <ValueText isValue={!!valueInit}>
               {valueInit
                 ? format(parseISO(valueInit?.dateString), 'd MMM yyyy')
                 : placeholder ?? 'Selecione'}
             </ValueText>
-            <Feather name="calendar" size={16} color={colors.GRAY_500} />
+            <Icon name="calendar" />
           </Row>
         </WrapperField>
-        <WrapperField themeName={themeName} secondInput>
-          <Label themeName={themeName} disabled={disabled} error={!!errorFinal}>
+        <WrapperField secondInput>
+          <Label disabled={disabled} error={!!errorFinal}>
             {requiredFinal ? `${labelFinal} *` : labelFinal}
           </Label>
           <Row>
-            <ValueText isValue={!!valueFinal} themeName={themeName}>
+            <ValueText isValue={!!valueFinal}>
               {valueFinal
                 ? format(parseISO(valueFinal?.dateString), 'd MMM yyyy')
                 : placeholder ?? 'Selecione'}
             </ValueText>
-            <Feather name="calendar" size={16} color={colors.GRAY_500} />
+            <Icon name="calendar" />
           </Row>
         </WrapperField>
       </Wrapper>

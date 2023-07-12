@@ -1,5 +1,4 @@
 /* eslint-disable no-nested-ternary */
-import { useMemo } from 'react';
 import { View } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
@@ -22,7 +21,7 @@ interface CardInfoProps {
 export function CardInfo({ typeTitle, subTitle, iconName, value }: CardInfoProps) {
   const { themeName } = useThemeContext();
 
-  const { text, color } = useMemo(() => getTitleCardInfoDash(typeTitle), [typeTitle]);
+  const { text, color } = getTitleCardInfoDash(typeTitle);
 
   const themeTextCard =
     typeTitle === 'profit' ? 'dark' : typeTitle === 'debit' ? 'light' : themeName;

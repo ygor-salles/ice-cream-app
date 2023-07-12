@@ -1,9 +1,7 @@
+import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
 
-import { colors } from '~styles/constants';
-import { ThemeNameProps } from '~types/index';
-
-interface MainProps extends ThemeNameProps {
+interface MainProps {
   alignCenter: boolean;
 }
 
@@ -13,7 +11,7 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   height: 60px;
-  background-color: ${colors.PURPLE_PRIMARY};
+  background-color: ${({ theme }) => theme.primary};
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +21,7 @@ export const Header = styled.View`
 
 export const Main = styled.View<MainProps>`
   flex: 1;
-  background-color: ${props => (props.themeName === 'light' ? colors.GRAY_200 : colors.DARK_500)};
+  background-color: ${({ theme }) => theme.bgScreen};
 
   ${({ alignCenter }) =>
     alignCenter &&
@@ -35,7 +33,7 @@ export const Main = styled.View<MainProps>`
 
 export const Footer = styled.View`
   height: 60px;
-  background-color: ${colors.PURPLE_PRIMARY};
+  background-color: ${({ theme }) => theme.primary};
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -44,7 +42,7 @@ export const Footer = styled.View`
 export const Title = styled.Text`
   font-weight: 500;
   font-size: 20px;
-  color: ${colors.WHITE};
+  color: ${({ theme }) => theme.textWhite};
 `;
 
 export const Row = styled.View`
@@ -52,4 +50,9 @@ export const Row = styled.View`
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+`;
+
+export const Icon = styled(Feather)`
+  font-size: 24px;
+  color: ${props => props.theme.iconWhite};
 `;

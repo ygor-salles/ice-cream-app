@@ -3,7 +3,6 @@ import { Modal } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
-import { useThemeContext } from '~hooks/useThemeContext';
 import { colors, globalKeyFrames } from '~styles/constants';
 
 import { Button } from '../Button';
@@ -26,8 +25,6 @@ export function DialogScroll({
   show,
   onClose,
 }: DialogScrollProps) {
-  const { themeName } = useThemeContext();
-
   return (
     <Modal visible={show} animationType="fade" transparent onRequestClose={onClose}>
       <Container>
@@ -36,7 +33,6 @@ export function DialogScroll({
           noHeaderDefault={noHeaderDefault}
           entering={globalKeyFrames.ENTER_TOP_SLOW}
           exiting={globalKeyFrames.EXIT_BOTTOM_SLOW}
-          themeName={themeName}
         >
           {noHeaderDefault ? (
             headerElement
@@ -46,7 +42,7 @@ export function DialogScroll({
               <Feather name="x" size={22} color={colors.WHITE} onPress={onClose} />
             </Header>
           )}
-          <Scroll themeName={themeName}>{children}</Scroll>
+          <Scroll>{children}</Scroll>
           <Footer>
             <Button onPress={onClose}>Fechar</Button>
           </Footer>

@@ -4,11 +4,10 @@ import Animated from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 import { colors, globalStyles } from '~styles/constants';
-import { ThemeNameProps } from '~types/index';
 
 const windowHeight = Dimensions.get('window').height;
 
-interface DialogProps extends ThemeNameProps {
+interface DialogProps {
   noHeaderDefault: boolean;
 }
 
@@ -30,7 +29,7 @@ export const Dialog = styled(Animated.View)<DialogProps>`
   position: absolute;
   align-self: center;
   top: ${({ noHeaderDefault }) => (noHeaderDefault ? windowHeight * 0.1 : windowHeight * 0.2)}px;
-  background-color: ${({ themeName }) => (themeName === 'light' ? colors.WHITE : colors.DARK_200)};
+  background-color: ${({ theme }) => theme.bg};
   border-radius: 4px;
 `;
 
@@ -44,8 +43,8 @@ export const Header = styled.View`
   border-top-right-radius: 4px;
 `;
 
-export const Scroll = styled.ScrollView<ThemeNameProps>`
-  background-color: ${props => (props.themeName === 'light' ? colors.WHITE : colors.DARK_200)};
+export const Scroll = styled.ScrollView`
+  background-color: ${props => props.theme.bg};
 `;
 
 export const Title = styled.Text`

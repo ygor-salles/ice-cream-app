@@ -1,3 +1,4 @@
+import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
 import { Card } from '~components/Card';
@@ -36,4 +37,9 @@ export const Text = styled.Text`
   color: ${colors.GRAY_300};
 
   margin-left: 12px;
+`;
+
+export const Icon = styled(Feather)`
+  font-size: 24px;
+  color: ${props => props.theme.primary};
 `;

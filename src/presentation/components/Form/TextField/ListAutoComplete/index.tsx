@@ -1,6 +1,4 @@
-import { Feather } from '@expo/vector-icons';
-
-import { colors } from '~styles/constants';
+import { Icon } from '~components/CustomDrawer/styles';
 
 import { Container, ContentItem, Row, Text } from './styles';
 
@@ -20,7 +18,7 @@ export function ListAutoComplete({ listItems, onPress, renderLeft, value }: Prop
             {!!renderLeft && renderLeft}
             <Text>{item}</Text>
           </Row>
-          {item === value && <Feather name="check" size={24} color={colors.PURPLE_PRIMARY} />}
+          {item === value && <Icon name="check" />}
         </ContentItem>
       ))}
     </Container>

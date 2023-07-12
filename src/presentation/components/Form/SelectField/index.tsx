@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import { useController } from 'react-hook-form';
 
-import { Feather } from '@expo/vector-icons';
-
 import { Row } from '~components/Row';
-import { useThemeContext } from '~hooks/useThemeContext';
-import { colors } from '~styles/constants';
 
 import { Label, ValueText, WrapperTouch } from '../styles';
 import { ModalOption } from './ModalOptions';
+import { Icon } from './styles';
 import { SelectFieldProps } from './types';
 
 export function SelectField({
@@ -27,8 +24,6 @@ export function SelectField({
     field: { onChange, value },
     fieldState: { error },
   } = useController({ control, name });
-
-  const { themeName } = useThemeContext();
 
   const [showModal, setShowModal] = useState(false);
 
@@ -49,25 +44,21 @@ export function SelectField({
       <WrapperTouch
         disabled={disabled}
         error={!!error}
-        themeName={themeName}
         variant={variant}
         onPress={() => setShowModal(true)}
         {...rest}
       >
-        <Label themeName={themeName} error={!!error} disabled={disabled} style={styleTextLabel}>
+        <Label error={!!error} disabled={disabled} style={styleTextLabel}>
           {required ? `${label} *` : label}
         </Label>
         <Row>
-          <ValueText isValue={!!value} themeName={themeName}>
-            {valueField()}
-          </ValueText>
-          <Feather name="chevron-down" size={16} color={colors.GRAY_500} />
+          <ValueText isValue={!!value}>{valueField()}</ValueText>
+          <Icon name="chevron-down" />
         </Row>
       </WrapperTouch>
       <ModalOption
         show={showModal}
         onClose={() => setShowModal(false)}
-        themeName={themeName}
         title={label}
         options={options}
         onSelect={onSelect}

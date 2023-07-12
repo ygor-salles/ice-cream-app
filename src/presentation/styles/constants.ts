@@ -38,6 +38,87 @@ export const colors = {
   OVERLAY: '#00000080',
 };
 
+export type Theme = {
+  bgScreen: string;
+  bg: string;
+
+  text: string;
+  textPrimary: string;
+  textDisabled: string;
+  textPlaceholder: string;
+  textError: string;
+  textWhite: string;
+
+  border: string;
+  borderOutlined: string;
+
+  iconGray: string;
+  iconInactive: string;
+  iconText: string;
+  iconPrimary: string;
+  iconWhite: string;
+
+  primary: string;
+  success: string;
+  danger: string;
+  alert: string;
+  disabled: string;
+};
+
+export const themeLight: Theme = {
+  bgScreen: colors.GRAY_200,
+  bg: colors.WHITE,
+
+  text: colors.TEXT,
+  textPrimary: colors.PURPLE_PRIMARY,
+  textDisabled: colors.GRAY_400,
+  textPlaceholder: colors.GRAY_500,
+  textError: colors.RED_ERROR,
+  textWhite: colors.WHITE,
+
+  border: colors.GRAY_300,
+  borderOutlined: colors.PURPLE_PRIMARY,
+
+  iconGray: colors.GRAY_500,
+  iconInactive: colors.GRAY_300,
+  iconText: colors.TEXT,
+  iconPrimary: colors.PURPLE_PRIMARY,
+  iconWhite: colors.WHITE,
+
+  primary: colors.PURPLE_PRIMARY,
+  success: colors.GREEN,
+  danger: colors.RED,
+  alert: colors.YELLOW,
+  disabled: colors.GRAY_400,
+};
+
+export const themeDark: Theme = {
+  bgScreen: colors.DARK_500,
+  bg: colors.DARK_200,
+
+  text: colors.WHITE,
+  textPrimary: colors.PURPLE_PRIMARY_DARK,
+  textDisabled: colors.GRAY_700,
+  textPlaceholder: colors.GRAY_500,
+  textError: colors.RED_ERROR,
+  textWhite: colors.WHITE,
+
+  border: colors.GRAY_300,
+  borderOutlined: colors.WHITE,
+
+  iconGray: colors.GRAY_500,
+  iconInactive: colors.GRAY_500,
+  iconText: colors.WHITE,
+  iconPrimary: colors.PURPLE_PRIMARY_DARK,
+  iconWhite: colors.WHITE,
+
+  primary: colors.PURPLE_PRIMARY,
+  success: colors.GREEN,
+  danger: colors.RED_DARK,
+  alert: colors.YELLOW,
+  disabled: colors.GRAY_400,
+};
+
 export const globalStyles = {
   SHADOW: css`
     ${Platform.select({

@@ -1,15 +1,13 @@
+import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
 
-import { colors } from '~styles/constants';
-import { ThemeNameProps } from '~types/index';
-
-interface WrapperProps extends ThemeNameProps {
+interface WrapperProps {
   disabled: boolean;
   variant: 'filled' | 'standard';
   error: boolean;
 }
 
-interface WrapperFieldProps extends ThemeNameProps {
+interface WrapperFieldProps {
   secondInput?: boolean;
 }
 
@@ -17,48 +15,53 @@ export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   flex-direction: row;
   flex: 1;
   padding: 12px;
-  background-color: ${props => (props.themeName === 'dark' ? colors.DARK_200 : colors.WHITE)};
+  background-color: ${props => props.theme.bg};
 
   ${({ variant }) =>
     variant === 'filled'
       ? css`
           padding: 12px;
           border-bottom-width: 1px;
-          border-bottom-color: ${colors.GRAY_400};
+          border-bottom-color: ${props => props.theme.border};
         `
       : css`
           border-bottom-width: 1px;
           padding: 6px 0;
           background-color: transparent;
-          border-color: ${colors.GRAY_300};
+          border-color: ${props => props.theme.border};
         `}
 
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${colors.GRAY_400};
+      background-color: ${props => props.theme.disabled};
     `}
 
   ${({ error }) =>
     error &&
     css`
-      border-color: ${colors.RED_ERROR};
+      border-color: ${props => props.theme.textError};
     `}
 `;
 
 export const WrapperField = styled.View<WrapperFieldProps>`
   width: 50%;
 
-  ${({ secondInput, themeName }) =>
+  ${({ secondInput }) =>
     secondInput
       ? css`
           padding-left: 10px;
           border-left-width: 0.5px;
-          border-left-color: ${themeName === 'light' ? colors.GRAY_500 : colors.GRAY_500};
+          border-left-color: ${props => props.theme.border};
         `
       : css`
           padding-right: 10px;
           border-right-width: 0.5px;
-          border-right-color: ${themeName === 'light' ? colors.GRAY_500 : colors.GRAY_500};
+          border-right-color: ${props => props.theme.border};
         `}
+`;
+
+export const Icon = styled(Feather)`
+  font-size: 16px;
+  color: ${props => props.theme.iconGray};
 `;

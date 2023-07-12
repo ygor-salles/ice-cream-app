@@ -1,5 +1,9 @@
 import { createContext, useCallback, useState } from 'react';
 
+import { ThemeProvider } from 'styled-components/native';
+
+import { themeDark, themeLight } from '~styles/constants';
+
 import { AppProviderProps, IThemeContextData } from './types';
 
 export const ThemeContext = createContext<IThemeContextData>({} as IThemeContextData);
@@ -13,6 +17,10 @@ export function AppThemeProvider({ children }: AppProviderProps) {
   );
 
   return (
-    <ThemeContext.Provider value={{ themeName, toggleTheme }}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ themeName, toggleTheme }}>
+      <ThemeProvider theme={themeName === 'light' ? themeLight : themeDark}>
+        {children}
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
 }

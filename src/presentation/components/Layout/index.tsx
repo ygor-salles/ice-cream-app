@@ -1,11 +1,7 @@
 import { ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
-import { useThemeContext } from '~hooks/useThemeContext';
-import { colors } from '~styles/constants';
 
 import { Button } from '../Button';
-import { Container, Header, Main, Footer, Title, Row } from './styles';
+import { Container, Header, Main, Footer, Title, Row, Icon } from './styles';
 import { LayoutProps } from './types';
 
 export function Layout({
@@ -22,20 +18,18 @@ export function Layout({
   onPress,
   onToggleDrawer,
 }: LayoutProps) {
-  const { themeName } = useThemeContext();
-
   return (
     <Container>
       <Header>
         <Row>
-          <Icon name="menu" size={28} color={colors.WHITE} onPress={onToggleDrawer} />
+          <Icon name="menu" onPress={onToggleDrawer} />
           <Title>{title}</Title>
         </Row>
         {renderRightHeader && renderRightHeader}
         {textButton && onPress && <Button onPress={onPress}>{textButton}</Button>}
       </Header>
 
-      <Main alignCenter={alignCenter && noScrollView} themeName={themeName}>
+      <Main alignCenter={alignCenter && noScrollView}>
         {noScrollView ? children : <ScrollView>{children}</ScrollView>}
       </Main>
 

@@ -2,15 +2,13 @@ import { useCallback, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { Keyboard } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
 import { format, parseISO } from 'date-fns';
 
 import { DatePicker } from '~components/DatePicker';
 import { Row } from '~components/Row';
-import { useThemeContext } from '~hooks/useThemeContext';
-import { colors } from '~styles/constants';
 
 import { WrapperTouch, Label, ValueText } from '../styles';
+import { Icon } from './styles';
 import { DatePickerFieldProps } from './types';
 
 export function DatePickerField({
@@ -33,8 +31,6 @@ export function DatePickerField({
     name,
     control,
   });
-
-  const { themeName } = useThemeContext();
 
   const [showDatePickerState, setShowDatePickerState] = useState(false);
 
@@ -61,21 +57,18 @@ export function DatePickerField({
         labelInit={label}
       />
       <WrapperTouch
-        themeName={themeName}
         disabled={disabled}
         error={!!error}
         variant={variant}
         onPress={toggleShowDatePicker}
         {...rest}
       >
-        <Label themeName={themeName} disabled={disabled} error={!!error}>
+        <Label disabled={disabled} error={!!error}>
           {required ? `${label} *` : label}
         </Label>
         <Row>
-          <ValueText isValue={!!value} themeName={themeName}>
-            {valueField()}
-          </ValueText>
-          <Feather name="calendar" size={16} color={colors.GRAY_500} />
+          <ValueText isValue={!!value}>{valueField()}</ValueText>
+          <Icon name="calendar" />
         </Row>
       </WrapperTouch>
     </>

@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { Calendar, DateData } from 'react-native-calendars';
 
-import { Feather } from '@expo/vector-icons';
 import { Portal } from '@gorhom/portal';
 import { format } from 'date-fns';
 
@@ -29,6 +28,7 @@ import {
   Header,
   Title,
   HiddenIcon,
+  Icon,
   styles,
 } from './styles';
 import { DatePickerProps } from './types';
@@ -175,18 +175,9 @@ export function DatePicker({
 
   return (
     <Portal name={title}>
-      <LayoutCalendar
-        themeName={themeName}
-        entering={globalKeyFrames.ENTER_TOP}
-        exiting={globalKeyFrames.EXIT_BOTTOM}
-      >
+      <LayoutCalendar entering={globalKeyFrames.ENTER_TOP} exiting={globalKeyFrames.EXIT_BOTTOM}>
         <Header>
-          <Feather
-            name="x"
-            size={24}
-            color={themeName === 'light' ? colors.GRAY_500 : colors.WHITE}
-            onPress={onDimiss}
-          />
+          <Icon name="x" onPress={onDimiss} />
           <Title>{title}</Title>
           <HiddenIcon />
         </Header>
@@ -195,7 +186,6 @@ export function DatePicker({
             label={labelInit}
             isFocus={selectedInicitalDateSate.selected}
             date={selectedInicitalDateSate.date}
-            themeName={themeName}
             clearDate={clearDateFirstInput}
             hasTwoInput={hasTwoInput}
           />
@@ -204,7 +194,6 @@ export function DatePicker({
               label={labelFinal}
               isFocus={!selectedInicitalDateSate.selected}
               date={selectedFinalDateSate.date}
-              themeName={themeName}
               clearDate={clearDateSecondInput}
               hasTwoInput={hasTwoInput}
             />
@@ -237,9 +226,9 @@ export function DatePicker({
             onMonthChange={(month: { dateString: string }) => {
               setSelectedMonthState(month?.dateString);
             }}
-            renderHeader={date => <HeaderCalendar date={date} themeName={themeName} />}
+            renderHeader={date => <HeaderCalendar date={date} />}
             renderArrow={direction => (
-              <ArrowsCalendar direction={direction} verifyDate={verifyDate} themeName={themeName} />
+              <ArrowsCalendar direction={direction} verifyDate={verifyDate} />
             )}
             style={themeName === 'dark' ? styles.headCalendarDark : styles.headCalendarLight}
             headerStyle={themeName === 'dark' ? styles.headCalendarDark : styles.headCalendarLight}
@@ -248,7 +237,6 @@ export function DatePicker({
         {selectedInicitalDateSate.date && (
           <SButton
             disabled={!selectedInicitalDateSate?.date}
-            themeName={themeName}
             onPress={onPressSubmit}
             styleText={{ color: themeName === 'dark' ? colors.WHITE : colors.PURPLE_PRIMARY }}
           >

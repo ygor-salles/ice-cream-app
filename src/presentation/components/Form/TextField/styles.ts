@@ -1,7 +1,5 @@
 import styled from 'styled-components/native';
 
-import { colors } from '~styles/constants';
-
 export const InputContainer = styled.View`
   flex-direction: row;
   align-items: center;
@@ -12,6 +10,6 @@ export const InputContainer = styled.View`
 export const Error = styled.Text`
   font-weight: 400;
   font-size: 12px;
-  color: ${colors.RED_ERROR};
+  color: ${props => props.theme.textError};
   margin-top: 4px;
 `;

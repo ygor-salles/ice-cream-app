@@ -1,7 +1,5 @@
 import { ReactNode } from 'react';
 
-import { useThemeContext } from '~hooks/useThemeContext';
-
 import { SText } from './styles';
 
 interface TextAppProps {
@@ -9,11 +7,5 @@ interface TextAppProps {
 }
 
 export function TextApp({ children, ...rest }: TextAppProps) {
-  const { themeName } = useThemeContext();
-
-  return (
-    <SText themeName={themeName} {...rest}>
-      {children}
-    </SText>
-  );
+  return <SText {...rest}>{children}</SText>;
 }

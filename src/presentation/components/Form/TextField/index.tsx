@@ -81,14 +81,8 @@ export function TextField({
   return (
     <>
       <TouchableWithoutFeedback onPress={handleTouchableInput}>
-        <Wrapper
-          disabled={disabled}
-          error={!!error}
-          themeName={themeName}
-          variant={variant}
-          {...rest}
-        >
-          <Label themeName={themeName} error={!!error} disabled={disabled} style={styleTextLabel}>
+        <Wrapper disabled={disabled} error={!!error} variant={variant} {...rest}>
+          <Label error={!!error} disabled={disabled} style={styleTextLabel}>
             {required ? `${label} *` : label}
           </Label>
           <InputContainer>
@@ -107,7 +101,6 @@ export function TextField({
               onBlur={customOnBlur}
               maxLength={maxLength}
               placeholderTextColor={colorPlaceholder}
-              themeName={themeName}
             />
             {renderRight || null}
             {typePassword && (
