@@ -8,14 +8,12 @@ import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
 import { Wrapper, InputField, Label } from '../styles';
-import { ListAutoComplete } from './ListAutoComplete';
 import { InputContainer, Error } from './styles';
 import { TextFieldProps } from './types';
 
 export function TextField({
   control,
   name,
-  autoComplete,
   customOnBlur,
   disabled,
   keyboardType,
@@ -46,10 +44,6 @@ export function TextField({
   const [inputTypePassword, setInputTypePassword] = useState(!!typePassword);
   const onToggleInputPassword = useCallback(() => setInputTypePassword(prev => !prev), []);
 
-  const [listAutocomplete, setListAutocomplete] = useState<string[]>([]);
-
-  const refPressAutoComplete = useRef(false);
-
   const colorPlaceholder = error ? colors.RED_ERROR : placeholderTextColor || colors.GRAY_500;
 
   const handleTouchableInput = () => {
@@ -57,26 +51,6 @@ export function TextField({
       inputRef.current?.focus();
     }
   };
-
-  const handleSearch = useCallback(
-    (text: string) => {
-      onChange(text);
-
-      const newUpdateInstance: string[] = [];
-      const textTyped = new RegExp(text.toUpperCase(), 'i');
-
-      // eslint-disable-next-line no-restricted-syntax
-      for (const instance of autoComplete.listItems) {
-        if (instance.match(textTyped)) {
-          newUpdateInstance.push(instance);
-        }
-
-        setListAutocomplete(newUpdateInstance);
-      }
-      refPressAutoComplete.current = false;
-    },
-    [autoComplete, onChange],
-  );
 
   return (
     <>
@@ -94,7 +68,7 @@ export function TextField({
               ref={inputRef}
               secureTextEntry={inputTypePassword}
               editable={!disabled}
-              onChangeText={text => (autoComplete ? handleSearch(text) : onChange(text))}
+              onChangeText={onChange}
               value={mask ? mask(value?.toString()) : value?.toString()}
               placeholder={!disabled ? placeholder : undefined}
               keyboardType={keyboardType}
@@ -115,22 +89,6 @@ export function TextField({
         </Wrapper>
       </TouchableWithoutFeedback>
       {!!error && <Error>{error.message}</Error>}
-
-      {!!autoComplete && listAutocomplete.length > 0 && value.length > 0 && (
-        <ListAutoComplete
-          listItems={listAutocomplete}
-          renderLeft={autoComplete.renderLeft}
-          value={autoComplete.valueTextLeft}
-          onPress={text => {
-            refPressAutoComplete.current = true;
-            onChange(text);
-            if (autoComplete?.setValue) {
-              autoComplete.setValue(autoComplete.fieldTextLeft, text);
-            }
-            setListAutocomplete([]);
-          }}
-        />
-      )}
     </>
   );
 }

@@ -6,7 +6,7 @@ import { Touchable, Text } from './styles';
 
 interface ButtonProps {
   children: React.ReactNode;
-  themeButton?: string;
+  themeButton: string;
   disabled?: boolean;
   loading?: boolean;
   leftIcon?: React.ReactElement;

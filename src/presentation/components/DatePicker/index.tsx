@@ -5,7 +5,7 @@ import { Portal } from '@gorhom/portal';
 import { format } from 'date-fns';
 
 import { useThemeContext } from '~hooks/useThemeContext';
-import { colors, globalKeyFrames } from '~styles/constants';
+import { globalKeyFrames } from '~styles/constants';
 
 import { ArrowsCalendar } from './components/ArrowsCalendar';
 import { HeaderCalendar } from './components/HeaderCalendar';
@@ -24,12 +24,13 @@ import {
   DividerHeader,
   WrapperCalendar,
   SelectedDateWrapper,
-  SButton,
+  Button,
   Header,
   Title,
   HiddenIcon,
   Icon,
   styles,
+  TextButton,
 } from './styles';
 import { DatePickerProps } from './types';
 
@@ -235,14 +236,12 @@ export function DatePicker({
           />
         </WrapperCalendar>
         {selectedInicitalDateSate.date && (
-          <SButton
-            disabled={!selectedInicitalDateSate?.date}
-            onPress={onPressSubmit}
-            styleText={{ color: themeName === 'dark' ? colors.WHITE : colors.PURPLE_PRIMARY }}
-          >
-            {!selectedFinalDateSate.selected && 'Selecionar data'}
-            {selectedFinalDateSate.selected && 'Selecionar datas'}
-          </SButton>
+          <Button disabled={!selectedInicitalDateSate?.date} onPress={onPressSubmit}>
+            <TextButton>
+              {!selectedFinalDateSate.selected && 'Selecionar data'}
+              {selectedFinalDateSate.selected && 'Selecionar datas'}
+            </TextButton>
+          </Button>
         )}
       </LayoutCalendar>
     </Portal>

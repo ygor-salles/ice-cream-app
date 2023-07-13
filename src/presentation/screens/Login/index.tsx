@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
 
+import { buttonThemes } from '~constants/ButtonThemes';
 import { routesNames } from '~constants/RoutesNames';
 import { colors } from '~styles/constants';
 import { NavDrawer } from '~types/index';
@@ -67,7 +68,9 @@ export function Login() {
             styleTextInput={styles.textInput}
             placeholderTextColor={colors.GRAY_300}
           />
-          <SButton onPress={handleSubmit(onSubmit)}>Entrar</SButton>
+          <SButton themeButton={buttonThemes.WHITE} onPress={handleSubmit(onSubmit)}>
+            Entrar
+          </SButton>
         </WrapperForm>
       </Wrapper>
 

@@ -4,7 +4,6 @@ import Animated from 'react-native-reanimated';
 import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
-import { Button } from '~components/Button';
 import { TextApp } from '~components/TextApp';
 import { colors } from '~styles/constants';
 
@@ -62,9 +61,16 @@ export const DividerHeader = styled.View`
   width: 120%;
 `;
 
-export const SButton = styled(Button)`
+export const Button = styled.TouchableOpacity`
   padding: 18px;
   background-color: ${props => props.theme.bg};
+`;
+
+export const TextButton = styled.Text`
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: ${props => props.theme.textPrimary};
 `;
 
 export const Icon = styled(Feather)`

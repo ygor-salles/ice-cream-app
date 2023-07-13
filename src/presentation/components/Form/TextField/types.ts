@@ -25,14 +25,6 @@ export interface TextFieldProps {
   typePassword?: boolean;
   control: Control<any>;
   lightEyeIcon?: boolean;
-  autoComplete?: {
-    listItems: Array<string>;
-    renderLeft?: React.ReactElement;
-    textLeft?: boolean;
-    valueTextLeft?: string;
-    fieldTextLeft?: string;
-    setValue?: UseFormSetValue<any>;
-  };
   styleTextLabel?: StyleProp<TextStyle>;
   styleTextInput?: StyleProp<TextStyle>;
   placeholderTextColor?: ColorValue;

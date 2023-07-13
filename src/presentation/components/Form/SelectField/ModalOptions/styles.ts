@@ -29,7 +29,7 @@ export const InputWrapper = styled.View`
 
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
-  border-width: 1px;
+  border-width: 1.5px;
   border-color: ${props => props.theme.border};
 `;
 
