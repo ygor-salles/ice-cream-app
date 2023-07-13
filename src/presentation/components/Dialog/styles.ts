@@ -14,3 +14,9 @@ export const Overlay = styled.TouchableOpacity`
 export const DialogAnimation = styled(Animated.View)`
   width: 80%;
 `;
+
+export const Container = styled.View`
+  padding: 16px;
+  background-color: ${props => props.theme.bg};
+  border-radius: 4px;
+`;

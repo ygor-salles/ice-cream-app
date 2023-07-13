@@ -3,7 +3,7 @@ import { Modal } from 'react-native';
 
 import { globalKeyFrames } from '~styles/constants';
 
-import { DialogAnimation, Overlay } from './styles';
+import { Container, DialogAnimation, Overlay } from './styles';
 
 interface DialogProps {
   children: ReactNode;
@@ -13,13 +13,13 @@ interface DialogProps {
 
 export function Dialog({ show, children, onClose }: DialogProps) {
   return (
-    <Modal visible={show} animationType="fade" transparent onRequestClose={onClose}>
-      <Overlay>
+    <Modal visible={show} animationType="fade" transparent>
+      <Overlay onPress={onClose}>
         <DialogAnimation
           entering={globalKeyFrames.ENTER_TOP_SLOW}
           exiting={globalKeyFrames.EXIT_BOTTOM_SLOW}
         >
-          {children}
+          <Container>{children}</Container>
         </DialogAnimation>
       </Overlay>
     </Modal>
