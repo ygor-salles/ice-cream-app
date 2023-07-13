@@ -7,8 +7,8 @@ import { Feather } from '@expo/vector-icons';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
-import { Wrapper, InputField, Label } from '../styles';
-import { InputContainer, Error } from './styles';
+import { Wrapper, InputField, Label, Error } from '../styles';
+import { InputContainer } from './styles';
 import { TextFieldProps } from './types';
 
 export function TextField({
@@ -44,7 +44,7 @@ export function TextField({
   const [inputTypePassword, setInputTypePassword] = useState(!!typePassword);
   const onToggleInputPassword = useCallback(() => setInputTypePassword(prev => !prev), []);
 
-  const colorPlaceholder = error ? colors.RED_ERROR : placeholderTextColor || colors.GRAY_500;
+  const colorPlaceholder = placeholderTextColor || colors.GRAY_500;
 
   const handleTouchableInput = () => {
     if (!disabled && inputRef.current) {
@@ -86,9 +86,9 @@ export function TextField({
               />
             )}
           </InputContainer>
+          {!!error && <Error>{error.message}</Error>}
         </Wrapper>
       </TouchableWithoutFeedback>
-      {!!error && <Error>{error.message}</Error>}
     </>
   );
 }

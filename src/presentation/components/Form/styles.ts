@@ -22,7 +22,7 @@ export const Wrapper = styled.View<WrapperProps>`
   ${({ variant }) =>
     variant === 'filled'
       ? css`
-          padding: 12px;
+          padding: 8px 12px;
           border-bottom-width: 1px;
           border-bottom-color: ${props => props.theme.border};
         `
@@ -53,7 +53,7 @@ export const WrapperTouch = styled.TouchableOpacity<WrapperProps>`
   ${({ variant }) =>
     variant === 'filled'
       ? css`
-          padding: 12px;
+          padding: 8px 12px;
           border-bottom-width: 1px;
           border-bottom-color: ${props => props.theme.border};
         `
@@ -111,4 +111,10 @@ export const ValueText = styled.Text<ValueTextProps>`
   padding: 4.25px 0;
 
   color: ${({ theme, isValue }) => (isValue ? theme.text : theme.textPlaceholder)};
+`;
+
+export const Error = styled.Text`
+  font-weight: 400;
+  font-size: 12px;
+  color: ${props => props.theme.textError};
 `;

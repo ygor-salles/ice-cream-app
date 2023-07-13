@@ -3,7 +3,7 @@ import { useController } from 'react-hook-form';
 
 import { Row } from '~components/Row';
 
-import { Label, ValueText, WrapperTouch } from '../styles';
+import { Error, Label, ValueText, WrapperTouch } from '../styles';
 import { ModalOption } from './ModalOptions';
 import { Icon } from './styles';
 import { SelectFieldProps } from './types';
@@ -55,6 +55,7 @@ export function SelectField({
           <ValueText isValue={!!value}>{valueField()}</ValueText>
           <Icon name="chevron-down" />
         </Row>
+        {!!error && <Error>{error.message}</Error>}
       </WrapperTouch>
       <ModalOption
         show={showModal}

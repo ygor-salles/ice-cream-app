@@ -6,10 +6,3 @@ export const InputContainer = styled.View`
   margin-top: 2px;
   gap: 10px;
 `;
-
-export const Error = styled.Text`
-  font-weight: 400;
-  font-size: 12px;
-  color: ${props => props.theme.textError};
-  margin-top: 4px;
-`;

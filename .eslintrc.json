@@ -78,6 +78,7 @@
     "prettier/prettier": "off",
     "react/no-unstable-nested-components": "off",
     "react/jsx-no-constructed-context-values": "off",
+    "camelcase": "off",
     "react/jsx-no-useless-fragment": "off",
     "space-before-function-paren": "off",
     "react/prop-types": "off",

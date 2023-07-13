@@ -7,7 +7,7 @@ import { format, parseISO } from 'date-fns';
 import { DatePicker } from '~components/DatePicker';
 import { Row } from '~components/Row';
 
-import { WrapperTouch, Label, ValueText } from '../styles';
+import { WrapperTouch, Label, ValueText, Error } from '../styles';
 import { Icon } from './styles';
 import { DatePickerFieldProps } from './types';
 
@@ -70,6 +70,7 @@ export function DatePickerField({
           <ValueText isValue={!!value}>{valueField()}</ValueText>
           <Icon name="calendar" />
         </Row>
+        {!!error && <Error>{error.message}</Error>}
       </WrapperTouch>
     </>
   );

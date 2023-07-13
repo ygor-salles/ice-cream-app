@@ -1,9 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { View } from 'react-native';
 
-import { DatePickerField, SelectField, TextApp } from '~components/index';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Container, SDateRangePickerField, STextField } from './styles';
+import { DatePickerField, SelectField, TextApp } from '~components/index';
+import { buttonThemes } from '~constants/ButtonThemes';
+
+import { IFormFilterDash, defaultValues, fieldsDash, schemaFilterDash } from './schema';
+import { Container, SDateRangePickerField, STextField, SButton } from './styles';
 
 const mockArray = [
   { id: 1, name: 'Item 1', price: 1 },
@@ -36,11 +40,16 @@ export function FilterDash() {
     formState: { isValid },
     setValue,
     watch,
-  } = useForm({
-    defaultValues: { dateInit: null, dateFinal: null, description: '', typeSale: '', date: null },
+  } = useForm<IFormFilterDash>({
+    resolver: yupResolver(schemaFilterDash),
+    defaultValues,
   });
 
-  const { dateInit, dateFinal, typeSale, date } = watch();
+  const { date_init, date_final, type_sale, date } = watch();
+
+  const onSubmit = (values: IFormFilterDash) => {
+    console.log(values);
+  };
 
   return (
     <Container>
@@ -49,10 +58,10 @@ export function FilterDash() {
         <SDateRangePickerField
           control={control}
           minDate={new Date()}
-          nameInit="dateInit"
-          nameFinal="dateFinal"
-          valueInit={dateInit}
-          valueFinal={dateFinal}
+          nameInit={fieldsDash.DATE_INIT}
+          nameFinal={fieldsDash.DATE_FINAL}
+          valueInit={date_init}
+          valueFinal={date_final}
           labelInit="Data início"
           labelFinal="Data fim"
           requiredInit
@@ -61,25 +70,29 @@ export function FilterDash() {
         <DatePickerField
           control={control}
           minDate={new Date()}
-          name="date"
+          name={fieldsDash.DATE}
           label="Data teste"
           value={date}
           required
         />
         <SelectField
           control={control}
-          name="typeSale"
+          name={fieldsDash.TYPE_SALE}
           options={mockArray.map(item => item.name)}
           label="Tipo de venda"
           required
         />
         <STextField
           control={control}
-          name="description"
+          name={fieldsDash.DESCRIPTION}
           label="Descrição"
           placeholder="Digite"
           required
         />
+
+        <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
+          Buscar
+        </SButton>
       </View>
     </Container>
   );

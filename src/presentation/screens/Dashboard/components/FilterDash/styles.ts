@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { DateRangePickerField, TextField } from '~components/index';
+import { DateRangePickerField, TextField, Button } from '~components/index';
 
 export const Container = styled.View`
   gap: 10px;
@@ -16,4 +16,8 @@ export const STextField = styled(TextField)`
   border-bottom-width: 0;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
+`;
+
+export const SButton = styled(Button)`
+  margin-top: 10px;
 `;
