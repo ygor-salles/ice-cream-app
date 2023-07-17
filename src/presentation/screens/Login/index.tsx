@@ -30,7 +30,7 @@ export function Login() {
     formState: { isValid },
     setValue,
     watch,
-  } = useForm<IFormLogin>({ resolver: yupResolver<IFormLogin>(schemaLogin), defaultValues });
+  } = useForm<IFormLogin>({ resolver: yupResolver(schemaLogin), defaultValues });
 
   const onSubmit = values => {
     console.log('values', values);

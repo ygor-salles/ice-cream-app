@@ -14,13 +14,12 @@ interface WrapperFieldProps {
 export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   flex-direction: row;
   flex: 1;
-  padding: 8px 12px;
   background-color: ${props => props.theme.bg};
 
   ${({ variant }) =>
     variant === 'filled'
       ? css`
-          padding: 12px;
+          padding: 8px 12px;
           border-bottom-width: 1px;
           border-bottom-color: ${props => props.theme.border};
         `

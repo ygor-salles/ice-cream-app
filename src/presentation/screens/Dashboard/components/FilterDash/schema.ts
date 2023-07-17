@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as yup from 'yup';
 
 import { IDates } from '~types/index';

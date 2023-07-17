@@ -15,10 +15,7 @@ export function Dialog({ show, children, onClose }: DialogProps) {
   return (
     <Modal visible={show} animationType="fade" transparent>
       <Overlay onPress={onClose}>
-        <DialogAnimation
-          entering={globalKeyFrames.ENTER_TOP_SLOW}
-          exiting={globalKeyFrames.EXIT_BOTTOM_SLOW}
-        >
+        <DialogAnimation entering={globalKeyFrames.ENTER_TOP_SLOW}>
           <Container>{children}</Container>
         </DialogAnimation>
       </Overlay>
