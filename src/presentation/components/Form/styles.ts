@@ -1,4 +1,6 @@
-import styled, { css } from 'styled-components/native';
+import styled from 'styled-components/native';
+
+import { globalStyles } from '~styles/constants';
 
 interface LabelProps {
   disabled: boolean;
@@ -20,30 +22,11 @@ export const Wrapper = styled.View<WrapperProps>`
   background-color: ${props => props.theme.bg};
 
   ${({ variant }) =>
-    variant === 'filled'
-      ? css`
-          padding: 8px 12px;
-          border-bottom-width: 1px;
-          border-bottom-color: ${props => props.theme.border};
-        `
-      : css`
-          border-bottom-width: 1px;
-          padding: 4px 0;
-          background-color: transparent;
-          border-color: ${props => props.theme.border};
-        `}
+    variant === 'filled' ? globalStyles.WRAP_FIELD_FILLED : globalStyles.WRAP_FIELD_STD}
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: ${props => props.theme.disabled};
-    `}
+  ${({ disabled }) => disabled && globalStyles.FIELD_DISABLED}
 
-  ${({ error }) =>
-    error &&
-    css`
-      border-color: ${props => props.theme.textError};
-    `}
+  ${({ error }) => error && globalStyles.FIELD_ERROR}
 `;
 
 export const WrapperTouch = styled.TouchableOpacity<WrapperProps>`
@@ -51,30 +34,11 @@ export const WrapperTouch = styled.TouchableOpacity<WrapperProps>`
   background-color: ${props => props.theme.bg};
 
   ${({ variant }) =>
-    variant === 'filled'
-      ? css`
-          padding: 8px 12px;
-          border-bottom-width: 1px;
-          border-bottom-color: ${props => props.theme.border};
-        `
-      : css`
-          border-bottom-width: 1px;
-          padding: 4px 0;
-          background-color: transparent;
-          border-color: ${props => props.theme.border};
-        `}
+    variant === 'filled' ? globalStyles.WRAP_FIELD_FILLED : globalStyles.WRAP_FIELD_STD}
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: ${props => props.theme.disabled};
-    `}
+  ${({ disabled }) => disabled && globalStyles.FIELD_DISABLED}
 
-  ${({ error }) =>
-    error &&
-    css`
-      border-color: ${props => props.theme.textError};
-    `}
+  ${({ error }) => error && globalStyles.FIELD_ERROR}
 `;
 
 export const Label = styled.Text<LabelProps>`
@@ -83,18 +47,9 @@ export const Label = styled.Text<LabelProps>`
   color: ${({ theme }) => theme.textPrimary};
   margin-bottom: 4px;
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      color: ${props => props.theme.textDisabled};
-    `}
+  ${({ disabled }) => disabled && globalStyles.LABEL_DISABLED}
 
-  ${({ error }) =>
-    error &&
-    css`
-      color: ${props => props.theme.textError};
-      font-weight: bold;
-    `}
+  ${({ error }) => error && globalStyles.LABEL_ERROR}
 `;
 
 export const InputField = styled.TextInput`
@@ -117,4 +72,5 @@ export const Error = styled.Text`
   font-weight: 400;
   font-size: 12px;
   color: ${props => props.theme.textError};
+  margin-bottom: 4px;
 `;

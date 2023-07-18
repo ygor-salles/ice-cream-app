@@ -3,11 +3,17 @@ import { View } from 'react-native';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { DatePickerField, SelectField, TextApp } from '~components/index';
+import {
+  DatePickerField,
+  SelectField,
+  TextApp,
+  DateRangePickerField,
+  TextField,
+} from '~components/index';
 import { buttonThemes } from '~constants/ButtonThemes';
 
 import { IFormFilterDash, defaultValues, fieldsDash, schemaFilterDash } from './schema';
-import { Container, SDateRangePickerField, STextField, SButton } from './styles';
+import { Container, Form, SButton } from './styles';
 
 const mockArray = [
   { id: 1, name: 'Item 1', price: 1 },
@@ -54,8 +60,8 @@ export function FilterDash() {
   return (
     <Container>
       <TextApp>Filtro de entradas</TextApp>
-      <View>
-        <SDateRangePickerField
+      <Form>
+        <DateRangePickerField
           control={control}
           minDate={new Date()}
           nameInit={fieldsDash.DATE_INIT}
@@ -82,7 +88,7 @@ export function FilterDash() {
           label="Tipo de venda"
           required
         />
-        <STextField
+        <TextField
           control={control}
           name={fieldsDash.DESCRIPTION}
           label="Descrição"
@@ -93,7 +99,7 @@ export function FilterDash() {
         <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
           Buscar
         </SButton>
-      </View>
+      </Form>
     </Container>
   );
 }

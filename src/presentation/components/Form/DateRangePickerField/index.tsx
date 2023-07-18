@@ -82,7 +82,6 @@ export function DateRangePickerField({
             </ValueText>
             <Icon name="calendar" />
           </Row>
-          {!!errorInit && <Error>{errorInit.message}</Error>}
         </WrapperField>
         <WrapperField secondInput>
           <Label disabled={disabled} error={!!errorFinal}>
@@ -96,9 +95,14 @@ export function DateRangePickerField({
             </ValueText>
             <Icon name="calendar" />
           </Row>
-          {!!errorFinal && <Error>{errorFinal.message}</Error>}
         </WrapperField>
       </Wrapper>
+      {(!!errorInit || !!errorFinal) && (
+        <Row>
+          {!!errorInit && <Error>{errorInit.message}</Error>}
+          {!!errorFinal && <Error>{errorFinal.message}</Error>}
+        </Row>
+      )}
     </>
   );
 }

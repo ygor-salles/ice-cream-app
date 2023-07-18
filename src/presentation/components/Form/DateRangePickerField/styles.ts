@@ -1,6 +1,8 @@
 import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
 
+import { globalStyles } from '~styles/constants';
+
 interface WrapperProps {
   disabled: boolean;
   variant: 'filled' | 'standard';
@@ -17,30 +19,11 @@ export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   background-color: ${props => props.theme.bg};
 
   ${({ variant }) =>
-    variant === 'filled'
-      ? css`
-          padding: 8px 12px;
-          border-bottom-width: 1px;
-          border-bottom-color: ${props => props.theme.border};
-        `
-      : css`
-          border-bottom-width: 1px;
-          padding: 6px 0;
-          background-color: transparent;
-          border-color: ${props => props.theme.border};
-        `}
+    variant === 'filled' ? globalStyles.WRAP_FIELD_FILLED : globalStyles.WRAP_FIELD_STD}
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      background-color: ${props => props.theme.disabled};
-    `}
+  ${({ disabled }) => disabled && globalStyles.FIELD_DISABLED}
 
-  ${({ error }) =>
-    error &&
-    css`
-      border-color: ${props => props.theme.textError};
-    `}
+  ${({ error }) => error && globalStyles.FIELD_ERROR}
 `;
 
 export const WrapperField = styled.View<WrapperFieldProps>`

@@ -55,8 +55,8 @@ export function SelectField({
           <ValueText isValue={!!value}>{valueField()}</ValueText>
           <Icon name="chevron-down" />
         </Row>
-        {!!error && <Error>{error.message}</Error>}
       </WrapperTouch>
+      {!!error && <Error>{error.message}</Error>}
       <ModalOption
         show={showModal}
         onClose={() => setShowModal(false)}

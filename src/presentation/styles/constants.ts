@@ -76,7 +76,7 @@ export const themeLight: Theme = {
   textError: colors.RED_ERROR,
   textWhite: colors.WHITE,
 
-  border: colors.GRAY_300,
+  border: colors.PURPLE_PRIMARY,
   borderOutlined: colors.PURPLE_PRIMARY,
 
   iconGray: colors.GRAY_500,
@@ -135,6 +135,31 @@ export const globalStyles = {
   `,
   OVERLAY: css`
     background-color: ${colors.OVERLAY};
+  `,
+  WRAP_FIELD_FILLED: css`
+    padding: 8px 12px;
+    border-width: 1px;
+    border-color: ${props => props.theme.border};
+    border-radius: 4px;
+  `,
+  WRAP_FIELD_STD: css`
+    border-bottom-width: 1px;
+    padding-top: 4px;
+    background-color: transparent;
+    border-color: ${props => props.theme.border};
+  `,
+  FIELD_DISABLED: css`
+    background-color: ${props => props.theme.disabled};
+  `,
+  FIELD_ERROR: css`
+    border-color: ${props => props.theme.textError};
+  `,
+  LABEL_DISABLED: css`
+    color: ${props => props.theme.textDisabled};
+  `,
+  LABEL_ERROR: css`
+    color: ${props => props.theme.textError};
+    font-weight: bold;
   `,
 };
 

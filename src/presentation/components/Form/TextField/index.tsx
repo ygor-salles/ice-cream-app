@@ -86,9 +86,9 @@ export function TextField({
               />
             )}
           </InputContainer>
-          {!!error && <Error>{error.message}</Error>}
         </Wrapper>
       </TouchableWithoutFeedback>
+      {!!error && <Error>{error.message}</Error>}
     </>
   );
 }

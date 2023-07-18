@@ -70,8 +70,8 @@ export function DatePickerField({
           <ValueText isValue={!!value}>{valueField()}</ValueText>
           <Icon name="calendar" />
         </Row>
-        {!!error && <Error>{error.message}</Error>}
       </WrapperTouch>
+      {!!error && <Error>{error.message}</Error>}
     </>
   );
 }
