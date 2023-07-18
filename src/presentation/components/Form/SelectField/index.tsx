@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useController } from 'react-hook-form';
+import { View } from 'react-native';
 
 import { Row } from '~components/Row';
 
@@ -41,22 +42,24 @@ export function SelectField({
 
   return (
     <>
-      <WrapperTouch
-        disabled={disabled}
-        error={!!error}
-        variant={variant}
-        onPress={() => setShowModal(true)}
-        {...rest}
-      >
-        <Label error={!!error} disabled={disabled} style={styleTextLabel}>
-          {required ? `${label} *` : label}
-        </Label>
-        <Row>
-          <ValueText isValue={!!value}>{valueField()}</ValueText>
-          <Icon name="chevron-down" />
-        </Row>
-      </WrapperTouch>
-      {!!error && <Error>{error.message}</Error>}
+      <View>
+        <WrapperTouch
+          disabled={disabled}
+          error={!!error}
+          variant={variant}
+          onPress={() => setShowModal(true)}
+          {...rest}
+        >
+          <Label error={!!error} disabled={disabled} style={styleTextLabel}>
+            {required ? `${label} *` : label}
+          </Label>
+          <Row>
+            <ValueText isValue={!!value}>{valueField()}</ValueText>
+            <Icon name="chevron-down" />
+          </Row>
+        </WrapperTouch>
+        {!!error && <Error>{error.message}</Error>}
+      </View>
       <ModalOption
         show={showModal}
         onClose={() => setShowModal(false)}

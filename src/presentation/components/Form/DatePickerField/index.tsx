@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useController } from 'react-hook-form';
-import { Keyboard } from 'react-native';
+import { Keyboard, View } from 'react-native';
 
 import { format, parseISO } from 'date-fns';
 
@@ -56,22 +56,24 @@ export function DatePickerField({
         minDate={minDate}
         labelInit={label}
       />
-      <WrapperTouch
-        disabled={disabled}
-        error={!!error}
-        variant={variant}
-        onPress={toggleShowDatePicker}
-        {...rest}
-      >
-        <Label disabled={disabled} error={!!error}>
-          {required ? `${label} *` : label}
-        </Label>
-        <Row>
-          <ValueText isValue={!!value}>{valueField()}</ValueText>
-          <Icon name="calendar" />
-        </Row>
-      </WrapperTouch>
-      {!!error && <Error>{error.message}</Error>}
+      <View>
+        <WrapperTouch
+          disabled={disabled}
+          error={!!error}
+          variant={variant}
+          onPress={toggleShowDatePicker}
+          {...rest}
+        >
+          <Label disabled={disabled} error={!!error}>
+            {required ? `${label} *` : label}
+          </Label>
+          <Row>
+            <ValueText isValue={!!value}>{valueField()}</ValueText>
+            <Icon name="calendar" />
+          </Row>
+        </WrapperTouch>
+        {!!error && <Error>{error.message}</Error>}
+      </View>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useController } from 'react-hook-form';
-import { Keyboard } from 'react-native';
+import { Keyboard, View } from 'react-native';
 
 import { format, parseISO } from 'date-fns';
 
@@ -52,7 +52,7 @@ export function DateRangePickerField({
   }, []);
 
   return (
-    <>
+    <View>
       <DatePicker
         show={showDatePickerState}
         onDimiss={toggleShowDatePicker}
@@ -97,12 +97,12 @@ export function DateRangePickerField({
           </Row>
         </WrapperField>
       </Wrapper>
-      {(!!errorInit || !!errorFinal) && (
+      {!!errorInit || !!errorFinal ? (
         <Row>
           {!!errorInit && <Error>{errorInit.message}</Error>}
           {!!errorFinal && <Error>{errorFinal.message}</Error>}
         </Row>
-      )}
-    </>
+      ) : null}
+    </View>
   );
 }

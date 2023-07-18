@@ -72,5 +72,6 @@ export const Error = styled.Text`
   font-weight: 400;
   font-size: 12px;
   color: ${props => props.theme.textError};
-  margin-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
 `;

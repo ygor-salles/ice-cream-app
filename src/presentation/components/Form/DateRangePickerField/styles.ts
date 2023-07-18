@@ -15,7 +15,7 @@ interface WrapperFieldProps {
 
 export const Wrapper = styled.TouchableOpacity<WrapperProps>`
   flex-direction: row;
-  flex: 1;
+  width: 100%;
   background-color: ${props => props.theme.bg};
 
   ${({ variant }) =>

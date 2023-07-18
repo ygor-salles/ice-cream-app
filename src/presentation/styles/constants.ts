@@ -144,7 +144,6 @@ export const globalStyles = {
   `,
   WRAP_FIELD_STD: css`
     border-bottom-width: 1px;
-    padding-top: 4px;
     background-color: transparent;
     border-color: ${props => props.theme.border};
   `,

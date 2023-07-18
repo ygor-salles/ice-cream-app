@@ -61,6 +61,14 @@ export function FilterDash() {
     <Container>
       <TextApp>Filtro de entradas</TextApp>
       <Form>
+        <DatePickerField
+          control={control}
+          minDate={new Date()}
+          name={fieldsDash.DATE}
+          label="Data teste"
+          value={date}
+          required
+        />
         <DateRangePickerField
           control={control}
           minDate={new Date()}
@@ -72,14 +80,6 @@ export function FilterDash() {
           labelFinal="Data fim"
           requiredInit
           requiredFinal
-        />
-        <DatePickerField
-          control={control}
-          minDate={new Date()}
-          name={fieldsDash.DATE}
-          label="Data teste"
-          value={date}
-          required
         />
         <SelectField
           control={control}

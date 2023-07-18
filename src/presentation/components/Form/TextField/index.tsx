@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
-import { TouchableWithoutFeedback, TextInput } from 'react-native';
+import { TouchableWithoutFeedback, TextInput, View } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -53,7 +53,7 @@ export function TextField({
   };
 
   return (
-    <>
+    <View>
       <TouchableWithoutFeedback onPress={handleTouchableInput}>
         <Wrapper disabled={disabled} error={!!error} variant={variant} {...rest}>
           <Label error={!!error} disabled={disabled} style={styleTextLabel}>
@@ -89,6 +89,6 @@ export function TextField({
         </Wrapper>
       </TouchableWithoutFeedback>
       {!!error && <Error>{error.message}</Error>}
-    </>
+    </View>
   );
 }
