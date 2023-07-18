@@ -3,6 +3,7 @@ import { View } from 'react-native';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { CheckField } from '~components/Form/CheckField';
 import {
   DatePickerField,
   SelectField,
@@ -95,11 +96,11 @@ export function FilterDash() {
           placeholder="Digite"
           required
         />
-
-        <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
-          Buscar
-        </SButton>
+        <CheckField control={control} name={fieldsDash.CHECK} label="Teste de check" />
       </Form>
+      <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
+        Buscar
+      </SButton>
     </Container>
   );
 }
