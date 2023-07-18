@@ -18,7 +18,7 @@ export const Wrapper = styled.View<WrapperProps>`
   width: ${props => (props.hasTwoInput ? '50%' : '100%')};
 
   border-width: ${props => (props.isFocus ? '1px' : '2px')};
-  border-color: ${({ isFocus, theme }) => (isFocus ? theme.border : theme.primary)};
+  border-color: ${({ isFocus, theme }) => (isFocus ? theme.borderGray : theme.primary)};
 `;
 
 export const Label = styled.Text`

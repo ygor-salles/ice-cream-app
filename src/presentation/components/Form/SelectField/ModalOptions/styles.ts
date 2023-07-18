@@ -19,7 +19,7 @@ export const HeaderSearch = styled.View`
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-width: 1px;
-  border-bottom-color: ${props => props.theme.border};
+  border-bottom-color: ${props => props.theme.borderGray};
 `;
 
 export const InputWrapper = styled.View`
@@ -30,7 +30,7 @@ export const InputWrapper = styled.View`
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-width: 1.5px;
-  border-color: ${props => props.theme.border};
+  border-color: ${props => props.theme.borderGray};
 `;
 
 export const Input = styled.TextInput`

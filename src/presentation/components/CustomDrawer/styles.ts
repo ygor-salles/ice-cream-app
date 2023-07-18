@@ -43,7 +43,7 @@ export const Footer = styled.View`
   padding: 16px;
   background-color: ${props => props.theme.bg};
   border-top-width: 1px;
-  border-color: ${props => props.theme.border};
+  border-color: ${props => props.theme.borderGray};
   gap: 10px;
 `;
 

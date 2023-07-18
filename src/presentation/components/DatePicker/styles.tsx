@@ -19,7 +19,7 @@ export const WrapperCalendar = styled.View`
   flex: 1;
   padding-horizontal: 32px;
   border-bottom-width: 1px;
-  border-bottom-color: ${props => props.theme.border};
+  border-bottom-color: ${props => props.theme.borderGray};
 `;
 
 export const Header = styled.View`
@@ -29,7 +29,7 @@ export const Header = styled.View`
   padding: 16px;
 
   border-bottom-width: 0.5px;
-  border-bottom-color: ${props => props.theme.border};
+  border-bottom-color: ${props => props.theme.borderGray};
 `;
 
 export const Title = styled(TextApp)`
@@ -47,15 +47,15 @@ export const SelectedDateWrapper = styled.View`
   align-items: center;
   border-top-width: 1px;
   border-bottom-width: 1px;
-  border-top-color: ${props => props.theme.border};
-  border-bottom-color: ${props => props.theme.border};
+  border-top-color: ${props => props.theme.borderGray};
+  border-bottom-color: ${props => props.theme.borderGray};
   padding: 16px;
 `;
 
 export const DividerHeader = styled.View`
   z-index: 1;
   height: 1px;
-  background-color: ${props => props.theme.border};
+  background-color: ${props => props.theme.borderGray};
   position: absolute;
   top: 44px;
   width: 120%;

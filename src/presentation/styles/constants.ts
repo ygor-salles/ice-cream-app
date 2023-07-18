@@ -50,6 +50,7 @@ export type Theme = {
   textWhite: string;
 
   border: string;
+  borderGray: string;
   borderOutlined: string;
 
   iconGray: string;
@@ -77,6 +78,7 @@ export const themeLight: Theme = {
   textWhite: colors.WHITE,
 
   border: colors.PURPLE_PRIMARY,
+  borderGray: colors.GRAY_300,
   borderOutlined: colors.PURPLE_PRIMARY,
 
   iconGray: colors.GRAY_500,
@@ -104,6 +106,7 @@ export const themeDark: Theme = {
   textWhite: colors.WHITE,
 
   border: colors.GRAY_300,
+  borderGray: colors.GRAY_300,
   borderOutlined: colors.WHITE,
 
   iconGray: colors.GRAY_500,

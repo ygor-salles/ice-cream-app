@@ -30,7 +30,7 @@ export const Title = styled.Text`
 export const WrapperForm = styled.View`
   margin-top: 52px;
   width: 80%;
-  gap: 18px;
+  gap: 24px;
 `;
 
 export const SFeather = styled(Feather)`
