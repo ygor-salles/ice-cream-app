@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form';
-import { View } from 'react-native';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { CheckField } from '~components/Form/CheckField';
+import { TextFieldCount } from '~components/Form/TextFieldCount';
 import {
   DatePickerField,
   SelectField,
@@ -52,7 +52,7 @@ export function FilterDash() {
     defaultValues,
   });
 
-  const { date_init, date_final, type_sale, date } = watch();
+  const { date_init, date_final, date } = watch();
 
   const onSubmit = (values: IFormFilterDash) => {
     console.log(values);
@@ -97,6 +97,7 @@ export function FilterDash() {
           required
         />
         <CheckField control={control} name={fieldsDash.CHECK} label="Teste de check" />
+        <TextFieldCount control={control} name={fieldsDash.COUNT} label="Quantidade" required />
       </Form>
       <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
         Buscar

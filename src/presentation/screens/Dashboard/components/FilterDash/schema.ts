@@ -9,6 +9,7 @@ export const fieldsDash = {
   TYPE_SALE: 'type_sale',
   DATE: 'date',
   CHECK: 'check',
+  COUNT: 'count',
 };
 
 export interface IFormFilterDash {
@@ -18,6 +19,7 @@ export interface IFormFilterDash {
   type_sale: string;
   date: IDates;
   check: boolean;
+  count: string;
 }
 
 export const defaultValues: IFormFilterDash = {
@@ -27,6 +29,7 @@ export const defaultValues: IFormFilterDash = {
   type_sale: '',
   date: null,
   check: false,
+  count: '',
 };
 
 export const schemaFilterDash = yup.object().shape({
@@ -36,4 +39,5 @@ export const schemaFilterDash = yup.object().shape({
   type_sale: yup.string().required('obrigatório'),
   date: yup.object().required('obrigatório'),
   check: yup.bool().required('obrigatório'),
+  count: yup.string().required('obrigatório'),
 });
