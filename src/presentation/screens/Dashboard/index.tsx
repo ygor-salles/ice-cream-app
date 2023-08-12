@@ -34,7 +34,7 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
       <Container>
         <FilterDash />
 
-        <Button onPress={() => setShowModal(true)} themeButton={buttonThemes.PRIMARY}>
+        <Button onPress={() => setShowModal(true)} themeButton={buttonThemes.OUTLINED}>
           Teste
         </Button>
 

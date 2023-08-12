@@ -81,7 +81,7 @@ export function TextFieldCount({
                 ref={inputRef}
                 editable={!disabled}
                 onChangeText={handleChange}
-                value={value ? value?.toString() : '1'}
+                value={value?.toString()}
                 placeholder={!disabled ? placeholder : undefined}
                 keyboardType="numeric"
                 onBlur={customOnBlur}

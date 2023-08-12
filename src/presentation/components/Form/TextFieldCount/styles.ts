@@ -41,7 +41,7 @@ export const InputContainer = styled.View`
 
 export const Button = styled.TouchableOpacity<ButtonProps>`
   height: 66.5px;
-  width: 50px;
+  width: 55px;
   justify-content: center;
   align-items: center;
 

@@ -26,9 +26,13 @@ export function CheckField({ name, control, label, disabled }: CheckFieldProps) 
     );
   }
 
+  const onPress = () => onChange(!value);
+
   return (
-    <Row gap={8} isButton onPress={() => onChange(!value)}>
-      <Checkbox isCheck={value}>{value && <Icon name="check" />}</Checkbox>
+    <Row gap={8} isButton onPress={onPress}>
+      <Checkbox isCheck={value} onPress={onPress}>
+        {value && <Icon name="check" />}
+      </Checkbox>
       <Label>{label}</Label>
     </Row>
   );

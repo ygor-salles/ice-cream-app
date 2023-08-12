@@ -29,7 +29,7 @@ export const defaultValues: IFormFilterDash = {
   type_sale: '',
   date: null,
   check: false,
-  count: '',
+  count: '1',
 };
 
 export const schemaFilterDash = yup.object().shape({

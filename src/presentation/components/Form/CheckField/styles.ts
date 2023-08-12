@@ -10,8 +10,8 @@ interface LabelProps {
 }
 
 export const Checkbox = styled.TouchableOpacity<CheckboxProps>`
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   justify-content: center;
   align-items: center;
   border-radius: 2px;
@@ -21,8 +21,8 @@ export const Checkbox = styled.TouchableOpacity<CheckboxProps>`
 `;
 
 export const CheckboxInactive = styled.View`
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   justify-content: center;
   align-items: center;
   border-radius: 2px;
@@ -33,7 +33,7 @@ export const CheckboxInactive = styled.View`
 
 export const Label = styled.Text<LabelProps>`
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   color: ${({ theme, disabled }) => (disabled ? theme.textDisabled : theme.textPrimary)};
 `;
 

@@ -8,7 +8,7 @@ export const Container = styled.View`
 `;
 
 export const Form = styled.View`
-  gap: 6px;
+  gap: 12px;
 `;
 
 export const SButton = styled(Button)`
