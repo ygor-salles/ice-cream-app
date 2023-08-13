@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { CheckField } from '~components/Form/CheckField';
+import { InputFileField } from '~components/Form/InputFileField';
 import { TextFieldCount } from '~components/Form/TextFieldCount';
 import {
   DatePickerField,
@@ -98,6 +99,7 @@ export function FilterDash() {
         />
         <CheckField control={control} name={fieldsDash.CHECK} label="Teste de check" />
         <TextFieldCount control={control} name={fieldsDash.COUNT} label="Quantidade" required />
+        <InputFileField control={control} name={fieldsDash.FILE} label="Anexe a nota fiscal" />
       </Form>
       <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
         Buscar

@@ -25,3 +25,9 @@ export interface IParamsOnSelectedDates {
 export interface ThemeNameProps {
   themeName: 'light' | 'dark';
 }
+
+export interface IFile {
+  name: string;
+  type: string;
+  uri: string;
+}

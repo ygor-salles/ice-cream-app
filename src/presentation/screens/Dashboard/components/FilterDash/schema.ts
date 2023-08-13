@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { IDates } from '~types/index';
+import { IDates, IFile } from '~types/index';
 
 export const fieldsDash = {
   DATE_INIT: 'date_init',
@@ -10,6 +10,7 @@ export const fieldsDash = {
   DATE: 'date',
   CHECK: 'check',
   COUNT: 'count',
+  FILE: 'file',
 };
 
 export interface IFormFilterDash {
@@ -20,6 +21,7 @@ export interface IFormFilterDash {
   date: IDates;
   check: boolean;
   count: string;
+  file: IFile;
 }
 
 export const defaultValues: IFormFilterDash = {
@@ -30,6 +32,7 @@ export const defaultValues: IFormFilterDash = {
   date: null,
   check: false,
   count: '1',
+  file: null,
 };
 
 export const schemaFilterDash = yup.object().shape({
@@ -40,4 +43,5 @@ export const schemaFilterDash = yup.object().shape({
   date: yup.object().required('obrigatório'),
   check: yup.bool().required('obrigatório'),
   count: yup.string().required('obrigatório'),
+  file: yup.object(),
 });
