@@ -11,6 +11,7 @@ export const fieldsDash = {
   CHECK: 'check',
   COUNT: 'count',
   FILE: 'file',
+  MONEY: 'money',
 };
 
 export interface IFormFilterDash {
@@ -21,7 +22,8 @@ export interface IFormFilterDash {
   date: IDates;
   check: boolean;
   count: string;
-  file: IFile;
+  file?: IFile | null;
+  money: string;
 }
 
 export const defaultValues: IFormFilterDash = {
@@ -33,6 +35,7 @@ export const defaultValues: IFormFilterDash = {
   check: false,
   count: '1',
   file: null,
+  money: '',
 };
 
 export const schemaFilterDash = yup.object().shape({
@@ -43,5 +46,6 @@ export const schemaFilterDash = yup.object().shape({
   date: yup.object().required('obrigatório'),
   check: yup.bool().required('obrigatório'),
   count: yup.string().required('obrigatório'),
-  file: yup.object(),
+  file: yup.object().optional().nullable(),
+  money: yup.string().required('obrigatório'),
 });

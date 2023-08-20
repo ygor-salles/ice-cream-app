@@ -6,20 +6,26 @@ import * as ImagePicker from 'expo-image-picker';
 import { Row } from '~components/Row';
 import { IFile } from '~types/index';
 
-import { Close, Description, Icon, Img } from './styles';
+import { Error } from '../styles';
+import { Close, Label, Icon, Img } from './styles';
 
 interface InputFileFieldProps {
   label: string;
   control: Control<any>;
   name: string;
+  disabled?: boolean;
+  required?: boolean;
 }
 
-export function InputFileField({ label, control, name }: InputFileFieldProps) {
+export function InputFileField({ label, control, name, disabled, required }: InputFileFieldProps) {
   const {
     field: { onChange, value },
+    fieldState: { error },
   } = useController({ control, name });
 
   const handlePickerImage = async () => {
+    if (disabled) return;
+
     const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!granted) {
       Alert.alert('Permissão necessária', 'Permita que sua aplicação acesse as imagens');
@@ -59,10 +65,14 @@ export function InputFileField({ label, control, name }: InputFileFieldProps) {
 
   return (
     <View>
-      <Row gap={6} isButton onPress={handlePickerImage}>
-        <Description>{label}</Description>
-        <Icon name="upload" />
+      <Row gap={10} isButton onPress={handlePickerImage}>
+        <Label error={!!error} disabled={disabled}>
+          {label}
+          {required && ' *'}
+        </Label>
+        <Icon name="upload" error={!!error} disabled={disabled} />
       </Row>
+      {!!error && <Error>{error.message}</Error>}
       <Row>
         {value && (
           <>

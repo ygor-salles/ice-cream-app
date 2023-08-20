@@ -42,3 +42,9 @@ export const dayNames = [
 ];
 
 export const dayNamesShort = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+
+export function currencyStringToNumber(currencyString: string): number {
+  const numberValue = Number(currencyString.replace(/[^\d,-]/g, '').replace(',', '.'));
+
+  return numberValue;
+}

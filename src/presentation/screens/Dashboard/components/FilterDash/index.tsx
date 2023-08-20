@@ -99,11 +99,25 @@ export function FilterDash() {
         />
         <CheckField control={control} name={fieldsDash.CHECK} label="Teste de check" />
         <TextFieldCount control={control} name={fieldsDash.COUNT} label="Quantidade" required />
-        <InputFileField control={control} name={fieldsDash.FILE} label="Anexe a nota fiscal" />
+        <InputFileField
+          control={control}
+          name={fieldsDash.FILE}
+          label="Anexe a nota fiscal"
+          required
+        />
+        <TextField
+          control={control}
+          name={fieldsDash.MONEY}
+          label="Valor"
+          placeholder="Digite"
+          required
+          currency
+          maxLength={10}
+        />
+        <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
+          Buscar
+        </SButton>
       </Form>
-      <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
-        Buscar
-      </SButton>
     </Container>
   );
 }

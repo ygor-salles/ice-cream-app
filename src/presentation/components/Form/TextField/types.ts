@@ -29,4 +29,5 @@ export interface TextFieldProps {
   styleTextInput?: StyleProp<TextStyle>;
   placeholderTextColor?: ColorValue;
   variant?: 'filled' | 'standard';
+  currency?: boolean;
 }

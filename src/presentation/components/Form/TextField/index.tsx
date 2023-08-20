@@ -1,9 +1,11 @@
+/* eslint-disable no-nested-ternary */
 import { useCallback, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { TouchableWithoutFeedback, TextInput, View } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
+import { useCurrency } from '~hooks/useCurrency';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
@@ -19,7 +21,7 @@ export function TextField({
   keyboardType,
   label,
   mask,
-  maxLength,
+  maxLength = 10,
   placeholder,
   renderLeft,
   renderRight,
@@ -30,6 +32,7 @@ export function TextField({
   variant = 'filled',
   typePassword,
   lightEyeIcon,
+  currency,
   ...rest
 }: TextFieldProps) {
   const {
@@ -38,6 +41,11 @@ export function TextField({
   } = useController({ control, name });
 
   const { themeName } = useThemeContext();
+
+  const [currencyValue, handleCurrencyValue] = useCurrency({
+    valueForm: value,
+    onChangeForm: onChange,
+  });
 
   const inputRef = useRef<TextInput>(null);
 
@@ -68,8 +76,8 @@ export function TextField({
               ref={inputRef}
               secureTextEntry={inputTypePassword}
               editable={!disabled}
-              onChangeText={onChange}
-              value={mask ? mask(value?.toString()) : value?.toString()}
+              onChangeText={currency ? handleCurrencyValue : onChange}
+              value={currency ? currencyValue : mask ? mask(value?.toString()) : value?.toString()}
               placeholder={!disabled ? placeholder : undefined}
               keyboardType={keyboardType}
               onBlur={customOnBlur}
