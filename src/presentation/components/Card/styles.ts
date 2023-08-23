@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import styled, { css } from 'styled-components/native';
 
 import { globalStyles } from '~styles/constants';

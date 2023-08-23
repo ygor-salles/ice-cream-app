@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import { useCallback, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { TouchableWithoutFeedback, TextInput, View } from 'react-native';

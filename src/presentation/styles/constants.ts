@@ -6,6 +6,8 @@ import { css } from 'styled-components/native';
 export const colors = {
   PURPLE_PRIMARY: '#9c27b0',
   PURPLE_PRIMARY_DARK: '#D944C2',
+  PURPLE_PRIMARY_OPACITY: 'rgba(156, 39, 176, 0.2)',
+  PURPLE_PRIMARY_DARK_OPACITY: 'rgba(217, 68, 194, 0.2)',
 
   GRAY_100: '#EBEBEB',
   GRAY_200: '#dedede',
@@ -41,6 +43,7 @@ export const colors = {
 export type Theme = {
   bgScreen: string;
   bg: string;
+  bgOpacity: string;
 
   text: string;
   textPrimary: string;
@@ -69,6 +72,7 @@ export type Theme = {
 export const themeLight: Theme = {
   bgScreen: colors.GRAY_200,
   bg: colors.WHITE,
+  bgOpacity: colors.PURPLE_PRIMARY_OPACITY,
 
   text: colors.TEXT,
   textPrimary: colors.PURPLE_PRIMARY,
@@ -97,6 +101,7 @@ export const themeLight: Theme = {
 export const themeDark: Theme = {
   bgScreen: colors.DARK_500,
   bg: colors.DARK_200,
+  bgOpacity: colors.PURPLE_PRIMARY_DARK_OPACITY,
 
   text: colors.WHITE,
   textPrimary: colors.PURPLE_PRIMARY_DARK,

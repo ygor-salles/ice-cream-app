@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { View } from 'react-native';
 
@@ -24,9 +24,15 @@ export function SelectField({
   const {
     field: { onChange, value },
     fieldState: { error },
+    formState: { defaultValues },
   } = useController({ control, name });
 
   const [showModal, setShowModal] = useState(false);
+
+  const sortedOptions = useMemo(
+    () => options.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0)).map(item => item),
+    [options],
+  );
 
   const valueField = () => {
     if (value) return value;
@@ -38,6 +44,10 @@ export function SelectField({
   const onSelect = (item: string) => {
     onChange(item);
     setShowModal(false);
+  };
+
+  const onClean = () => {
+    onChange(defaultValues[name]);
   };
 
   return (
@@ -64,8 +74,10 @@ export function SelectField({
         show={showModal}
         onClose={() => setShowModal(false)}
         title={label}
-        options={options}
+        options={sortedOptions}
         onSelect={onSelect}
+        onClean={onClean}
+        value={value}
       />
     </>
   );

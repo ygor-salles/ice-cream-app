@@ -1,11 +1,22 @@
 import { Feather } from '@expo/vector-icons';
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
-export const Item = styled.TouchableOpacity`
+interface IconProps {
+  isPosition: 'left' | 'right';
+}
+
+interface ItemProps {
+  selected: boolean;
+}
+
+export const Item = styled.TouchableOpacity<ItemProps>`
   padding: 16px;
-  background-color: ${props => props.theme.bg};
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${({ theme, selected }) => (selected ? theme.bgOpacity : theme.bg)};
   border-bottom-width: 0.5px;
-  border-bottom-color: ${props => props.theme.border};
+  border-bottom-color: ${props => props.theme.borderGray};
 `;
 
 export const Description = styled.Text`
@@ -39,8 +50,15 @@ export const Input = styled.TextInput`
   color: ${props => props.theme.text};
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(Feather)<IconProps>`
   font-size: 22px;
-  color: ${props => props.theme.iconInactive};
-  margin: 8px 0 8px 8px;
+  ${({ isPosition, theme }) =>
+    isPosition === 'left'
+      ? css`
+          margin: 8px 0 8px 8px;
+          color: ${theme.iconInactive};
+        `
+      : css`
+          color: ${theme.iconGray};
+        `}
 `;

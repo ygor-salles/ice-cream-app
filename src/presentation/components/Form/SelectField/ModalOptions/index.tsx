@@ -10,11 +10,21 @@ interface ModalOptionProps {
   show: boolean;
   title: string;
   options: string[];
+  value: string;
   onClose: () => void;
   onSelect: (item: string) => void;
+  onClean: () => void;
 }
 
-export function ModalOption({ title, show, options, onClose, onSelect }: ModalOptionProps) {
+export function ModalOption({
+  title,
+  show,
+  options,
+  value,
+  onClose,
+  onSelect,
+  onClean,
+}: ModalOptionProps) {
   const [listAutocomplete, setListAutocomplete] = useState<string[]>(options);
 
   const inputRef = useRef<TextInput>(null);
@@ -63,7 +73,7 @@ export function ModalOption({ title, show, options, onClose, onSelect }: ModalOp
         <TouchableWithoutFeedback onPress={handleTouchableInput}>
           <HeaderSearch>
             <InputWrapper>
-              <Icon name="search" />
+              <Icon name="search" isPosition="left" />
               <Input
                 ref={inputRef}
                 onChangeText={text => handleSearch(text)}
@@ -82,8 +92,10 @@ export function ModalOption({ title, show, options, onClose, onSelect }: ModalOp
             onSelect(item);
             setListAutocomplete(options);
           }}
+          selected={value === item}
         >
           <Description>{item}</Description>
+          {value === item && <Icon name="x-circle" onPress={onClean} isPosition="right" />}
         </Item>
       ))}
     </DialogScroll>

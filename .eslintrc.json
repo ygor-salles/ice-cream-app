@@ -92,6 +92,7 @@
     "jsx-a11y/anchor-is-valid": "off",
     "no-unused-expressions": "off",
     "react/require-default-props": "off",
+    "no-nested-ternary": "off",
     "no-underscore-dangle": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-empty-function": "off",
