@@ -4,9 +4,9 @@ import { TouchableWithoutFeedback, TextInput, View } from 'react-native';
 
 import { Feather } from '@expo/vector-icons';
 
-import { useCurrency } from '~hooks/useCurrency';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
+import { formatCurrency } from '~utils/index';
 
 import { Wrapper, InputField, Label, Error, Currency } from '../styles';
 import { InputContainer } from './styles';
@@ -41,10 +41,10 @@ export function TextField({
 
   const { themeName } = useThemeContext();
 
-  const [currencyValue, handleCurrencyValue] = useCurrency({
-    valueForm: value,
-    onChangeForm: onChange,
-  });
+  const handleChangeForm = (text: string) => {
+    const decimal = Number(text.replace(/\D/g, '')) / 100;
+    onChange(formatCurrency(decimal || 0).replace('R$\xa0', ''));
+  };
 
   const inputRef = useRef<TextInput>(null);
 
@@ -76,8 +76,8 @@ export function TextField({
               ref={inputRef}
               secureTextEntry={inputTypePassword}
               editable={!disabled}
-              onChangeText={currency ? handleCurrencyValue : onChange}
-              value={currency ? currencyValue : mask ? mask(value?.toString()) : value?.toString()}
+              onChangeText={currency ? handleChangeForm : onChange}
+              value={mask ? mask(value?.toString()) : value}
               placeholder={!disabled ? placeholder : undefined}
               keyboardType={currency ? 'numeric' : keyboardType}
               onBlur={customOnBlur}

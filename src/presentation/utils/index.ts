@@ -8,6 +8,11 @@ export function getTitleCardInfoDash(title: 'input' | 'output' | 'profit' | 'deb
   return { text: '', color: colors.TEXT };
 }
 
+export const { format: formatCurrency } = Intl.NumberFormat('pt-BR', {
+  currency: 'BRL',
+  style: 'currency',
+});
+
 export const formatNumberToCurrency = (value: number) =>
   new Intl.NumberFormat('pt-BR', {
     style: 'currency',
