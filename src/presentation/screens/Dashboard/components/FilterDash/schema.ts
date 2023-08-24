@@ -44,7 +44,7 @@ export const fieldsDash = {
 export const schemaFilterDash = yup.object().shape({
   date_init: yup.object().required('obrigatório'),
   date_final: yup.object().required('obrigatório'),
-  description: yup.string().required('obrigatório'),
+  description: yup.string().optional(),
   product: yup.string().required('obrigatório'),
   combinations: yup.array().optional(),
   date: yup.object().required('obrigatório'),

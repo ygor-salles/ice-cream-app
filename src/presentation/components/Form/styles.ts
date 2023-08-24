@@ -59,6 +59,12 @@ export const InputField = styled.TextInput`
   color: ${props => props.theme.text};
 `;
 
+export const Currency = styled.Text`
+  font-size: 16px;
+  font-weight: 400;
+  color: ${props => props.theme.text};
+`;
+
 export const ValueText = styled.Text<ValueTextProps>`
   font-weight: 400;
   font-size: 16px;

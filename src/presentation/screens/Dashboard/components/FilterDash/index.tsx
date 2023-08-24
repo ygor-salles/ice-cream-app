@@ -14,6 +14,7 @@ import {
   TextField,
 } from '~components/index';
 import { buttonThemes } from '~constants/ButtonThemes';
+import { currencyStringToNumber } from '~utils/index';
 
 import { mockCombinations, mockProducts } from './mock';
 import { IFormFilterDash, defaultValues, fieldsDash, schemaFilterDash } from './schema';
@@ -35,6 +36,7 @@ export function FilterDash() {
 
   const onSubmit = (values: IFormFilterDash) => {
     console.log(values);
+    console.log(currencyStringToNumber(values.money));
   };
 
   return (
@@ -75,13 +77,13 @@ export function FilterDash() {
           label="Combinações"
           required
         />
-        <TextField
+        {/* <TextField
           control={control}
           name={fieldsDash.DESCRIPTION}
           label="Descrição"
           placeholder="Digite"
           required
-        />
+        /> */}
         <CheckField control={control} name={fieldsDash.CHECK} label="Teste de check" />
         <TextFieldCount control={control} name={fieldsDash.COUNT} label="Quantidade" required />
         <InputFileField
@@ -97,7 +99,7 @@ export function FilterDash() {
           placeholder="Digite"
           required
           currency
-          maxLength={10}
+          keyboardType="numeric"
         />
         <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
           Buscar

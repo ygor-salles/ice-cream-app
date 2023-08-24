@@ -8,7 +8,7 @@ import { useCurrency } from '~hooks/useCurrency';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
-import { Wrapper, InputField, Label, Error } from '../styles';
+import { Wrapper, InputField, Label, Error, Currency } from '../styles';
 import { InputContainer } from './styles';
 import { TextFieldProps } from './types';
 
@@ -20,7 +20,7 @@ export function TextField({
   keyboardType,
   label,
   mask,
-  maxLength = 10,
+  maxLength,
   placeholder,
   renderLeft,
   renderRight,
@@ -68,6 +68,7 @@ export function TextField({
           </Label>
           <InputContainer>
             {renderLeft || null}
+            {currency && !value.includes('R$') ? <Currency>R$</Currency> : null}
             <InputField
               style={styleTextInput}
               underlineColorAndroid="transparent"
@@ -78,9 +79,11 @@ export function TextField({
               onChangeText={currency ? handleCurrencyValue : onChange}
               value={currency ? currencyValue : mask ? mask(value?.toString()) : value?.toString()}
               placeholder={!disabled ? placeholder : undefined}
-              keyboardType={keyboardType}
+              keyboardType={currency ? 'numeric' : keyboardType}
               onBlur={customOnBlur}
-              maxLength={maxLength}
+              maxLength={
+                maxLength || (currency && value.includes('R$') ? 10 : currency ? 8 : maxLength)
+              }
               placeholderTextColor={colorPlaceholder}
             />
             {renderRight || null}
