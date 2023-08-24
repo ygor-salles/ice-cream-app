@@ -10,10 +10,10 @@ interface ModalOptionProps {
   show: boolean;
   title: string;
   options: string[];
-  value: string;
+  value: string[];
   onClose: () => void;
   onSelect: (item: string) => void;
-  onClean: () => void;
+  onRemoveItemArray: (itemRemove: string) => void;
 }
 
 export function ModalOption({
@@ -23,7 +23,7 @@ export function ModalOption({
   value,
   onClose,
   onSelect,
-  onClean,
+  onRemoveItemArray,
 }: ModalOptionProps) {
   const [listAutocomplete, setListAutocomplete] = useState<string[]>(options);
 
@@ -86,7 +86,7 @@ export function ModalOption({
       }
     >
       {listAutocomplete.map(item => {
-        const selected = value === item;
+        const selected = value.find(val => val === item);
 
         return (
           <Item
@@ -95,10 +95,12 @@ export function ModalOption({
               onSelect(item);
               setListAutocomplete(options);
             }}
-            selected={selected}
+            selected={!!selected}
           >
             <Description>{item}</Description>
-            {selected && <Icon name="x-circle" onPress={onClean} isPosition="right" />}
+            {selected && (
+              <Icon name="x-circle" onPress={() => onRemoveItemArray(item)} isPosition="right" />
+            )}
           </Item>
         );
       })}
