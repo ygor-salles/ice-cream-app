@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { useCallback, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { TouchableWithoutFeedback, TextInput, View } from 'react-native';
@@ -41,10 +42,19 @@ export function TextField({
 
   const { themeName } = useThemeContext();
 
-  const handleChangeForm = (text: string) => {
-    const decimal = Number(text.replace(/\D/g, '')) / 100;
-    onChange(formatCurrency(decimal || 0).replace('R$\xa0', ''));
-  };
+  const handleChangeCurrency = useCallback(
+    (text: string) => {
+      if (text.includes('R$') && text.length > 10) {
+        text = text.slice(0, 10);
+      } else if (text.length > 8) {
+        text = text.slice(0, 8);
+      }
+
+      const decimal = Number(text.replace(/\D/g, '')) / 100;
+      onChange(formatCurrency(decimal || 0).replace('R$\xa0', ''));
+    },
+    [onChange],
+  );
 
   const inputRef = useRef<TextInput>(null);
 
@@ -76,14 +86,12 @@ export function TextField({
               ref={inputRef}
               secureTextEntry={inputTypePassword}
               editable={!disabled}
-              onChangeText={currency ? handleChangeForm : onChange}
+              onChangeText={currency ? handleChangeCurrency : onChange}
               value={mask ? mask(value?.toString()) : value}
               placeholder={!disabled ? placeholder : undefined}
               keyboardType={currency ? 'numeric' : keyboardType}
               onBlur={customOnBlur}
-              maxLength={
-                maxLength || (currency && value.includes('R$') ? 10 : currency ? 8 : maxLength)
-              }
+              maxLength={!currency ? maxLength : undefined}
               placeholderTextColor={colorPlaceholder}
             />
             {renderRight || null}
