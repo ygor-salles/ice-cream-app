@@ -1,28 +1,15 @@
 import { StyleSheet } from 'react-native';
-import Animated from 'react-native-reanimated';
 
 import styled from 'styled-components/native';
 
-import { ToastEnum } from '~types/index';
-
-interface ContainerProps {
-  typeToast: ToastEnum;
-}
-
-export const Container = styled(Animated.View)<ContainerProps>`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 16px;
-  background-color: ${({ theme, typeToast }) =>
-    typeToast === ToastEnum.success ? theme.success : theme.textError};
-`;
+import { colors } from '~styles/constants';
 
 export const Description = styled.Text`
   font-size: 16px;
   font-weight: 400;
   color: ${({ theme }) => theme.textWhite};
+
+  flex-wrap: wrap;
 `;
 
 export const styles = StyleSheet.create({
@@ -39,16 +26,19 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     position: 'absolute',
+    top: 0,
     right: 0,
     left: 0,
     zIndex: 100,
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  topToastStyle: {
-    backgroundColor: '#FCFCFC',
-    top: 0,
+  success: {
+    backgroundColor: colors.GREEN,
   },
-  bottomToastStyle: {
-    backgroundColor: '#FFCCCB',
-    bottom: 0,
+  error: {
+    backgroundColor: colors.RED_ERROR,
   },
 });

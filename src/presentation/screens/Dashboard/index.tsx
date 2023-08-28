@@ -42,7 +42,7 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
         <FilterDash />
 
         <Button
-          onPress={() => addToast('Messagem exibida com sucesso', ToastEnum.success)}
+          onPress={() => addToast('Messagem exibida com sucesso', ToastEnum.error)}
           // onPress={() => addLoading()}
           themeButton={buttonThemes.OUTLINED}
         >

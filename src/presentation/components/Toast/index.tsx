@@ -6,9 +6,9 @@ import { Feather } from '@expo/vector-icons';
 import { colors } from '~styles/constants';
 import { ToastEnum } from '~types/index';
 
-import { Container, Description, styles } from './styles';
+import { Description, styles } from './styles';
 
-enum ToastPositionEnum {
+export enum ToastPositionEnum {
   Top,
   Bottom,
 }
@@ -56,7 +56,7 @@ export function Toast({
     <Animated.View
       style={[
         styles.commonToastStyle,
-        position === ToastPositionEnum.Top ? styles.topToastStyle : styles.bottomToastStyle,
+        type === ToastEnum.success ? styles.success : styles.error,
         animatedStyle,
       ]}
     >
