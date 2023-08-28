@@ -1,7 +1,5 @@
 import { createContext, useCallback, useEffect, useState } from 'react';
 
-import styled from 'styled-components/native';
-
 import { Toast } from '~components/Toast';
 import { ToastEnum } from '~types/index';
 

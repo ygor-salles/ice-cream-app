@@ -16,9 +16,20 @@ export interface ToastProps {
   type: ToastEnum;
 }
 
+export interface ToastArrayProps {
+  id: number;
+  message: string;
+  type: ToastEnum;
+}
+
 export interface IToastContextData extends ToastProps {
   addToast: (message: string, type: ToastEnum) => void;
   removeToast: () => void;
+}
+
+export interface IToastArrayContextData {
+  messages: Array<ToastArrayProps>;
+  addToast: (message: string, type: ToastEnum) => void;
 }
 
 export interface ILoadingContextData {

@@ -1,9 +1,11 @@
 import { useState } from 'react';
+// import { Button } from 'react-native'
 
 import { Dialog } from '~components/Dialog';
 import { Button, ItemFooter, Layout, TextApp } from '~components/index';
 import { buttonThemes } from '~constants/ButtonThemes';
 import { useLoadingContext } from '~hooks/useLoadingContext';
+import { useToastArrayContext } from '~hooks/useToastArrayContext';
 import { useToastContext } from '~hooks/useToastContext';
 import { BaseDrawerProps } from '~routes/types';
 import { ToastEnum } from '~types/index';
@@ -18,6 +20,8 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
   const { addLoading, removeLoading } = useLoadingContext();
 
   const { addToast } = useToastContext();
+
+  const { addToast: addToastArray } = useToastArrayContext();
 
   return (
     <Layout
@@ -39,11 +43,17 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
       }
     >
       <Container>
+        <Button
+          onPress={() => addToastArray('Mensagem exibida', ToastEnum.success)}
+          themeButton={buttonThemes.OUTLINED_WHITE}
+        >
+          Abrir mensagem
+        </Button>
         <FilterDash />
 
         <Button
-          onPress={() => addToast('Messagem exibida com sucesso', ToastEnum.error)}
-          // onPress={() => addLoading()}
+          // onPress={() => addToast('Messagem exibida com sucesso', ToastEnum.error)}
+          onPress={() => addLoading()}
           themeButton={buttonThemes.OUTLINED}
         >
           Teste
