@@ -44,18 +44,15 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
     >
       <Container>
         <Button
-          onPress={() => addToastArray('Mensagem exibida', ToastEnum.success)}
-          themeButton={buttonThemes.OUTLINED_WHITE}
+          onPress={() => addToast('Messagem exibida com sucesso', ToastEnum.success)}
+          // onPress={() => addToastArray('Mensagem exibida com sucesso', ToastEnum.success)}
+          themeButton={buttonThemes.OUTLINED}
         >
           Abrir mensagem
         </Button>
         <FilterDash />
 
-        <Button
-          // onPress={() => addToast('Messagem exibida com sucesso', ToastEnum.error)}
-          onPress={() => addLoading()}
-          themeButton={buttonThemes.OUTLINED}
-        >
+        <Button onPress={() => addLoading()} themeButton={buttonThemes.OUTLINED}>
           Teste
         </Button>
 
