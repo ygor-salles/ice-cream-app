@@ -31,3 +31,14 @@ export interface IFile {
   type: string;
   uri: string;
 }
+
+export enum EnumRoleUser {
+  SUPER = 'SUPER',
+  NORMAL = 'NORMAL',
+  EMPLOYEE = 'EMPLOYEE',
+}
+
+export enum ToastEnum {
+  success = 'success',
+  error = 'error',
+}

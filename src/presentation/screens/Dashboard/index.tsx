@@ -3,7 +3,10 @@ import { useState } from 'react';
 import { Dialog } from '~components/Dialog';
 import { Button, ItemFooter, Layout, TextApp } from '~components/index';
 import { buttonThemes } from '~constants/ButtonThemes';
+import { useLoadingContext } from '~hooks/useLoadingContext';
+import { useToastContext } from '~hooks/useToastContext';
 import { BaseDrawerProps } from '~routes/types';
+import { ToastEnum } from '~types/index';
 
 import { CardInfo } from './components/CardInfo';
 import { FilterDash } from './components/FilterDash';
@@ -11,6 +14,10 @@ import { Container } from './styles';
 
 export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
   const [showModal, setShowModal] = useState(false);
+
+  const { addLoading, removeLoading } = useLoadingContext();
+
+  const { addToast } = useToastContext();
 
   return (
     <Layout
@@ -34,7 +41,11 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
       <Container>
         <FilterDash />
 
-        <Button onPress={() => setShowModal(true)} themeButton={buttonThemes.OUTLINED}>
+        <Button
+          onPress={() => addToast('Messagem exibida com sucesso', ToastEnum.success)}
+          // onPress={() => addLoading()}
+          themeButton={buttonThemes.OUTLINED}
+        >
           Teste
         </Button>
 

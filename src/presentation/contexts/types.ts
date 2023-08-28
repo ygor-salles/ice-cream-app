@@ -1,12 +1,6 @@
 import { ReactNode } from 'react';
 
-import { ThemeNameProps } from '~types/index';
-
-export enum EnumRoleUser {
-  SUPER = 'SUPER',
-  NORMAL = 'NORMAL',
-  EMPLOYEE = 'EMPLOYEE',
-}
+import { EnumRoleUser, ThemeNameProps, ToastEnum } from '~types/index';
 
 export interface AppProviderProps {
   children: ReactNode;
@@ -14,6 +8,22 @@ export interface AppProviderProps {
 
 export interface IThemeContextData extends ThemeNameProps {
   toggleTheme: () => void;
+}
+
+export interface ToastProps {
+  open: boolean;
+  message: string;
+  type: ToastEnum;
+}
+
+export interface IToastContextData extends ToastProps {
+  addToast: (message: string, type: ToastEnum) => void;
+  removeToast: () => void;
+}
+
+export interface ILoadingContextData {
+  addLoading: (message?: string) => void;
+  removeLoading: () => void;
 }
 
 export interface IDescribedUser {

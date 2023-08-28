@@ -271,4 +271,14 @@ export const globalKeyFrames = {
       transform: [{ translateY: 50 }],
     },
   }).duration(380),
+  ENTER_BOTTOM_SLOW: new Keyframe({
+    from: {
+      // opacity: 0,
+      transform: [{ translateY: -100 }],
+    },
+    to: {
+      // opacity: 1,
+      transform: [{ translateY: 0 }],
+    },
+  }).duration(380),
 };

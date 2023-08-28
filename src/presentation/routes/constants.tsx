@@ -1,6 +1,6 @@
 import { routesNames } from '~constants/RoutesNames';
-import { EnumRoleUser } from '~contexts/types';
 import { Dashboard, Login, Products } from '~screens/index';
+import { EnumRoleUser } from '~types/index';
 
 import { IDrawerRoutes, IStackRoutes } from './types';
 

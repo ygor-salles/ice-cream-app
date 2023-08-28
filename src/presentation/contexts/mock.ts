@@ -1,4 +1,6 @@
-import { EnumRoleUser, IDescribedUser } from './types';
+import { EnumRoleUser } from '~types/index';
+
+import { IDescribedUser } from './types';
 
 const mockAuthUser: IDescribedUser = {
   email: 'ygor@gmail.com',
