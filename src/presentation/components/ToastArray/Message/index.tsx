@@ -21,13 +21,13 @@ export function Message({ onHide, message, typeToast }: MessageProps) {
     Animated.sequence([
       Animated.timing(opacity, {
         toValue: 1,
-        duration: 500,
+        duration: 350,
         useNativeDriver: true,
       }),
-      Animated.delay(2000),
+      Animated.delay(3000),
       Animated.timing(opacity, {
         toValue: 0,
-        duration: 500,
+        duration: 350,
         useNativeDriver: true,
       }),
     ]).start(() => {

@@ -25,7 +25,7 @@ export function ToastProvider({ children }: AppProviderProps) {
   }, []);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setToastState(defaultValueToast), 4000);
+    const timeout = setTimeout(() => setToastState(defaultValueToast), 3000);
 
     return () => clearTimeout(timeout);
   }, [toastState.open]);
