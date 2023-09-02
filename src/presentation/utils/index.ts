@@ -1,11 +1,14 @@
 import { colors } from '~styles/constants';
 
 export function getTitleCardInfoDash(title: 'input' | 'output' | 'profit' | 'debit') {
-  if (title === 'input') return { text: 'Entradas', color: colors.GREEN };
-  if (title === 'output') return { text: 'Saídas', color: colors.RED };
-  if (title === 'profit') return { text: 'Lucro', color: colors.WHITE };
-  if (title === 'debit') return { text: 'Dívida dos clientes', color: colors.TEXT };
-  return { text: '', color: colors.TEXT };
+  const titleOpt = {
+    input: { text: 'Entradas', color: colors.GREEN },
+    output: { text: 'Saídas', color: colors.RED },
+    profit: { text: 'Lucro', color: colors.WHITE },
+    debit: { text: 'Dívida dos clientes', color: colors.TEXT },
+  };
+
+  return titleOpt[title] || titleOpt.input;
 }
 
 export const { format: formatCurrency } = Intl.NumberFormat('pt-BR', {
