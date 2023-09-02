@@ -1,12 +1,9 @@
 import { useState } from 'react';
 // import { Button } from 'react-native'
 
-import { Dialog } from '~components/Dialog';
-import { Button, ItemFooter, Layout, TextApp } from '~components/index';
+import { Button, ItemFooter, Layout, TextApp, Dialog, Pagination } from '~components/index';
 import { buttonThemes } from '~constants/ButtonThemes';
-import { useLoadingContext } from '~hooks/useLoadingContext';
-import { useToastArrayContext } from '~hooks/useToastArrayContext';
-import { useToastContext } from '~hooks/useToastContext';
+import { useLoadingContext, useToastContext, useToastArrayContext } from '~hooks/index';
 import { BaseDrawerProps } from '~routes/types';
 import { ToastEnum } from '~types/index';
 
@@ -50,6 +47,13 @@ export function Dashboard({ onToggleDrawer }: BaseDrawerProps) {
         >
           Abrir mensagem
         </Button>
+        <Pagination
+          itemsCount={200}
+          currentPage={1}
+          itemsPerPage={10}
+          onPageChange={page => console.log(page)}
+          siblingCount={1}
+        />
         <FilterDash />
 
         <Button onPress={() => addLoading()} themeButton={buttonThemes.OUTLINED}>
