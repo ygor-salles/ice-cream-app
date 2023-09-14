@@ -45,7 +45,7 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.textWhite};
 `;
 
-export const Row = styled.View`
+export const Row = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

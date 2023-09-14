@@ -23,8 +23,8 @@ export function Layout({
   return (
     <Container>
       <Header>
-        <Row>
-          <Icon name="menu" onPress={onToggleDrawer} />
+        <Row activeOpacity={0.6} onPress={onToggleDrawer}>
+          <Icon name="menu" />
           <Title>{title}</Title>
         </Row>
         {renderRightHeader && renderRightHeader}

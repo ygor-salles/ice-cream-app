@@ -1,5 +1,6 @@
 export * from './Button';
 export * from './Card';
+export * from './Carousel';
 export * from './Column';
 export * from './CustomDrawer';
 export * from './DatePicker';
@@ -20,6 +21,7 @@ export * from './Layout';
 export * from './Loading';
 export * from './Pagination';
 export * from './Row';
+export * from './SplashScreen';
 export * from './TextApp';
 export * from './Toast';
 export * from './ToastArray';
