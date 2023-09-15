@@ -49,7 +49,7 @@ export const Presentation = styled.Text<IsHorizontalProps>`
     isHorizontal
       ? css`
           padding-horizontal: 16px;
-          padding-vertical: 16px;
+          padding-bottom: 16px;
         `
       : css`
           padding-vertical: 16px;

@@ -21,7 +21,7 @@ export const WrapperChild = styled.View<WrapperChildProps>`
   ${({ numPadding }) =>
     numPadding &&
     css`
-      padding: ${numPadding}px;
+      padding-horizontal: ${numPadding}px;
     `};
 `;
 
