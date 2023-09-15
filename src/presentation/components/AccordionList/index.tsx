@@ -1,6 +1,6 @@
 import { PropsWithChildren, useState } from 'react';
 
-import { Accordion } from '../Accordion';
+import { CustomAccordion } from './styles';
 
 type AccordionProps = PropsWithChildren<{
   data: Array<{
@@ -9,9 +9,10 @@ type AccordionProps = PropsWithChildren<{
     expanded?: boolean;
     onHeaderPress?: (index: number) => void;
   }>;
+  gap?: number;
 }>;
 
-export function AccordionList({ data }: AccordionProps): JSX.Element {
+export function AccordionList({ data, gap = 0 }: AccordionProps): JSX.Element {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleHeaderPress = index => {
@@ -21,14 +22,17 @@ export function AccordionList({ data }: AccordionProps): JSX.Element {
   return (
     <>
       {data.map((item, index) => (
-        <Accordion
+        <CustomAccordion
           key={item.title}
           title={item.title}
           expanded={expandedIndex === index}
           onHeaderPress={() => handleHeaderPress(index)}
+          mgBottom={index !== data.length - 1 ? gap : 0}
+          firstItem={index === 0}
+          lastItem={index === data.length - 1}
         >
           {item.content}
-        </Accordion>
+        </CustomAccordion>
       ))}
     </>
   );

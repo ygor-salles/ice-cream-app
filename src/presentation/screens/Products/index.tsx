@@ -1,15 +1,11 @@
-import { useState } from 'react';
-import { Button, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Text, View } from 'react-native';
 
-import { Layout, SplashScreen, AccordionList, Accordion } from '~components/index';
-import { images } from '~images/index';
+import { AccordionList, Layout } from '~components/index';
 import { BaseDrawerProps } from '~routes/types';
 
-import { Container } from './styles';
+import { Container, CustomAccordion, headerStyles } from './styles';
 
 export function Products({ onToggleDrawer }: BaseDrawerProps) {
-  const [show, setShow] = useState(false);
-
   return (
     <Layout title="Produtos" noScrollView noFooter onToggleDrawer={onToggleDrawer}>
       <Container>
@@ -48,46 +44,18 @@ export function Products({ onToggleDrawer }: BaseDrawerProps) {
               ),
             },
           ]}
+          gap={16}
         />
-      </Container>
-      {/* <SplashScreen
-        variant="carousel"
-        cardsList={[
-          {
-            srcImage: images.provider,
-            title: 'Titulo 1',
-            description: 'Cadastre novos clientes para ter controle sobre vendas a prazo',
-            onNavigate: () => {},
-          },
-          {
-            srcImage: images.iceCreamLogo,
-            title: 'Titulo 2',
-            description: 'Cadastre novos clientes para ter controle sobre vendas a prazo',
-            onNavigate: () => {},
-          },
-          {
-            srcImage: images.sales,
-            title: 'Titulo 3',
-            description: 'Cadastre novos clientes para ter controle sobre vendas a prazo',
-            onNavigate: () => {},
-          },
-        ]}
-        description="Gerencie informações do estoque de produtos e as respectivas combinações dos produtos. Como por exemplo, combinações de açaís"
-      /> */}
-      <Container>
-        <Accordion
-          title="Titulo"
-          // expanded={show}
-          // onHeaderPress={() => setShow(prev => !prev)}
-          // renderHeader={
-          //   <TouchableOpacity
-          //     style={{ backgroundColor: 'red', height: 20 }}
-          //     onPress={() => setShow(prev => !prev)}
-          //   />
-          // }
+        <CustomAccordion
+          renderHeader={
+            <View>
+              <Text>Title de fora</Text>
+            </View>
+          }
+          headerContainerStyles={headerStyles}
         >
           <Text>as</Text>
-        </Accordion>
+        </CustomAccordion>
       </Container>
     </Layout>
   );

@@ -1,11 +1,11 @@
 import { GestureResponderEvent } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
+import { IconName } from '~types/index';
 
 import { SFeather } from './styles';
 
 interface IconProps {
-  name: keyof typeof Feather.glyphMap;
+  name: IconName;
   size?: number;
   color?: string;
   onPress?: (event: GestureResponderEvent) => void;

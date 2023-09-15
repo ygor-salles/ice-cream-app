@@ -4,4 +4,5 @@ export enum routesNames {
   DRAWER = 'drawer',
   DASHBOARD = 'dashboard',
   PRODUCTS = 'products',
+  TESTE = 'teste',
 }
