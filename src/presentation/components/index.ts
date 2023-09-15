@@ -1,3 +1,4 @@
+export * from './AccordionList';
 export * from './Button';
 export * from './Card';
 export * from './Carousel';
@@ -17,6 +18,7 @@ export * from './Form/TextField';
 export * from './Form/TextFieldCount';
 
 export * from './ItemFooter';
+export * from './Icon';
 export * from './Layout';
 export * from './Loading';
 export * from './Pagination';
