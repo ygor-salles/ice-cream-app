@@ -1,7 +1,6 @@
 import { PropsWithChildren, useState } from 'react';
-import { LayoutAnimation } from 'react-native';
 
-import { AccordionItem } from './AccordionItem';
+import { Accordion } from '../Accordion';
 
 type AccordionProps = PropsWithChildren<{
   data: Array<{
@@ -16,21 +15,20 @@ export function AccordionList({ data }: AccordionProps): JSX.Element {
   const [expandedIndex, setExpandedIndex] = useState(null);
 
   const handleHeaderPress = index => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
   return (
     <>
       {data.map((item, index) => (
-        <AccordionItem
+        <Accordion
           key={item.title}
           title={item.title}
           expanded={expandedIndex === index}
           onHeaderPress={() => handleHeaderPress(index)}
         >
           {item.content}
-        </AccordionItem>
+        </Accordion>
       ))}
     </>
   );

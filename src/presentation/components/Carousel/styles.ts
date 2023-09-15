@@ -13,10 +13,6 @@ interface IndicatorProps {
   isActive: boolean;
 }
 
-export const Container = styled.View`
-  flex: 1;
-`;
-
 export const WrapperChild = styled.View<WrapperChildProps>`
   width: ${width * 1}px;
   background-color: transparent;
