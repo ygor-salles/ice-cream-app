@@ -19,7 +19,12 @@ export function Button({ children, themeButton, styleText, onPress, ...rest }: B
 
   return (
     <Touchable onPress={onPress} themeName={themeName} themeButton={themeButton} {...rest}>
-      <Text themeName={themeName} themeButton={themeButton} style={styleText}>
+      <Text
+        themeName={themeName}
+        themeButton={themeButton}
+        disabled={rest.disabled}
+        style={styleText}
+      >
         {children}
       </Text>
     </Touchable>

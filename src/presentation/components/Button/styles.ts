@@ -25,13 +25,17 @@ export const Touchable = styled.TouchableOpacity<ThemeButtonProps>`
   border-radius: 2px;
   border-width: ${props => (props.themeButton === buttonThemes.OUTLINED ? '1px' : 0)};
 
-  ${({ themeName, themeButton }) =>
-    themeName &&
-    themeButton &&
-    css`
-      background-color: ${getBackgroundButton(themeName, themeButton)};
-      border-color: ${getBorderButton(themeName, themeButton)};
-    `}
+  ${({ theme, themeName, themeButton, disabled }) =>
+    disabled
+      ? css`
+          background-color: ${theme.disabled};
+        `
+      : themeName &&
+        themeButton &&
+        css`
+          background-color: ${getBackgroundButton(themeName, themeButton)};
+          border-color: ${getBorderButton(themeName, themeButton)};
+        `}
 
   ${({ themeButton }) => themeButton !== buttonThemes.OUTLINED && globalStyles.SHADOW}
 `;
@@ -40,8 +44,12 @@ export const Text = styled(TextNative)<ThemeButtonProps>`
   font-weight: 400;
   font-size: 16px;
 
-  ${({ themeButton, themeName }) =>
-    themeButton && themeName
+  ${({ theme, disabled, themeButton, themeName }) =>
+    disabled
+      ? css`
+          color: ${theme.textWhite};
+        `
+      : themeButton && themeName
       ? css`
           color: ${getTextButton(themeName, themeButton)};
         `

@@ -12,6 +12,7 @@ import {
   TextApp,
   DateRangePickerField,
   TextField,
+  SwitchToggleField,
 } from '~components/index';
 import { buttonThemes } from '~constants/ButtonThemes';
 import { currencyStringToNumber } from '~utils/index';
@@ -32,25 +33,25 @@ export function FilterDash() {
     defaultValues,
   });
 
-  const { date_init, date_final, date } = watch();
+  const { date_init, date_final } = watch();
 
   const onSubmit = (values: IFormFilterDash) => {
     console.log(values);
-    console.log(currencyStringToNumber(values.money));
+    // console.log(currencyStringToNumber(values.money));
   };
 
   return (
     <Container>
       <TextApp>Filtro de entradas</TextApp>
       <Form>
-        <DatePickerField
+        {/* <DatePickerField
           control={control}
           minDate={new Date()}
           name={fieldsDash.DATE}
           label="Data teste"
           value={date}
           required
-        />
+        /> */}
         <DateRangePickerField
           control={control}
           minDate={new Date()}
@@ -63,35 +64,36 @@ export function FilterDash() {
           requiredInit
           requiredFinal
         />
-        <SelectField
+        {/* <SelectField
           control={control}
           name={fieldsDash.PRODUCT}
           options={mockProducts.map(item => item.name)}
           label="Produto"
           required
-        />
-        <SelectMultipleField
+        /> */}
+        {/* <SelectMultipleField
           control={control}
           name={fieldsDash.COMBINATIONS}
           options={mockCombinations.map(item => item.name)}
           label="Combinações"
-        />
-        {/* <TextField
+        /> */}
+        <TextField
           control={control}
           name={fieldsDash.DESCRIPTION}
           label="Descrição"
           placeholder="Digite"
           required
-        /> */}
-        <CheckField control={control} name={fieldsDash.CHECK} label="Teste de check" />
+        />
+        {/* <CheckField control={control} name={fieldsDash.CHECK} label="Teste de check" />
+        <SwitchToggleField control={control} name={fieldsDash.SWITCH} />
         <TextFieldCount control={control} name={fieldsDash.COUNT} label="Quantidade" required />
         <InputFileField
           control={control}
           name={fieldsDash.FILE}
           label="Anexe a nota fiscal"
           required
-        />
-        <TextField
+        /> */}
+        {/* <TextField
           control={control}
           name={fieldsDash.MONEY}
           label="Valor"
@@ -99,8 +101,12 @@ export function FilterDash() {
           required
           currency
           keyboardType="numeric"
-        />
-        <SButton themeButton={buttonThemes.PRIMARY} onPress={handleSubmit(onSubmit)}>
+        /> */}
+        <SButton
+          themeButton={buttonThemes.PRIMARY}
+          disabled={!isValid}
+          onPress={handleSubmit(onSubmit)}
+        >
           Buscar
         </SButton>
       </Form>

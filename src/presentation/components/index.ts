@@ -15,6 +15,7 @@ export * from './Form/DateRangePickerField';
 export * from './Form/InputFileField';
 export * from './Form/SelectField';
 export * from './Form/SelectMultipleField';
+export * from './Form/SwitchToggleField';
 export * from './Form/TextField';
 export * from './Form/TextFieldCount';
 

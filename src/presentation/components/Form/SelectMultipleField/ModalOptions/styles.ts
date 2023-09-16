@@ -1,3 +1,5 @@
+import { TextInput } from 'react-native';
+
 import styled, { css } from 'styled-components/native';
 
 import { Icon as IconComp } from '~components/Icon';
@@ -45,7 +47,7 @@ export const InputWrapper = styled.View`
   border-color: ${props => props.theme.borderGray};
 `;
 
-export const Input = styled.TextInput`
+export const Input = styled(TextInput)`
   flex: 1;
   font-size: 16px;
   color: ${props => props.theme.text};

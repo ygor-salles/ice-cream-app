@@ -1,3 +1,5 @@
+import { TextInput } from 'react-native';
+
 import styled, { css } from 'styled-components/native';
 
 import { Icon as IconComp } from '~components/Icon';
@@ -71,7 +73,7 @@ export const Icon = styled(IconComp)`
   color: ${props => props.theme.textWhite};
 `;
 
-export const InputField = styled.TextInput`
+export const InputField = styled(TextInput)`
   flex: 1;
   font-size: 18px;
   font-weight: 400;
