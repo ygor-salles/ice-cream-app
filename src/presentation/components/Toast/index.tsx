@@ -1,11 +1,10 @@
 import { TouchableOpacity } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
-import { Feather } from '@expo/vector-icons';
-
 import { colors } from '~styles/constants';
 import { ToastEnum } from '~types/index';
 
+import { Icon } from '../Icon';
 import { Description, styles } from './styles';
 
 export enum ToastPositionEnum {
@@ -62,7 +61,7 @@ export function Toast({
     >
       <Description>{message}</Description>
       <TouchableOpacity onPress={removeToast}>
-        <Feather name="x" size={22} color={colors.WHITE} />
+        <Icon name="x" size={22} color={colors.WHITE} />
       </TouchableOpacity>
     </Animated.View>
   );

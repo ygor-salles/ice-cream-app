@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Feather } from '@expo/vector-icons';
-
-import { EnumRoleUser } from '~types/index';
-
-type MaterialIconName = React.ComponentProps<typeof Feather>['name'];
+import { EnumRoleUser, IconName } from '~types/index';
 
 export interface IDrawerRoutes {
   name: string;
   label: string;
-  icon: MaterialIconName;
+  icon: IconName;
   component: (navigation: any) => JSX.Element;
   access: EnumRoleUser[];
 }

@@ -1,12 +1,11 @@
 import { ReactElement, ReactNode } from 'react';
 import { Modal } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
-
 import { buttonThemes } from '~constants/ButtonThemes';
 import { colors, globalKeyFrames } from '~styles/constants';
 
 import { Button } from '../Button';
+import { Icon } from '../Icon';
 import { Container, Dialog, Header, Overlay, Scroll, Title, Footer } from './styles';
 
 interface DialogScrollProps {
@@ -40,7 +39,7 @@ export function DialogScroll({
           ) : (
             <Header>
               <Title>{title}</Title>
-              <Feather name="x" size={22} color={colors.WHITE} onPress={onClose} />
+              <Icon name="x" size={22} color={colors.WHITE} onPress={onClose} />
             </Header>
           )}
           <Scroll>{children}</Scroll>

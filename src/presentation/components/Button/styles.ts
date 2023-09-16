@@ -1,3 +1,5 @@
+import { Text as TextNative } from 'react-native';
+
 import styled, { css } from 'styled-components/native';
 
 import {
@@ -34,7 +36,7 @@ export const Touchable = styled.TouchableOpacity<ThemeButtonProps>`
   ${({ themeButton }) => themeButton !== buttonThemes.OUTLINED && globalStyles.SHADOW}
 `;
 
-export const Text = styled.Text<ThemeButtonProps>`
+export const Text = styled(TextNative)<ThemeButtonProps>`
   font-weight: 400;
   font-size: 16px;
 

@@ -1,5 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
+
+import { Icon as IconComp } from '~components/Icon';
 
 export const Container = styled.View`
   padding: 8px;
@@ -16,7 +17,7 @@ export const Label = styled.Text`
   color: ${({ theme }) => theme.text};
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(IconComp)`
   font-size: 20px;
   color: ${({ theme }) => theme.text};
 `;

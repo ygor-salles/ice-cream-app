@@ -1,9 +1,9 @@
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
+import { Icon as IconComp } from '~components/Icon';
 import { Row } from '~components/Row';
 
-export const Icon = styled(Feather)`
+export const Icon = styled(IconComp)`
   font-size: 20px;
   color: ${props => props.theme.iconGray};
 `;

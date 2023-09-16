@@ -75,7 +75,6 @@ export function FilterDash() {
           name={fieldsDash.COMBINATIONS}
           options={mockCombinations.map(item => item.name)}
           label="Combinações"
-          required
         />
         {/* <TextField
           control={control}

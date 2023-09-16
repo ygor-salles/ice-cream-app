@@ -1,6 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
+import { Icon as IconComp } from '~components/Icon';
 import { globalStyles } from '~styles/constants';
 
 interface LabelProps {
@@ -23,7 +23,7 @@ export const Label = styled.Text<LabelProps>`
   ${({ error }) => error && globalStyles.LABEL_ERROR}
 `;
 
-export const Icon = styled(Feather)<IconProps>`
+export const Icon = styled(IconComp)<IconProps>`
   font-size: 16px;
   color: ${props => props.theme.iconPrimary};
 
@@ -38,7 +38,7 @@ export const Img = styled.Image`
   position: relative;
 `;
 
-export const Close = styled(Feather)`
+export const Close = styled(IconComp)`
   color: ${props => props.theme.iconPrimary};
   font-size: 26px;
 

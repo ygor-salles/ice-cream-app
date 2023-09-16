@@ -1,7 +1,7 @@
-import { Feather } from '@expo/vector-icons';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { CustomDrawer } from '~components/CustomDrawer';
+import { Icon } from '~components/Icon';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 
@@ -26,7 +26,7 @@ export function DrawerRoutes() {
         <Drawer.Screen
           name={item.name}
           options={{
-            drawerIcon: ({ size, color }) => <Feather name={item.icon} color={color} size={size} />,
+            drawerIcon: ({ size, color }) => <Icon name={item.icon} color={color} size={size} />,
             drawerLabel: item.label,
           }}
           key={item.name}

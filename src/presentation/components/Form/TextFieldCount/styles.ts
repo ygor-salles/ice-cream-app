@@ -1,6 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
 
+import { Icon as IconComp } from '~components/Icon';
 import { globalStyles } from '~styles/constants';
 
 interface ButtonProps {
@@ -65,7 +65,7 @@ export const Button = styled.TouchableOpacity<ButtonProps>`
         `}
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(IconComp)`
   font-weight: 400;
   font-size: 14px;
   color: ${props => props.theme.textWhite};

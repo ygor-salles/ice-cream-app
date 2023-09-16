@@ -1,5 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
+
+import { Icon } from '~components/Icon';
 
 interface WrapperProps {
   isFocus: boolean;
@@ -37,12 +38,12 @@ export const SelectedDateText = styled.Text<SelectedDateTextProps>`
   color: ${({ theme, isValue }) => (isValue ? theme.text : theme.textPlaceholder)};
 `;
 
-export const IconClose = styled(Feather)`
+export const IconClose = styled(Icon)`
   font-size: 24px;
   color: ${props => props.theme.iconGray};
 `;
 
-export const IconCalendar = styled(Feather)`
+export const IconCalendar = styled(Icon)`
   font-size: 16px;
   color: ${props => props.theme.iconGray};
 `;

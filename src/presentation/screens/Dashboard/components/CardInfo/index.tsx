@@ -1,8 +1,6 @@
 import { View } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
-
-import { Card, Row } from '~components/index';
+import { Card, Row, Icon } from '~components/index';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 import { IconName } from '~types/index';
@@ -35,7 +33,7 @@ export function CardInfo({ typeTitle, subTitle, iconName, value }: CardInfoProps
           <Title color={color}>{text}</Title>
           <SubTitle themeName={themeTextCard}>{subTitle}</SubTitle>
         </View>
-        <Feather name={iconName} size={24} color={color} />
+        <Icon name={iconName} size={24} color={color} />
       </Row>
       <Value themeName={themeTextCard}>{formatNumberToCurrency(value)}</Value>
     </Card>

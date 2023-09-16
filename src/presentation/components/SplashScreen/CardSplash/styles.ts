@@ -1,7 +1,12 @@
-import { Feather } from '@expo/vector-icons';
+import { Dimensions } from 'react-native';
+
 import styled from 'styled-components/native';
 
+import { Icon as IconComp } from '~components/Icon';
+
 import { Card } from '../../Card';
+
+const { height } = Dimensions.get('window');
 
 export const SCard = styled(Card)`
   justify-content: center;
@@ -10,7 +15,7 @@ export const SCard = styled(Card)`
 `;
 
 export const Img = styled.Image`
-  height: 250px;
+  height: ${height * 0.3}px;
   width: 100%;
 `;
 
@@ -36,6 +41,6 @@ export const Description = styled.Text`
   flex-wrap: wrap;
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(IconComp)`
   color: ${({ theme }) => theme.iconPrimary};
 `;

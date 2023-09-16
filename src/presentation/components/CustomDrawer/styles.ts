@@ -1,5 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
+
+import { Icon as IconComp } from '../Icon';
 
 export const Container = styled.View`
   flex: 1;
@@ -54,7 +55,7 @@ export const Row = styled.TouchableOpacity`
   padding: 8px;
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(IconComp)`
   font-size: 24px;
   color: ${({ theme }) => theme.iconText};
 `;

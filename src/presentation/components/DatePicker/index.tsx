@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { globalKeyFrames } from '~styles/constants';
 
+import { Icon } from '../Icon';
 import { ArrowsCalendar } from './components/ArrowsCalendar';
 import { HeaderCalendar } from './components/HeaderCalendar';
 import { SelectedDateField } from './components/SelectedDateField';
@@ -28,7 +29,6 @@ import {
   Header,
   Title,
   HiddenIcon,
-  Icon,
   styles,
   TextButton,
 } from './styles';

@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Animated, TouchableOpacity } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
-
+import { Icon } from '~components/Icon';
 import { colors } from '~styles/constants';
 import { ToastEnum } from '~types/index';
 
@@ -54,7 +53,7 @@ export function Message({ onHide, message, typeToast }: MessageProps) {
     >
       <Description>{message}</Description>
       <TouchableOpacity onPress={onHide}>
-        <Feather name="x" size={22} color={colors.WHITE} />
+        <Icon name="x" size={22} color={colors.WHITE} />
       </TouchableOpacity>
     </Animated.View>
   );

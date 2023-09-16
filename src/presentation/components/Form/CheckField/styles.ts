@@ -1,5 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
+
+import { Icon as IconComp } from '~components/Icon';
 
 interface CheckboxProps {
   isCheck: boolean;
@@ -37,7 +38,7 @@ export const Label = styled.Text<LabelProps>`
   color: ${({ theme, disabled }) => (disabled ? theme.textDisabled : theme.textPrimary)};
 `;
 
-export const Icon = styled(Feather)`
-  font-weight: 36px;
+export const Icon = styled(IconComp)`
+  font-weight: 12px;
   color: ${props => props.theme.iconWhite};
 `;

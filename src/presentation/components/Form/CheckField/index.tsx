@@ -20,7 +20,7 @@ export function CheckField({ name, control, label, disabled }: CheckFieldProps) 
   if (disabled) {
     return (
       <Row gap={8}>
-        <CheckboxInactive>{value && <Icon name="check" />}</CheckboxInactive>
+        <CheckboxInactive>{value && <Icon name="check" size={20} />}</CheckboxInactive>
         <Label disabled>{label}</Label>
       </Row>
     );
@@ -31,7 +31,7 @@ export function CheckField({ name, control, label, disabled }: CheckFieldProps) 
   return (
     <Row gap={8} isButton onPress={onPress}>
       <Checkbox isCheck={value} onPress={onPress}>
-        {value && <Icon name="check" />}
+        {value && <Icon name="check" size={20} />}
       </Checkbox>
       <Label>{label}</Label>
     </Row>

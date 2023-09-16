@@ -3,8 +3,7 @@ import { useCallback, useRef, useState } from 'react';
 import { useController } from 'react-hook-form';
 import { TouchableWithoutFeedback, TextInput, View } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
-
+import { Icon } from '~components/Icon';
 import { useThemeContext } from '~hooks/useThemeContext';
 import { colors } from '~styles/constants';
 import { formatCurrency } from '~utils/index';
@@ -96,7 +95,7 @@ export function TextField({
             />
             {renderRight || null}
             {typePassword && (
-              <Feather
+              <Icon
                 name={inputTypePassword ? 'eye-off' : 'eye'}
                 size={24}
                 color={themeName === 'dark' || lightEyeIcon ? colors.WHITE : colors.TEXT}

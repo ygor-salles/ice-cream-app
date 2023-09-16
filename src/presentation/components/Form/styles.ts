@@ -1,3 +1,5 @@
+import { TextInput, Text } from 'react-native';
+
 import styled from 'styled-components/native';
 
 import { globalStyles } from '~styles/constants';
@@ -41,7 +43,7 @@ export const WrapperTouch = styled.TouchableOpacity<WrapperProps>`
   ${({ error }) => error && globalStyles.FIELD_ERROR}
 `;
 
-export const Label = styled.Text<LabelProps>`
+export const Label = styled(Text)<LabelProps>`
   font-weight: 400;
   font-size: 12px;
   color: ${({ theme }) => theme.textPrimary};
@@ -52,7 +54,7 @@ export const Label = styled.Text<LabelProps>`
   ${({ error }) => error && globalStyles.LABEL_ERROR}
 `;
 
-export const InputField = styled.TextInput`
+export const InputField = styled(TextInput)`
   flex: 1;
   font-size: 16px;
   font-weight: 400;

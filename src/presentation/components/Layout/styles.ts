@@ -1,5 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
+
+import { Icon as IconComp } from '../Icon';
 
 interface MainProps {
   alignCenter: boolean;
@@ -52,7 +53,7 @@ export const Row = styled.TouchableOpacity`
   gap: 10px;
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(IconComp)`
   font-size: 24px;
   color: ${props => props.theme.iconWhite};
 `;

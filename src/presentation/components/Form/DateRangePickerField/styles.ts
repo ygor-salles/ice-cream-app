@@ -1,6 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
 
+import { Icon as IconComp } from '~components/Icon';
 import { globalStyles } from '~styles/constants';
 
 interface WrapperProps {
@@ -43,7 +43,7 @@ export const WrapperField = styled.View<WrapperFieldProps>`
         `}
 `;
 
-export const Icon = styled(Feather)`
+export const Icon = styled(IconComp)`
   font-size: 16px;
   color: ${props => props.theme.iconGray};
 `;

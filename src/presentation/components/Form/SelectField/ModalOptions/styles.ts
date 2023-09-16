@@ -1,5 +1,6 @@
-import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
+
+import { Icon as IconComp } from '~components/Icon';
 
 interface IconProps {
   isPosition: 'left' | 'right';
@@ -50,7 +51,7 @@ export const Input = styled.TextInput`
   color: ${props => props.theme.text};
 `;
 
-export const Icon = styled(Feather)<IconProps>`
+export const Icon = styled(IconComp)<IconProps>`
   font-size: 26px;
   ${({ isPosition, theme }) =>
     isPosition === 'left'

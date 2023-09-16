@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Animated from 'react-native-reanimated';
 
-import { Feather } from '@expo/vector-icons';
 import styled from 'styled-components/native';
 
 import { TextApp } from '~components/TextApp';
@@ -71,11 +70,6 @@ export const TextButton = styled.Text`
   font-size: 16px;
   text-align: center;
   color: ${props => props.theme.textPrimary};
-`;
-
-export const Icon = styled(Feather)`
-  font-size: 24px;
-  color: ${({ theme }) => theme.iconGray};
 `;
 
 export const styles = StyleSheet.create({

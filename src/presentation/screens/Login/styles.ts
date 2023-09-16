@@ -1,10 +1,9 @@
 import { StyleSheet } from 'react-native';
 
-import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import styled from 'styled-components/native';
 
-import { Button, TextField } from '~components/index';
+import { Button, Icon, TextField } from '~components/index';
 import { colors, globalStyles } from '~styles/constants';
 
 export const Container = styled.View`
@@ -33,7 +32,7 @@ export const WrapperForm = styled.View`
   gap: 24px;
 `;
 
-export const SFeather = styled(Feather)`
+export const SFeather = styled(Icon)`
   background-color: ${colors.WHITE};
   padding: 10px;
   border-radius: 40px;
