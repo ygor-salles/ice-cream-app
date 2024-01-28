@@ -11,7 +11,7 @@ interface ActiveProps {
 }
 
 interface IconProps {
-  isDisabled: boolean;
+  isDisabled?: boolean;
 }
 
 export const Container = styled.View`

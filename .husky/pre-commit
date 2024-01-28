@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "\033[1;33m  --> Validando lint... \033[0m" &&
+
+yarn lint:fix
+
+npx --no-install &&
+
+echo "\033[1;33m  --> Iniciando checagem de tipos... \033[0m" &&
+
+npx tsc --noEmit --skipLibCheck &&
+
+echo "\033[1;33m  --> checagem de tipos finalizada!\033[0m"
